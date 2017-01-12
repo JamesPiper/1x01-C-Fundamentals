@@ -120,9 +120,9 @@ void _3x06_DataTypes() {
 
 static void A() {
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("short data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("16 bit integer [-32768 to 32767] (2 ^ 16 = 65536)\n");
 	printf("\n");
@@ -142,13 +142,13 @@ static void A() {
 	printf("Format Specifier: %%hi or %%hu\n");
 	printf("MyShort: %hi\n", MyShort);
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	system("pause");
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("int data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("32 bit integer [-2,147,483,648, 2,147,483,647] (2 ^ 32 = 4,294,967,296)\n");
 	printf("\n");
@@ -167,13 +167,13 @@ static void A() {
 	printf("Format Specifier: %%i or %%d, %%u\n");
 	printf("MyInt: %i\n", MyInt);
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	system("pause");
 	
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("long data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("32 bit integer [-2,147,483,648, 2,147,483,647] (2 ^ 32 = 4,294,967,296)\n");
 	printf("\n");
@@ -193,13 +193,13 @@ static void A() {
 	printf("Format Specifier: %%li, %%lu\n");
 	printf("MyLong2: %li\n", MyLong2);
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	system("pause");
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("long long data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("64 bit integer [-9,223,372,036,854,775,808, 9,223,372,036,854,775,807]\n");
 	printf("(2 ^ 64 = 18,446,744,073,709,551,616)\n");
@@ -221,16 +221,16 @@ static void A() {
 	printf("Format Specifier: %%lli, %%llu\n");
 	printf("MyLongLong2: %lli\n", MyLongLong2);
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 
 }
 
 static void B() {
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("float data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("4 byte (32 bit) single precision floating point\n");
 	printf("\n");
@@ -240,14 +240,14 @@ static void B() {
 	printf("\n");
 	printf("Format Specifier: %%f (case sensitive)\n");
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 
 	system("pause");
 	
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("double data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("8 byte (64 bit) double precision floating point\n");
 	printf("\n");
@@ -266,16 +266,16 @@ static void B() {
 	printf("With %%E %E\n", MyDouble);
 	printf("With %%e %e\n", MyDouble);
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 
 }
 
 static void C() {
 	
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("char data type\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("min 8 bit, normally 16 bit\n");
 	printf("\n");
@@ -288,7 +288,7 @@ static void C() {
 	printf("\n");
 	printf("Format Specifier: %%c\n");
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 
 }
@@ -305,37 +305,46 @@ static void D() {
 	int MyMultiRowArray1[10][10];
 	int MultiRow[10][10] = {{0,1,2,3,4,5,6,7,8,9}, {10,11,12,13,14,15,16,17,18,19}};
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("Arrays\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
+	printf("Single Dimensional Arrays\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("These don't work.\n");
-	printf("int MyArray[];\n");
-	printf("int MyArray[] = (9, 2, 8);\n");
-	printf("char MyString[] = \"This is a test\";\n");
+	printf("  int MyArray[];\n");
+	printf("  int MyArray[] = (9, 2, 8);\n");
+	printf("  char MyString[] = \"This is a test\";\n");
 	printf("\n");
 	printf("These work.\n");
-	printf("int MyArray[10];\n");
-	printf("int MyArray[] = {1, 2, 3};\n");
-	printf("int MyArray[10] = {1, 2, 3};\n");
+	printf("  int MyArray[10];\n");
+	printf("  int MyArray[] = {1, 2, 3};\n");
+	printf("  int MyArray[10] = {1, 2, 3};\n");
 	printf("\n");
 	printf("Assign or access: MyArray[0]...MyArray[9]\n");
 	printf("0 to 9 is 10 elements\n");
 	printf("\n");
 	printf("Multidimensional Arrays\n");
-	printf("int MyMultiRowArray1[10][10];\n");
-	printf("Assign or access: MyArray[0][0]...MyArray[9][9]\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Create one\n");
+	printf("  int MyMultiRowArray1[10][10];\n");
+	printf("\n");
+	printf("Assign or access: MyMultiRowArray1[0][0]...MyMultiRowArray1[9][9]\n");
 	printf("Syntax: var[row][col]\n");
 	printf("\n");
-	printf("MultiRow[10][10] = {{0,1,2,3,4,5,6,7,8,9}, {10,11,12,13,14,15,16,17,18,19}};\n");
-	printf("{0..9} is row [0], {10..19} is row [1]\n");
-	printf("MultiRow[1][5] = %d - that's row 1, column 5\n", MultiRow[1][5]);
+	printf("Create one\n");
+	printf("  MultiRow[10][10] = {{0,1,2,3,4,5,6,7,8,9}, {10,11,12,13,14,15,16,17,18,19}};\n");
+	printf("  {0..9} is row [0] of cols[0..9]\n");
+	printf("  {10..19} is row [1] of cols[0..9]\n");
+	printf("\n");
+	printf("   MultiRow[1][5] = %d - that's row 1, column 5\n", MultiRow[1][5]);
 	printf("\n");
 	printf("Array of Structs\n");
-	printf("struct fraction numbers[1000];\n");
-	printf("numbers[0].numerator = 22;\n");
-	printf("\n");	
 	printf("------------------------------------------------------------------------------\n");
+	printf("  struct fraction numbers[1000];\n");
+	printf("  numbers[0].numerator = 22;\n");
+	printf("\n");	
+	printf("==============================================================================\n");
 
 }
 
@@ -607,10 +616,12 @@ static void F6() {
 
 static void G() {
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("Enumeration\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
+	printf("Basics\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("An enumeration is a user-defined data type that consists of integral constants. \n");
 	printf("\n");
 	printf("  enum flag { const1, const2, ..., constN };\n");
@@ -622,14 +633,42 @@ static void G() {
 	printf("  enum flag { const1 = 10, const2 = 11, ..., constN };\n");
 	printf("\n");
 	printf("Creating an enumerated type declaration\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	enum boolean { False, True, Quantum };
+	printf("  enum boolean { False, True, Quantum };\n");
+	boolean IsRunning = Quantum;
+	printf("  Set a value to variable: boolean IsRunning = Quantum;\n");
+	printf("  Integer value is %d. Can't use %%s to get text version.\n", IsRunning);
+	printf("\n");
+	printf("Using As Flags\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	enum customer {
+		Savings = 1,  // 0000 0001
+		Chequing = 2, // 0000 0010
+		LineOfCr = 4, // 0000 0100
+		Mortage = 8   // 0000 1000
+	} ;
+	printf("  enum customer { \n");
+	printf("	Savings  = 1,  // 0000 0001\n");
+	printf("	Chequing = 2,  // 0000 0010\n");
+	printf("	LineOfCr = 4,  // 0000 0100\n");
+	printf("	Mortage  = 8   // 0000 1000\n");
+	printf("  }\n");
+	printf("\n");
+	int FirstCustomer = Savings | Chequing;
+	printf("  Declare and set value: int FirstCustomer = Savings | Chequing; = %d\n", FirstCustomer);
+	printf("\n");
+	printf("  Does the customer have a line of credit? %s\n", FirstCustomer & LineOfCr ? "Yes" : "No");
+	printf("  Got this with FirstCustomer & LineOfCr ? \"Yes\" : \"No\"\n");
+	printf("\n");
+	printf("  Savings? %s\n", FirstCustomer & Savings ? "Yes" : "No");
+	printf("  Chequing? %s\n", FirstCustomer & Chequing ? "Yes" : "No");
+	printf("  Mortage? %s\n", FirstCustomer & Mortage ? "Yes" : "No");
+	printf("\n");
+	printf("\n");
+	printf("==============================================================================\n");
 
 }
 
@@ -637,9 +676,9 @@ static void H() {
 
 	typedef enum Boolean { False, True} Boolean;
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("boolean\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 	printf("not part of C, but used in C++\n");
 	bool IsUsed = False;
@@ -656,7 +695,7 @@ static void H() {
 	Boolean IsWorking = True;
 	printf("boolean value %s\n", IsWorking ? "true": "false");
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("\n");
 
 }

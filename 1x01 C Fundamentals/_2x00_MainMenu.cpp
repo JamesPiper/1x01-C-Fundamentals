@@ -10,19 +10,19 @@
 #include "stdafx.h"
 #include <cstdio>
 #define _CRT_SECURE_NO_WARNINGS
-
+#define MAX_INPUT_CHARS 80
 #include "1x01 C Fundamentals.h"
 
 void _2x00_MainMenu() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
 	{
 		printf("******************************************************************************\n");
 		printf("*                                                                            *\n");
-		printf("*   Basic C/C++ Code                                                         *\n");
+		printf("*   Basic C Code                                                             *\n");
 		printf("*   Main Menu                                                                *\n");
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
@@ -31,9 +31,8 @@ void _2x00_MainMenu() {
 		printf("*   A - Keywords                                B - Header Files             *\n");
 		printf("*   C - Control Statements                      D - Operators                *\n");
 		printf("*   E - Char Mapping Table                      F - Data Types               *\n");
-
-		printf("*   N - Dynamic Memory Allocation                                            *\n");
-		printf("*   O - String Manipulations                                                 *\n");
+		printf("*                                                                            *\n");
+		printf("*   G - Dynamic Memory Allocation               H - String Manipulations     *\n");
 		printf("*                                                                            *\n");
 		printf("*   R - Data Structures                                                      *\n");
 		printf("*                                                                            *\n");
@@ -70,9 +69,9 @@ void _2x00_MainMenu() {
 		else if (Choice == 'F' || Choice == 'f') 
 			_3x06_DataTypes();
 		else if (Choice == 'G' || Choice == 'g') 
-			Choice = 'g';
+			_3x07_DynamicMemoryAllocation();
 		else if (Choice == 'H' || Choice == 'h') 
-			Choice = 'h';
+			_3x08_StringManipulations();
 		else if (Choice == 'I' || Choice == 'i')
 			Choice = 'I';
 		else if (Choice == 'J' || Choice == 'j')
@@ -84,9 +83,9 @@ void _2x00_MainMenu() {
 		else if (Choice == 'M' || Choice == 'm') 
 			Choice = 'm';
 		else if (Choice == 'N' || Choice == 'n')
-			_0x0D_DynamicMemoryAllocation();
+			Choice = 'n';
 		else if (Choice == 'O' || Choice == 'o')
-			_0x0E_StringManipulations();
+			Choice = 'o';
 		else if (Choice == 'P' || Choice == 'p') 
 			Choice = 'p';
 		else if (Choice == 'Q' || Choice == 'q') 

@@ -14,8 +14,11 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//Initialize();
 	_2x00_MainMenu();
+	//OnExit();
 	//system("Pause");
+
 	return 0;
 }
 

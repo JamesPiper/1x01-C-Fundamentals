@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="..\Changes to 1x01 C Fundamentals.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -62,13 +63,13 @@
     <ClCompile Include="PointersStructures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="z_0x0D_DynamicMemoryAllocation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="z_0x0E_StringManipulations.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="z_0x11_DataStructures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_3x07_DynamicMemoryAllocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_3x08_StringManipulations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

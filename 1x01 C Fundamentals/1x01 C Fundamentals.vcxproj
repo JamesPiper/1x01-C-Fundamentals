@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="..\Changes to 1x01 C Fundamentals.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -88,8 +89,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="z_0x0D_DynamicMemoryAllocation.cpp" />
-    <ClCompile Include="z_0x0E_StringManipulations.cpp" />
+    <ClCompile Include="_3x07_DynamicMemoryAllocation.cpp" />
+    <ClCompile Include="_3x08_StringManipulations.cpp" />
     <ClCompile Include="z_0x11_DataStructures.cpp" />
     <ClCompile Include="_2x00_MainMenu.cpp" />
     <ClCompile Include="_3x00_Hello_World.cpp" />

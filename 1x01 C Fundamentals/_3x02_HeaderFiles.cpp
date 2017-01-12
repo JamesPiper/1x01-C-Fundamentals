@@ -41,7 +41,7 @@ void _3x02_HeaderFiles() {
 		printf("*   B - <stdio.h>  Standard Input/Output functions                           *\n");
 		printf("*   C - <math.h>   Mathematics functions                                     *\n");
 		printf("*   D - <string.h> String handling functions                                 *\n");
-		printf("*   E - <time.h>  Date time functions                                        *\n");
+		printf("*   E - <time.h>   Date time functions                                       *\n");
 		printf("*   F - <ctype.h>  Character type functions                                  *\n");
 		printf("*   G - <stdarg.h> Variable arguments handling functions                     *\n");
 		printf("*   H - <assert.h> Program assertion functions                               *\n");
@@ -176,10 +176,40 @@ static void C() {
 
 static void D() {
 
-	printf("------------------------------------------------------------------------------\n");
+	printf("==============================================================================\n");
 	printf("D - <string.h> String handling functions\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Copying\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("  memcpy, memmove - copy or move block of memory\n");
+	printf("  strcpy, strncpy - copy string or chars from string\n");
+	printf("\n");
+	printf("Concatenation\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	printf("\n");
+	printf("Comparison\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("Searching\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("Other\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("Macro constants: NULL\n");
+	printf("Types: size_t\n");
+	printf("\n");
+	printf("==============================================================================\n");
 
 }
 
