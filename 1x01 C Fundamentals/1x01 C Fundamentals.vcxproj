@@ -91,7 +91,7 @@
     </ClCompile>
     <ClCompile Include="_3x07_DynamicMemoryAllocation.cpp" />
     <ClCompile Include="_3x08_StringManipulations.cpp" />
-    <ClCompile Include="z_0x11_DataStructures.cpp" />
+    <ClCompile Include="_3x09_DataStructures.cpp" />
     <ClCompile Include="_2x00_MainMenu.cpp" />
     <ClCompile Include="_3x00_Hello_World.cpp" />
     <ClCompile Include="_3x01_Keywords.cpp" />
@@ -100,6 +100,7 @@
     <ClCompile Include="_3x04_Operators.cpp" />
     <ClCompile Include="_3x05_CharMapping.cpp" />
     <ClCompile Include="_3x06_DataTypes.cpp" />
+    <ClCompile Include="_4x00_SingleLinkedList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

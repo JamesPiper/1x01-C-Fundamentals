@@ -57,34 +57,34 @@ void _3x04_Operators() {
 
 		scanf("%s", &Inputs);
 
-		strupr(Inputs);
+		strlwr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A')
+		if (Choice == 'a')
 			A();
-		else if (Choice == 'B')
+		else if (Choice == 'b')
 			B();
-		else if (Choice == 'C')
+		else if (Choice == 'c')
 			C();
-		else if (Choice == 'D')
+		else if (Choice == 'd')
 			D();
-		else if (Choice == 'E')
+		else if (Choice == 'e')
 			E();
-		else if (Choice == 'F')
+		else if (Choice == 'f')
 			F();
-		else if (Choice == 'G')
+		else if (Choice == 'g')
 			G();
-		else if (Choice == 'H')
+		else if (Choice == 'h')
 			H();
-		else if (Choice == 'X') 
+		else if (Choice == 'x') 
 			exit(0);
-		else if (Choice == 'Z') 
+		else if (Choice == 'z') 
 			return;
+		else 
+			printf("*** Select a choice from those listed. ****\n\n");
 
-		system("pause");
-
-	} while (Choice != 'X'); 
+	} while (Choice != 'x'); 
 
 }
 
@@ -100,6 +100,7 @@ static void A() {
 	printf("  * multiplication \n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -116,6 +117,7 @@ static void B() {
 	printf("  --var prefix negation\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -133,6 +135,8 @@ static void C() {
 	printf("  <= less than or equal \n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
 }
 
 static void D() {
@@ -146,6 +150,8 @@ static void D() {
 	printf("  || boolean or\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
 }
 
 static void E() {
@@ -162,6 +168,8 @@ static void E() {
 	printf("  << Left Shift by RHS (multiply by power of 2) \n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
 }
 
 static void F() {
@@ -178,6 +186,7 @@ static void F() {
 	printf("  &=, |=, ^= Bitwise and, or, xor by RHS\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -247,6 +256,7 @@ static void G() {
 	printf("  example = example << 1 = %X\n", example);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -300,5 +310,6 @@ static void H() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }

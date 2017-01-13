@@ -1,21 +1,25 @@
 //==============================================================================
 // 2017.01.12 by James Piper, james@jamespiper.com
 // 
-// Changes to this project.
+// Changes to this project: 1x01 C Fundamentals
 // 
 //==============================================================================
 
 2017.01.13
-· Simplify code by using strupr when testing menu item choices.
-· Add '#define MAX_INPUT_CHARS 80' in main header file and use in various code files
-· Finish making addions to String Manipulations page
-· Finish adding details on <string.h>
+· Simplify code by using strlwr when testing menu item choices.
+· Add '#define MAX_INPUT_CHARS 80' in main header file and use in various code files.
+· Finish making addions to String Manipulations page.
+· Finish adding details on <string.h>.
+· Move system("pause") back from top menu to individual functions.
+· Add final else to if...else to display a message if choice not found.
+· Adding Data Structures as main menu item.
+· Adding code for a single-linked list - still a WIP.
 
 2017.01.12 
 · Reorganizing the main menu - push down some items to sub menus.
 · Include _3x07_DynamicMemoryAllocation into main menu.
-· Adding details on enumerations
-· Adding details for string manipulations
-· Adding more details to header files page
+· Adding details on enumerations.
+· Adding details for string manipulations.
+· Adding more details to header files page.
 
 

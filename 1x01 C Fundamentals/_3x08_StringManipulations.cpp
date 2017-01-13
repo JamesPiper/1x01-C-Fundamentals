@@ -61,40 +61,40 @@ void _3x08_StringManipulations() {
 
 		scanf("%s", &Inputs);
 
-		strupr(Inputs);
+		strlwr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A')
+		if (Choice == 'a')
 			A();
-		else if (Choice == 'B')
+		else if (Choice == 'b')
 			B();
-		else if (Choice == 'C')
+		else if (Choice == 'c')
 			C();
-		else if (Choice == 'D')
+		else if (Choice == 'd')
 			D();
-		else if (Choice == 'E')
+		else if (Choice == 'e')
 			E();
-		else if (Choice == 'F')
+		else if (Choice == 'f')
 			F();
-		else if (Choice == 'G') 
+		else if (Choice == 'g') 
 			G();
-		else if (Choice == 'H') 
+		else if (Choice == 'h') 
 			H();
-		else if (Choice == 'I') 
+		else if (Choice == 'i') 
 			I();
-		else if (Choice == 'J') 
+		else if (Choice == 'j') 
 			J();
-		else if (Choice == 'K') 
+		else if (Choice == 'k') 
 			K();
-		else if (Choice == 'X') 
+		else if (Choice == 'x') 
 			exit(0);
-		else if (Choice == 'Z') 
+		else if (Choice == 'z') 
 			return;
+		else 
+			printf("*** Select a choice from those listed. ****\n\n");
 
-		system("pause");
-
-	} while (Choice != 'X'); 
+	} while (Choice != 'x'); 
 
 }
 
@@ -119,6 +119,7 @@ static void A() {
 	printf("  The length is %d\n", length1);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -172,6 +173,8 @@ static void B() {
 	printf("  Because String4 has 22 elements and only 8 chars copied, need to set end.\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
 }
 
 static void C() {
@@ -206,6 +209,8 @@ static void C() {
 	printf("  JoinedString2 is now: '%s'\n", JoinedString2);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
 }
 
 static void D() {
@@ -253,6 +258,8 @@ static void D() {
 	printf("Allows for local varitions for language, culture.\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
 }
 
 static void E() {
@@ -285,6 +292,7 @@ static void E() {
 	printf("  *** can't use either on a char variable, need char array ***\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -340,6 +348,7 @@ static void F() {
 	printf("\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -372,6 +381,7 @@ static void G() {
 	printf("\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -400,6 +410,7 @@ static void H() {
 	printf("  The index is %d\n", Location - StringToSearch);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -433,6 +444,7 @@ static void I() {
 	printf("  The string is now: '%s'\n", StringToSearch);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -465,6 +477,7 @@ static void J() {
 	printf("  the previous match.\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -477,6 +490,7 @@ static void K() {
 	printf("To follow up on errno.h\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 

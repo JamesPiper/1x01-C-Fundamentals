@@ -14,8 +14,10 @@ void _3x05_CharMapping();
 void _3x06_DataTypes();
 void _3x07_DynamicMemoryAllocation();
 void _3x08_StringManipulations();
+void _3x09_DataStructures();
 
-void _0x11_DataStructures();
+void _4x00_SingleLinkedList();
+
 void _0x09_PointersStructures();
 
 

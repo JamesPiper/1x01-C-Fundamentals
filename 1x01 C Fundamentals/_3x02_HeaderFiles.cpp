@@ -61,42 +61,54 @@ void _3x02_HeaderFiles() {
 
 		scanf("%s", &Inputs);
 
-		strupr(Inputs);
+		strlwr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A')
+		if (Choice == 'a')
 			A();
-		else if (Choice == 'B')
+		else if (Choice == 'b')
 			B();
-		else if (Choice == 'C')
+		else if (Choice == 'c')
 			C();
-		else if (Choice == 'D')
+		else if (Choice == 'd')
 			D();
-		else if (Choice == 'E')
+		else if (Choice == 'e')
 			E();
-		else if (Choice == 'F')
+		else if (Choice == 'f')
 			F();
-		else if (Choice == 'G')
+		else if (Choice == 'g')
 			G();
-		else if (Choice == 'H')
+		else if (Choice == 'h')
 			H();
-		else if (Choice == 'I')
+		else if (Choice == 'i')
 			I();
-		else if (Choice == 'J')
+		else if (Choice == 'j')
 			J();
-		else if (Choice == 'K')
+		else if (Choice == 'k')
 			K();
-		else if (Choice == 'X') 
+		else if (Choice == 'x') 
 			exit(0);
-		else if (Choice == 'Z') 
+		else if (Choice == 'z') 
 			return;
+		else 
+			printf("*** Select a choice from those listed. ****\n\n");
 
-		system("pause");
+		// Using system("pause") here means it happens when bad choice entered
+		// and that's not a good way to do it.
+		// I wrote some clever code but overkill
+		//char Choices[] = "abcdefghijkxz";
+		//Inputs[0] = Choice;
+		//Inputs[1] = '\0';
+		//// strpbrk needs a char array, not char 
+		//char* result = strpbrk(Inputs,  Choices);
+		//if (result != NULL) 
+		//	system("pause");
+		//else
+		//	printf("*** Select a choice from those listed. ****\n\n");
 
-	} while (Choice != 'X'); 
+	} while (Choice != 'x'); 
 
-	printf("Type: char %d\n", CHAR_BIT);
 }
 
 static void A() {
@@ -155,6 +167,7 @@ static void A() {
 	printf("Types: div_t, ldiv_t, lldiv_t, size_t\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -164,6 +177,7 @@ static void B() {
 	printf("B - <stdio.h>  Standard Input/Output functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -173,6 +187,7 @@ static void C() {
 	printf("C - <math.h>   Mathematics functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -220,6 +235,7 @@ static void D() {
 	printf("Types: size_t\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -229,6 +245,7 @@ static void E() {
 	printf("E - <time.h>  Date time functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -255,6 +272,7 @@ static void F() {
 	printf("  toupper  - Convert lowercase letter to uppercase\n");
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
+	system("pause");
 	
 }
 
@@ -264,6 +282,7 @@ static void G() {
 	printf("G - <stdarg.h> Variable arguments handling functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -273,6 +292,7 @@ static void H() {
 	printf("H - <assert.h> Program assertion functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -282,6 +302,7 @@ static void I() {
 	printf("I - <locale.h> Localization functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -291,6 +312,7 @@ static void J() {
 	printf("J - <setjmp.h> Jump functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -300,6 +322,7 @@ static void K() {
 	printf("K - <signal.h> Signal handling functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 

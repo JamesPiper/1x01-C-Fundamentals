@@ -80,42 +80,42 @@ void _3x06_DataTypes() {
 
 		scanf("%s", &Inputs);
 
-		strupr(Inputs);
+		strlwr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A')
+		if (Choice == 'a')
 			A();
-		else if (Choice == 'B')
+		else if (Choice == 'b')
 			B();
-		else if (Choice == 'C')
+		else if (Choice == 'c')
 			C();
-		else if (Choice == 'D')
+		else if (Choice == 'd')
 			D();
-		else if (Choice == 'E')
+		else if (Choice == 'e')
 			E();
-		else if (Choice == 'F')
+		else if (Choice == 'f')
 			F0();
-		else if (Choice == 'G')
+		else if (Choice == 'g')
 			G();
-		else if (Choice == 'H')
+		else if (Choice == 'h')
 			H();
-		else if (Choice == 'I')
+		else if (Choice == 'i')
 			I();
-		else if (Choice == 'J')
+		else if (Choice == 'j')
 			J();
-		else if (Choice == 'K')
+		else if (Choice == 'k')
 			K();
-		else if (Choice == 'L')
+		else if (Choice == 'l')
 			L();
-		else if (Choice == 'X') 
+		else if (Choice == 'x') 
 			exit(0);
-		else if (Choice == 'Z') 
+		else if (Choice == 'z') 
 			return;
+		else 
+			printf("*** Select a choice from those listed. ****\n\n");
 
-		system("pause");
-
-	} while (Choice != 'X'); 
+	} while (Choice != 'x'); 
 
 }
 
@@ -224,6 +224,7 @@ static void A() {
 	printf("\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -269,6 +270,7 @@ static void B() {
 	printf("\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -291,6 +293,7 @@ static void C() {
 	printf("\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -346,6 +349,7 @@ static void D() {
 	printf("  numbers[0].numerator = 22;\n");
 	printf("\n");	
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -400,6 +404,7 @@ static void E() {
 	printf(" MyInt is now %d\n", MyInt);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -441,30 +446,30 @@ static void F0() {
 
 		scanf("%s", &Inputs);
 
-		strupr(Inputs);
+		strlwr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A')
+		if (Choice == 'a')
 			F1();
-		else if (Choice == 'B')
+		else if (Choice == 'b')
 			F2();
-		else if (Choice == 'C')
+		else if (Choice == 'c')
 			F3();
-		else if (Choice == 'D')
+		else if (Choice == 'd')
 			F4();
-		else if (Choice == 'E')
+		else if (Choice == 'e')
 			F5();
-		else if (Choice == 'F')
+		else if (Choice == 'f')
 			F6();
-		else if (Choice == 'X') 
+		else if (Choice == 'x') 
 			exit(0);
-		else if (Choice == 'Z') 
+		else if (Choice == 'z') 
 			return;
+		else 
+			printf("*** Select a choice from those listed. ****\n\n");
 
-		system("pause");
-
-	} while (Choice != 'X'); 
+	} while (Choice != 'x'); 
 
 	}
 
@@ -488,6 +493,7 @@ static void F1() {
 	printf("    struct fractionB { int numerator; int denominator; };\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -507,8 +513,9 @@ static void F2() {
 	printf("   struct fractionA f1, f2;\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
-	}
+}
 
 static void F3() {
 	
@@ -524,6 +531,7 @@ static void F3() {
 	printf("   f1.denominator = 7;\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -544,6 +552,7 @@ static void F4() {
 	printf("   f1.denominator = %d\n", f1.denominator);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -566,6 +575,7 @@ static void F5() {
 	printf("  This results in two variables, fC1 and fC2 of fractionC\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -613,6 +623,7 @@ static void F6() {
 	printf("  Name: %s\n", person1.name.fname);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -671,6 +682,7 @@ static void G() {
 	printf("\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -699,6 +711,7 @@ static void H() {
 	printf("\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -709,33 +722,34 @@ static void I() {
 	printf("==============================================================================\n");
 	printf("\n");
 	bool t = true;
-	printf(" bool t = true; - sizeof is %d\n", sizeof(t));
+	printf(" bool t      = true;    sizeof is %d\n", sizeof(t));
 	char a = 'a';
-	printf(" char a = 'a'; - sizeof is %d\n", sizeof(a));
+	printf(" char a      = 'a';     sizeof is %d\n", sizeof(a));
 	short b = 100;
-	printf(" short b = 100; - sizeof is %d\n", sizeof(b));
+	printf(" short b     = 100;     sizeof is %d\n", sizeof(b));
 	int c = 100;
-	printf(" int c = 100; - sizeof is %d\n", sizeof(c));
+	printf(" int c       = 100;     sizeof is %d\n", sizeof(c));
 	long d = 100;
-	printf(" long d = 100; - sizeof is %d\n", sizeof(d));
+	printf(" long d      = 100;     sizeof is %d\n", sizeof(d));
 	long long e = 100;
-	printf(" long long e = 100; - sizeof is %d\n", sizeof(e));
+	printf(" long long e = 100;     sizeof is %d\n", sizeof(e));
 	float f = 100.00;
-	printf(" float f = 100.00; - sizeof is %d\n", sizeof(f));
+	printf(" float f     = 100.00;  sizeof is %d\n", sizeof(f));
 	double g = 100.00;
-	printf(" double g = 100.00; - sizeof is %d\n", sizeof(g));
+	printf(" double g    = 100.00;  sizeof is %d\n", sizeof(g));
 	printf("\n");
 	printf("\n");
 	bool* pt = NULL;
-	printf(" bool* pt = NULL; - sizeof is %d\n", sizeof(pt));
+	printf(" bool* pt    = NULL;    sizeof is %d\n", sizeof(pt));
 	char* pa = NULL;
-	printf(" char *pa = NULL; - sizeof is %d\n", sizeof(pa));
+	printf(" char *pa    = NULL;    sizeof is %d\n", sizeof(pa));
 	int* pc = NULL;
-	printf(" int* pc = NULL; - sizeof is %d\n", sizeof(pc));
+	printf(" int* pc     = NULL;    sizeof is %d\n", sizeof(pc));
 	double* pg = NULL;
-	printf(" double* pg = NULL; - sizeof is %d\n", sizeof(pg));
+	printf(" double* pg  = NULL;    sizeof is %d\n", sizeof(pg));
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -787,6 +801,7 @@ static void J() {
 	printf("   Using the variable 'age' passes the address for the array, pass by ref\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -812,8 +827,7 @@ static float average(float *age)
 }
 
 static void K() {
-
-
+	
 	printf("==============================================================================\n");
 	printf("Pointers & Arrays\n");
 	printf("==============================================================================\n");
@@ -858,6 +872,7 @@ static void K() {
 	printf("Sum = %d\n", sum);
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }
 
@@ -885,5 +900,6 @@ static void L() {
 	printf("  comp comp1, comp2;\n");
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
 
 }

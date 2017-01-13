@@ -9,14 +9,12 @@
 
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 
 // Function prototypes
-static void A();
 static void B();
 static void C();
 static void D();
@@ -28,7 +26,8 @@ static void I();
 static void J();
 static void K();
 
-void _0x11_DataStructures() {
+
+void _3x09_DataStructures() {
 
 	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
@@ -36,13 +35,15 @@ void _0x11_DataStructures() {
 	do 
 	{
 		printf("******************************************************************************\n");
+		printf("*                                                                            *\n");
 		printf("*   Data Structures                                                          *\n");
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
 		printf("*   A - Single Linked List                                                   *\n");
 		printf("*                                                                            *\n");
-		printf("*   X - Return to main menu.                                                 *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
+		printf("*   X - Exit the program.                                                    *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
 
@@ -52,60 +53,43 @@ void _0x11_DataStructures() {
 
 		scanf("%s", &Inputs);
 
-		strupr(Inputs);
+		strlwr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A' || Choice == 'a')
-			A();
-		else if (Choice == 'B' || Choice == 'b')
-			B();
-		else if (Choice == 'C' || Choice == 'c')
-			C();
-		else if (Choice == 'D' || Choice == 'd')
-			D();
-		else if (Choice == 'E' || Choice == 'e')
-			E();
-		else if (Choice == 'F' || Choice == 'f')
-			F();
-		else if (Choice == 'G' || Choice == 'g')
-			G();
-		else if (Choice == 'H' || Choice == 'h')
-			H();
-		else if (Choice == 'I' || Choice == 'i')
-			I();
-		else if (Choice == 'J' || Choice == 'j')
-			J();
-		else if (Choice == 'K' || Choice == 'k')
-			K();
-		else if (Choice == 'X' || Choice == 'x') 
+		if (Choice == 'a')
+			_4x00_SingleLinkedList();
+		else if (Choice == 'b')
+			Choice == 'b';
+		else if (Choice == 'c')
+			Choice == 'c';
+		else if (Choice == 'd')
+			Choice == 'd';
+		else if (Choice == 'e')
+			Choice == 'e';
+		else if (Choice == 'f')
+			Choice == 'f';
+		else if (Choice == 'g')
+			Choice == 'g';
+		else if (Choice == 'h')
+			Choice == 'h';
+		else if (Choice == 'i')
+			Choice == 'i';
+		else if (Choice == 'j')
+			Choice == 'j';
+		else if (Choice == 'k')
+			Choice == 'k';
+		else if (Choice == 'x') 
+			exit(0);
+		else if (Choice == 'z') 
 			return;
+		else 
+			printf("*** Select a choice from those listed. ****\n\n");
 
-		system("pause");
-
-	} while (Choice != 'X' && Choice != 'x'); 
-
-	printf("Type: char %d\n", CHAR_BIT);
-}
-
-static void A() {
-
-	printf("==============================================================================\n");
-	printf("A - <stdlib.h> Standard Utility functions\n");
-	printf("==============================================================================\n");
-	printf("\n");
-	printf("Dynamic memory management\n");
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	printf("  calloc  - Allocate and zero-initialize array\n");
-	printf("  free    - Deallocate memory block\n");
-	printf("  malloc  - Allocate memory block\n");
-	printf("  realloc - Reallocate memory block\n");
-	printf("\n");
-	printf("\n");
-	printf("==============================================================================\n");
+	} while (Choice != 'x'); 
 
 }
+
 
 static void B() {
 
@@ -113,6 +97,7 @@ static void B() {
 	printf("B - <stdio.h>  Standard Input/Output functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -122,6 +107,7 @@ static void C() {
 	printf("C - <math.h>   Mathematics functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -131,6 +117,7 @@ static void D() {
 	printf("D - <string.h> String handling functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -140,6 +127,7 @@ static void E() {
 	printf("E - <time.h>  Date time functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -149,23 +137,9 @@ static void F() {
 	printf("F - <ctype.h>  Character type functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	printf("  isalnum  - Check if character is alphanumeric\n");
-	printf("  isalpha  - Check if character is alphabetic\n");
-	printf("  isblank  - Check if character is blank\n");
-	printf("  iscntrl  - Check if character is a control character\n");
-	printf("  isdigit  - Check if character is decimal digit\n");
-	printf("  isgraph  - Check if character has graphical representation\n");
-	printf("  islower  - Check if character is lowercase letter\n");
-	printf("  isprint  - Check if character is printable\n");
-	printf("  ispunct  - Check if character is a punctuation character\n");
-	printf("  isspace  - Check if character is a white-space\n");
-	printf("  isupper  - Check if character is uppercase letter\n");
-	printf("  isxdigit - Check if character is hexadecimal digit\n");
-	printf("\n");
-	printf("  tolower  - Convert uppercase letter to lowercase\n");
-	printf("  toupper  - Convert lowercase letter to uppercase\n");
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
+	system("pause");
 	
 }
 
@@ -175,6 +149,7 @@ static void G() {
 	printf("G - <stdarg.h> Variable arguments handling functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -184,6 +159,7 @@ static void H() {
 	printf("H - <assert.h> Program assertion functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -193,6 +169,7 @@ static void I() {
 	printf("I - <locale.h> Localization functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -202,6 +179,7 @@ static void J() {
 	printf("J - <setjmp.h> Jump functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
@@ -211,6 +189,7 @@ static void K() {
 	printf("K - <signal.h> Signal handling functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	system("pause");
 
 }
 
