@@ -11,6 +11,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <string.h>
 
 // Function prototypes
 static void A();
@@ -27,7 +28,7 @@ static void K();
 
 void _3x02_HeaderFiles() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -60,39 +61,40 @@ void _3x02_HeaderFiles() {
 
 		scanf("%s", &Inputs);
 
+		strupr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A' || Choice == 'a')
+		if (Choice == 'A')
 			A();
-		else if (Choice == 'B' || Choice == 'b')
+		else if (Choice == 'B')
 			B();
-		else if (Choice == 'C' || Choice == 'c')
+		else if (Choice == 'C')
 			C();
-		else if (Choice == 'D' || Choice == 'd')
+		else if (Choice == 'D')
 			D();
-		else if (Choice == 'E' || Choice == 'e')
+		else if (Choice == 'E')
 			E();
-		else if (Choice == 'F' || Choice == 'f')
+		else if (Choice == 'F')
 			F();
-		else if (Choice == 'G' || Choice == 'g')
+		else if (Choice == 'G')
 			G();
-		else if (Choice == 'H' || Choice == 'h')
+		else if (Choice == 'H')
 			H();
-		else if (Choice == 'I' || Choice == 'i')
+		else if (Choice == 'I')
 			I();
-		else if (Choice == 'J' || Choice == 'j')
+		else if (Choice == 'J')
 			J();
-		else if (Choice == 'K' || Choice == 'k')
+		else if (Choice == 'K')
 			K();
-		else if (Choice == 'X' || Choice == 'x') 
+		else if (Choice == 'X') 
 			exit(0);
-		else if (Choice == 'Z' || Choice == 'z') 
+		else if (Choice == 'Z') 
 			return;
 
 		system("pause");
 
-	} while (Choice != 'X' && Choice != 'x'); 
+	} while (Choice != 'X'); 
 
 	printf("Type: char %d\n", CHAR_BIT);
 }
@@ -188,23 +190,31 @@ static void D() {
 	printf("Concatenation\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	printf("strcat, strncat - concatinate a string or number of chars to a string\n");
 	printf("\n");
 	printf("Comparison\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	printf("memcmp - compare two blocks of memory\n");
+	printf("strcmp, strncmp - compare strings or n chars of two strings\n");
+	printf("strcoll, strxfm - other\n");
 	printf("\n");
 	printf("Searching\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	printf("\n");
+	printf("memchr - search for char in block of memory\n");
+	printf("strchr, strrchr - find char in a string\n");
+	printf("strspn, strcspn - search a string for elements of a char set\n");
+	printf("strstr - search for a string in a string\n");
+	printf("strpbrk - locate elements of a char set in a sting\n");
+	printf("strtok - break a string up based on a set of delimiters\n");
 	printf("\n");
 	printf("Other\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
+	printf("memset - fills a memory block with char n times\n");
+	printf("strlen - length of a string\n");
+	printf("strerror - see errno\n");
 	printf("\n");
 	printf("Macro constants: NULL\n");
 	printf("Types: size_t\n");

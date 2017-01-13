@@ -11,6 +11,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <string.h>
 #include <cmath>
 #define MAX_0A 2
 
@@ -39,7 +40,7 @@ static void L();
 
 void _3x06_DataTypes() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -79,43 +80,43 @@ void _3x06_DataTypes() {
 
 		scanf("%s", &Inputs);
 
+		strupr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A' || Choice == 'a')
+		if (Choice == 'A')
 			A();
-		else if (Choice == 'B' || Choice == 'b')
+		else if (Choice == 'B')
 			B();
-		else if (Choice == 'C' || Choice == 'c')
+		else if (Choice == 'C')
 			C();
-		else if (Choice == 'D' || Choice == 'd')
+		else if (Choice == 'D')
 			D();
-		else if (Choice == 'E' || Choice == 'e')
+		else if (Choice == 'E')
 			E();
-		else if (Choice == 'F' || Choice == 'f')
+		else if (Choice == 'F')
 			F0();
-		else if (Choice == 'G' || Choice == 'g')
+		else if (Choice == 'G')
 			G();
-		else if (Choice == 'H' || Choice == 'h')
+		else if (Choice == 'H')
 			H();
-		else if (Choice == 'I' || Choice == 'i')
+		else if (Choice == 'I')
 			I();
-		else if (Choice == 'J' || Choice == 'j')
+		else if (Choice == 'J')
 			J();
-		else if (Choice == 'K' || Choice == 'k')
+		else if (Choice == 'K')
 			K();
-		else if (Choice == 'L' || Choice == 'l')
+		else if (Choice == 'L')
 			L();
-		else if (Choice == 'X' || Choice == 'x') 
+		else if (Choice == 'X') 
 			exit(0);
-		else if (Choice == 'Z' || Choice == 'z') 
+		else if (Choice == 'Z') 
 			return;
 
 		system("pause");
 
-	} while (Choice != 'X' && Choice != 'x'); 
+	} while (Choice != 'X'); 
 
-	printf("Type: char %d\n", CHAR_BIT);
 }
 
 static void A() {
@@ -412,7 +413,7 @@ struct fractionB { int numerator; int denominator; };
 
 static void F0() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -440,29 +441,30 @@ static void F0() {
 
 		scanf("%s", &Inputs);
 
+		strupr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A' || Choice == 'a')
+		if (Choice == 'A')
 			F1();
-		else if (Choice == 'B' || Choice == 'b')
+		else if (Choice == 'B')
 			F2();
-		else if (Choice == 'C' || Choice == 'c')
+		else if (Choice == 'C')
 			F3();
-		else if (Choice == 'D' || Choice == 'd')
+		else if (Choice == 'D')
 			F4();
-		else if (Choice == 'E' || Choice == 'e')
+		else if (Choice == 'E')
 			F5();
-		else if (Choice == 'F' || Choice == 'f')
+		else if (Choice == 'F')
 			F6();
-		else if (Choice == 'X' || Choice == 'x') 
+		else if (Choice == 'X') 
 			exit(0);
-		else if (Choice == 'Z' || Choice == 'z') 
+		else if (Choice == 'Z') 
 			return;
 
 		system("pause");
 
-	} while (Choice != 'X' && Choice != 'x'); 
+	} while (Choice != 'X'); 
 
 	}
 

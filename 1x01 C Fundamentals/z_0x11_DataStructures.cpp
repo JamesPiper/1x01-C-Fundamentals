@@ -13,6 +13,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <string.h>
 
 // Function prototypes
 static void A();
@@ -29,7 +30,7 @@ static void K();
 
 void _0x11_DataStructures() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -51,6 +52,7 @@ void _0x11_DataStructures() {
 
 		scanf("%s", &Inputs);
 
+		strupr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 

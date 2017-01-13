@@ -16,5 +16,10 @@ void _3x07_DynamicMemoryAllocation();
 void _3x08_StringManipulations();
 
 void _0x11_DataStructures();
-
 void _0x09_PointersStructures();
+
+
+//==============================================================================
+// Set defines for constants
+//==============================================================================
+#define MAX_INPUT_CHARS 80

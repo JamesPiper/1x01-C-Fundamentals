@@ -22,10 +22,16 @@ static void C();
 static void D();
 static void E();
 static void F();
+static void G();
+static void H();
+static void I();
+static void J();
+static void K();
+static void L();
 
 void _3x08_StringManipulations() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -38,9 +44,9 @@ void _3x08_StringManipulations() {
 		printf("*   A - strlen                               B - strcpy, strncpy             *\n");
 		printf("*   C - strcat, strncat                      D - strcmp, strncmp             *\n");
 		printf("*   E - strlwr, strupr                       F - strchr, strrchr             *\n");
-		printf("*   G - strspn                               H - strcspn                     *\n");
+		printf("*   G - strspn, strcspn                      H - strstr                      *\n");
 		printf("*   I - strpbrk                              J - strtok                      *\n");
-		printf("*   K - strstr                               L - strerror                    *\n");
+		printf("*   K - strerror                                                             *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
@@ -55,31 +61,41 @@ void _3x08_StringManipulations() {
 
 		scanf("%s", &Inputs);
 
+		strupr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A' || Choice == 'a')
+		if (Choice == 'A')
 			A();
-		else if (Choice == 'B' || Choice == 'b')
+		else if (Choice == 'B')
 			B();
-		else if (Choice == 'C' || Choice == 'c')
+		else if (Choice == 'C')
 			C();
-		else if (Choice == 'D' || Choice == 'd')
+		else if (Choice == 'D')
 			D();
-		else if (Choice == 'E' || Choice == 'e')
+		else if (Choice == 'E')
 			E();
-		else if (Choice == 'F' || Choice == 'f')
+		else if (Choice == 'F')
 			F();
-		else if (Choice == 'X' || Choice == 'x') 
+		else if (Choice == 'G') 
+			G();
+		else if (Choice == 'H') 
+			H();
+		else if (Choice == 'I') 
+			I();
+		else if (Choice == 'J') 
+			J();
+		else if (Choice == 'K') 
+			K();
+		else if (Choice == 'X') 
 			exit(0);
-		else if (Choice == 'Z' || Choice == 'z') 
+		else if (Choice == 'Z') 
 			return;
 
 		system("pause");
 
-	} while (Choice != 'X' && Choice != 'x'); 
+	} while (Choice != 'X'); 
 
-	printf("Type: char %d\n", CHAR_BIT);
 }
 
 static void A() {
@@ -96,7 +112,7 @@ static void A() {
 	printf("  char String2[11] = \"%s\";\n", String2);
 	printf("  char String3[10] = \"%s\"; *** won't run ***\n", String2);
 	printf("\n");
-	printf("  Since String1a has 10 elements, need 11 b/c of \\0 at the end.\n");
+	printf("  Since String1 has 10 elements, need 11 b/c of \\0 at the end.\n");
 	int length1 = strlen(String1);
 	printf("\n");
 	printf("  int length1 = strlen(String1);\n");
@@ -168,8 +184,10 @@ static void C() {
 	printf("------------------------------------------------------------------------------\n");
 	char String1[] = "0123456879";
 	char JoinedString[20] = "start: ";
+	printf("\n");
 	printf("  char String1[] = \"%s\";\n", String1);
 	printf("  char JoinedString[20] = \"%s\";\n", JoinedString);
+	printf("\n");
 	strcat(JoinedString, String1);
 	printf("  strcat(JoinedString, String1);\n");
 	printf("  JoinedString is now: '%s'\n", JoinedString);
@@ -254,7 +272,6 @@ static void E() {
 	printf("\n");
 	printf("  usString becomes \"%s\"\n", ucString);
 	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
 	printf("strupr(string) - Converts string to uppercase\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
@@ -265,6 +282,8 @@ static void E() {
 	printf("\n");
 	printf("  usString becomes \"%s\"\n", ucString);
 	printf("\n");
+	printf("  *** can't use either on a char variable, need char array ***\n");
+	printf("\n");
 	printf("==============================================================================\n");
 
 }
@@ -272,42 +291,48 @@ static void E() {
 static void F() {
 
 	printf("==============================================================================\n");
-	printf("E - Search for char in string\n");
+	printf("F - Search for char in string\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("char* strchr(string, search char) - Left to Right\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	printf("  Finds first occurence of char in the search string from the beginning.\n");
+	printf("  Finds first occurence from the beginning of char in the search string.\n");
 	printf("  Returns a pointer to the location or null pointer if not found.\n");
 	printf("\n");
-	char String1[5] = "ABBA";
+	char String1[] = "ABBA";
 	char* location = strchr(String1, 'B');
 	printf("  char String1[] = \"%s\";\n", String1);
+	printf("  String1[0] = \"%c\";\n", String1[0]);
+	printf("  String1[1] = \"%c\";\n", String1[1]);
+	printf("  String1[2] = \"%c\";\n", String1[2]);
+	printf("  String1[3] = \"%c\";\n", String1[3]);
+	printf("  String1[4] = \"%c\";\n", String1[4]);
+	printf("\n");
 	printf("  char* location = strchr(String1, 'B');\n");
 	if (location != NULL) 
-		printf ("  'B' found at %d\n", location - String1 + 1);
+		printf ("  'B' found at %d\n", location - String1);
 	else
 		printf("  Couldn't find 'B' in String1");
 	printf("\n");
 	printf("  The return value is a memory location of %X\n", location);
 	printf("\n");
 	printf("  Use in two ways: \n");
-	printf("    1. Covert to element index: location - String1 + 1 = %d\n", location - String1 + 1);
+	printf("    1. Covert to element index: location - String1 = %d\n", location - String1);
 	printf("    2. Deference the pointer with *location - result: %c\n", *location);
 	printf("\n");
 	printf("\n");
 	printf("char* strrchr(string, search char) - Right to Left\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	printf("  Finds first occurence of char in the search string from the end.\n");
+	printf("  Finds first occurence from the end of char in the search string.\n");
 	printf("  Returns a pointer to the location or null pointer if not found.\n");
 	printf("\n");
 	printf("  char String1[] = \"%s\";\n", String1);
 	location = strrchr(String1, 'B');
 	printf("  char* location = strrchr(String1, 'B');\n");
 	if (location != NULL) 
-		printf ("  'B' found at %d\n", location - String1 + 1);
+		printf ("  'B' found at %d\n", location - String1);
 	else
 		printf("  Couldn't find 'B' in String1");
 	printf("\n");
@@ -315,4 +340,146 @@ static void F() {
 	printf("\n");
 	printf("\n");
 	printf("==============================================================================\n");
+
+}
+
+static void G() {
+
+	printf("==============================================================================\n");
+	printf("G - Search a string for elements of a char set\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("strspn(string to search, char set)\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	char CharSet[] = "IVXLDCM";
+	char ToSearchString[] = "MMX Established";
+	int NumFound = strspn(ToSearchString, CharSet);
+	printf("  char CharSet[] = \"%s\";\n", CharSet);
+	printf("  char ToSearchString[] = \"%s\";\n", ToSearchString);
+	printf("  int NumFound = strspn(ToSearchString, CharSet);\n");
+	printf("\n");
+	printf("  strspn returned %d to NumFound.\n", NumFound);
+	printf("\n");
+	printf("  The function looks for the char set in the start of ToSearchString.\n");
+	printf("  If the start doesn't contain any of the search chars, the return value is 0.\n");
+	printf("  \"Established MMX\" returns 0.\n");
+	printf("\n");
+	printf("strcspn(string to search, char set)\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("  A similar function but finds first occurence beyond start of the string\n");
+	printf("\n");
+	printf("\n");
+	printf("==============================================================================\n");
+
+}
+
+static void H() {
+
+	printf("==============================================================================\n");
+	printf("H - strstr(string to search, search str)\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("  Looks for the first occurence of the search string in the target string.\n");
+	printf("  Returns a non-null pointer if found.\n");
+	printf("\n");
+	char StringToSearch[] = "All married women are not batchelors.";
+	char ToFind[] = "men";
+	printf("  char StringToSearch[] = \"%s\";\n", StringToSearch);
+	printf("                          \"012345678901234567890123456790123456\";\n", StringToSearch);
+	printf("  char ToFind[] = \"%s\";\n", ToFind);
+	char* Location = strstr(StringToSearch, ToFind);
+	printf("  char* Location = strstr(StringToSearch, ToFind);\n");
+	printf("\n");
+	if (Location != NULL) 
+		printf("  Match found at %X\n", Location);
+	else
+		printf("  *** Not found ***");
+	printf("\n");
+	printf("  The index is %d\n", Location - StringToSearch);
+	printf("\n");
+	printf("==============================================================================\n");
+
+}
+
+static void I() {
+	
+	printf("==============================================================================\n");
+	printf("I - strpbrk(string to search, char set)\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("  Returns a pointer to location of a char in char set in the search string.\n");
+	printf("\n");
+	char StringToSearch[] = "All married women are not batchelors.";
+	printf("  char StringToSearch[] = \"%s\";\n", StringToSearch);
+	printf("                          \"012345678901234567890123456790123456\";\n", StringToSearch);
+	char CharSet[] = "aeiou";
+	printf("  char CharSet[] = \"%s\";\n", CharSet);
+	printf("\n");
+	char* FoundLocation = strpbrk(StringToSearch, CharSet);
+	while (FoundLocation != NULL) {
+		*FoundLocation = ' ';
+		FoundLocation = strpbrk(FoundLocation + 1, CharSet);
+	}
+	printf("  Replace vowels with ' '\n");
+	printf("\n");
+	printf("    char* FoundLocation = strpbrk(StringToSearch, CharSet);\n");
+	printf("    while (FoundLocation != NULL) {\n");
+	printf("      *FoundLocation = ' ';\n");
+	printf("      FoundLocation = strpbrk(FoundLocation + 1, CharSet);\n");
+	printf("    }\n");
+	printf("\n");
+	printf("  The string is now: '%s'\n", StringToSearch);
+	printf("\n");
+	printf("==============================================================================\n");
+
+}
+
+static void J() {
+	
+	printf("==============================================================================\n");
+	printf("J - strtok(string, set of delimiters)\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("  Breaks a string up based on a set of delimiters.\n");
+	printf("\n");
+	char Deliminters[] = " -,;.";
+	printf("  char Deliminters[] = \"%s\";\n", Deliminters);
+	char StringToBreakUp[] = "It was the best of times, it was the worst of times.";
+	printf("  char StringToBreakUp[] = \"%s\";\n", StringToBreakUp);
+	printf("\n");
+	char* pFound = strtok(StringToBreakUp, Deliminters);
+	while (pFound != NULL) {
+		printf("  String of length %d : %s \n", strlen(pFound), pFound);
+		pFound = strtok(NULL, Deliminters);
+	}
+	printf("\n");
+	printf("  char* pFound = strtok(StringToBreakUp, Deliminters);\n");
+	printf("  while (pFound != NULL) {\n");
+	printf("    printf(\"  String of length %%d : %%s \\n\", strlen(pFound), pFound);\n");
+	printf("    pFound = strtok(NULL, Deliminters);\n");
+	printf("   }\n");
+	printf("\n");
+	printf("  NUll is used after the first call as the function continues from \n");
+	printf("  the previous match.\n");
+	printf("\n");
+	printf("==============================================================================\n");
+
+}
+
+static void K() {
+
+	printf("==============================================================================\n");
+	printf("strerror\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("To follow up on errno.h\n");
+	printf("\n");
+	printf("==============================================================================\n");
+
+}
+
+static void L() {
+
 }

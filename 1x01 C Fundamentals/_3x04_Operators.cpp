@@ -12,6 +12,7 @@
 #include <cstdio>
 #include <cmath>
 #include <cstdlib>
+#include <string.h>
 
 
 // Function prototypes
@@ -26,7 +27,7 @@ static void H();
 
 void _3x04_Operators() {
 
-	char Inputs[80];
+	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -56,35 +57,35 @@ void _3x04_Operators() {
 
 		scanf("%s", &Inputs);
 
+		strupr(Inputs);
 		Choice = Inputs[0];
 		printf("\n");
 
-		if (Choice == 'A' || Choice == 'a')
+		if (Choice == 'A')
 			A();
-		else if (Choice == 'B' || Choice == 'b')
+		else if (Choice == 'B')
 			B();
-		else if (Choice == 'C' || Choice == 'c')
+		else if (Choice == 'C')
 			C();
-		else if (Choice == 'D' || Choice == 'd')
+		else if (Choice == 'D')
 			D();
-		else if (Choice == 'E' || Choice == 'e')
+		else if (Choice == 'E')
 			E();
-		else if (Choice == 'F' || Choice == 'f')
+		else if (Choice == 'F')
 			F();
-		else if (Choice == 'G' || Choice == 'g')
+		else if (Choice == 'G')
 			G();
-		else if (Choice == 'H' || Choice == 'h')
+		else if (Choice == 'H')
 			H();
-		else if (Choice == 'X' || Choice == 'x') 
+		else if (Choice == 'X') 
 			exit(0);
-		else if (Choice == 'Z' || Choice == 'z') 
+		else if (Choice == 'Z') 
 			return;
 
 		system("pause");
 
-	} while (Choice != 'X' && Choice != 'x'); 
+	} while (Choice != 'X'); 
 
-	printf("Type: char %d\n", CHAR_BIT);
 }
 
 static void A() {
