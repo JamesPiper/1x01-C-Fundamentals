@@ -27,12 +27,14 @@ void _2x00_MainMenu() {
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
 		printf("*   0 - Print Hello World                                                    *\n");
-		printf("*   A - Keywords                                B - Header Files             *\n");
-		printf("*   C - Control Statements                      D - Operators                *\n");
-		printf("*   E - Char Mapping Table                      F - Data Types               *\n");
+		printf("*   A - Keywords                          H - Dynamic Memory Allocation      *\n");
+		printf("*   B - Header Files                      I - String Manipulations           *\n");
+		printf("*   C - Control Statements                J - Data Structures                *\n");
+		printf("*   D - Operators                                                            *\n");
+		printf("*   E - Char Mapping Table                                                   *\n");
+		printf("*   F - Data Types                                                           *\n");
+		printf("*   G - Standard I/O                                                         *\n");
 		printf("*                                                                            *\n");
-		printf("*   G - Dynamic Memory Allocation               H - String Manipulations     *\n");
-		printf("*   I - Data Structures                                                      *\n");
 		printf("*                                                                            *\n");
 		printf("*   X - Exit the program.                                                    *\n");
 		printf("*                                                                            *\n");
@@ -70,13 +72,13 @@ void _2x00_MainMenu() {
 		else if (Choice == 'f') 
 			_3x06_DataTypes();
 		else if (Choice == 'g') 
-			_3x07_DynamicMemoryAllocation();
+			_3x0A_IOTests();
 		else if (Choice == 'h') 
-			_3x08_StringManipulations();
+			_3x07_DynamicMemoryAllocation();
 		else if (Choice == 'i')
-			_3x09_DataStructures();
+			_3x08_StringManipulations();
 		else if (Choice == 'j')
-			Choice = 'j';
+			_3x09_DataStructures();
 		else if (Choice == 'k')
 			Choice = 'k';
 		else if (Choice == 'l')

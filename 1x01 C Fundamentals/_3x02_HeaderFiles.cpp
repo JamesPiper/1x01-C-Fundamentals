@@ -3,6 +3,7 @@
 // 
 // Summary of various header files
 // 
+//
 //==============================================================================
 
 #include "stdafx.h"
@@ -94,27 +95,17 @@ void _3x02_HeaderFiles() {
 		else 
 			printf("*** Select a choice from those listed. ****\n\n");
 
-		// Using system("pause") here means it happens when bad choice entered
-		// and that's not a good way to do it.
-		// I wrote some clever code but overkill
-		//char Choices[] = "abcdefghijkxz";
-		//Inputs[0] = Choice;
-		//Inputs[1] = '\0';
-		//// strpbrk needs a char array, not char 
-		//char* result = strpbrk(Inputs,  Choices);
-		//if (result != NULL) 
-		//	system("pause");
-		//else
-		//	printf("*** Select a choice from those listed. ****\n\n");
-
 	} while (Choice != 'x'); 
 
 }
 
 static void A() {
 
+	// http://www.cplusplus.com/reference/cstdlib/
+	// https://en.wikibooks.org/wiki/C_Programming/C_Reference/stdlib.h
+
 	printf("==============================================================================\n");
-	printf("A - <stdlib.h> Standard Utility functions\n");
+	printf("A - <stdlib.h> Standard Utility functions (C/C++)\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("String Functions\n");
@@ -137,7 +128,7 @@ static void A() {
 	printf("  rand   - Generate random number\n");
 	printf("  srand  - Initialize random number generator\n");
 	printf("\n");
-	printf("Environment\n");
+	printf("Process Control\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("  abort  - Abort current process\n");
@@ -173,10 +164,61 @@ static void A() {
 
 static void B() {
 
+	// http://www.cplusplus.com/reference/cstdio/
+	// https://en.wikibooks.org/wiki/C_Programming/C_Reference/stdio.h
+
+	printf("==============================================================================\n");
+	printf("B - <stdio.h>  Standard Input/Output functions in C/C++\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Operations on Files\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("B - <stdio.h>  Standard Input/Output functions\n");
+	printf("remove, rename          - delete or rename a file\n");
+	printf("tmpfile                 - open a temp file\n");
+	printf("tmpnam                  - generate a temp filename\n");
+	printf("\n");
+	printf("File Access\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("fclose, fflush          - close or flush a file\n");
+	printf("fopen, freopen          - open file\n");
+	printf("setbuf, setvbuf         - file buffering\n");
+	printf("\n");
+	printf("Formatted I/O\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("printf, vprintf         - print to stdout\n");
+	printf("scanf, fscanf           - read from stdin or stream\n");
+	printf("fprintf, vfprintf       - write formatted data to stream\n");
+	printf("sscanf, sprintf         - read or write with a string\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("==============================================================================\n");
 	system("pause");
 
 }

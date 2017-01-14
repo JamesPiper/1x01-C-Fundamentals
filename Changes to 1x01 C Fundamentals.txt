@@ -5,6 +5,13 @@
 // 
 //==============================================================================
 
+2017.01.14
+· Working on single-linked list. Coding to insert a node.
+  And coding to remove nodes from the list. It's working.
+· Adding Standard I/O as main menu item. Coding various uses of I/O.
+· Adding details about <stdio.h> on header files page.
+· Frustrated by lack of guidence on what's C only or C++ or MS's meddling.
+
 2017.01.13
 · Simplify code by using strlwr when testing menu item choices.
 · Add '#define MAX_INPUT_CHARS 80' in main header file and use in various code files.

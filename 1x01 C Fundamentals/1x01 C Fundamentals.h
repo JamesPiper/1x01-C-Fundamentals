@@ -15,6 +15,7 @@ void _3x06_DataTypes();
 void _3x07_DynamicMemoryAllocation();
 void _3x08_StringManipulations();
 void _3x09_DataStructures();
+void _3x0A_IOTests();
 
 void _4x00_SingleLinkedList();
 
