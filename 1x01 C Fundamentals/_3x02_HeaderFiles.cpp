@@ -3,6 +3,10 @@
 // 
 // Summary of various header files
 // 
+// https://en.wikipedia.org/wiki/C_standard_library
+// https://en.wikibooks.org/wiki/C_Programming
+// http://www.cplusplus.com/
+// https://www.programiz.com/c-programming
 //
 //==============================================================================
 
@@ -189,34 +193,30 @@ static void B() {
 	printf("scanf, fscanf           - read from stdin or stream\n");
 	printf("fprintf, vfprintf       - write formatted data to stream\n");
 	printf("sscanf, sprintf         - read or write with a string\n");
+	printf("vsnprintf, vsnprintf    - write data from variable argument list\n");
+	printf("vfcanf, vscanf          - read formatted data \n");
 	printf("\n");
-	printf("\n");
-	printf("\n");
+	printf("Character I/O\n");
 	printf("------------------------------------------------------------------------------\n");
+	printf("fgetc, fgets            - get char or string from stream\n");
+	printf("fputc, fputs            - write char or string to stream\n");
+	printf("getc, getchar, gets     - get char or string from stream or stdin\n");
+	printf("putc, putchar, puts     - write char or string to stream or stdout\n");
+	printf("ungetc                  - unget char from stream\n");
 	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
+	printf("Direct I/O\n");
 	printf("------------------------------------------------------------------------------\n");
+	printf("fread                   - read a block of data from stream\n");
+	printf("fwrite                  - read a block of data from stream\n");
 	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
+	printf("File Positioning\n");
 	printf("------------------------------------------------------------------------------\n");
+	printf("fgetpos, ftell          - get current position in stream\n");
+	printf("fsetpos, rewind, fseek  - setting stream position\n");
 	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
+	printf("Error-handling: clearerr, feof, ferror, perror\n");
+	printf("Macros: BUFSIZ, EOF, FILENAME_MAX, FOPEN_MAX, l_tmpnam, NULL, TMP_MAX\n");
+	printf("Types: FILE, fpos_t, size_t\n");
 	printf("\n");
 	printf("==============================================================================\n");
 	system("pause");

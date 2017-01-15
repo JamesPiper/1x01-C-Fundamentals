@@ -40,7 +40,7 @@ void _3x09_DataStructures() {
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
-		printf("*   A - Single Linked List                                                   *\n");
+		printf("*   A - Linked Lists                                                         *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
@@ -58,27 +58,27 @@ void _3x09_DataStructures() {
 		printf("\n");
 
 		if (Choice == 'a')
-			_4x00_SingleLinkedList();
+			_4x00_LinkedLists();
 		else if (Choice == 'b')
-			Choice == 'b';
+			Choice = 'b';
 		else if (Choice == 'c')
-			Choice == 'c';
+			Choice = 'c';
 		else if (Choice == 'd')
-			Choice == 'd';
+			Choice = 'd';
 		else if (Choice == 'e')
-			Choice == 'e';
+			Choice = 'e';
 		else if (Choice == 'f')
-			Choice == 'f';
+			Choice = 'f';
 		else if (Choice == 'g')
-			Choice == 'g';
+			Choice = 'g';
 		else if (Choice == 'h')
-			Choice == 'h';
+			Choice = 'h';
 		else if (Choice == 'i')
-			Choice == 'i';
+			Choice = 'i';
 		else if (Choice == 'j')
-			Choice == 'j';
+			Choice = 'j';
 		else if (Choice == 'k')
-			Choice == 'k';
+			Choice = 'k';
 		else if (Choice == 'x') 
 			exit(0);
 		else if (Choice == 'z') 

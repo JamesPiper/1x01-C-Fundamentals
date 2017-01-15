@@ -17,7 +17,9 @@ void _3x08_StringManipulations();
 void _3x09_DataStructures();
 void _3x0A_IOTests();
 
-void _4x00_SingleLinkedList();
+void _4x00_LinkedLists();
+void _4x01_SingleLinkedListOfInts();
+void _4x02_SingleLinkedListOfChar();
 
 void _0x09_PointersStructures();
 
@@ -25,4 +27,5 @@ void _0x09_PointersStructures();
 //==============================================================================
 // Set defines for constants
 //==============================================================================
-#define MAX_INPUT_CHARS 80
+#define MAX_INPUT_CHARS 255
+#define MAX_FILENAME_CHARS 255

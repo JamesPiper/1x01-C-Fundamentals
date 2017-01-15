@@ -72,10 +72,16 @@
     <ClCompile Include="_3x09_DataStructures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="_4x00_SingleLinkedList.cpp">
+    <ClCompile Include="_3x0A_IOTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="_3x0A_IOTests.cpp">
+    <ClCompile Include="_4x00_LinkedLists.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_4x01_SingleLinkedListOfInts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_4x02_SingleLinkedListOfChar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

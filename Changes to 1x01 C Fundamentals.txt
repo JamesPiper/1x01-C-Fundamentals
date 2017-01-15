@@ -5,12 +5,19 @@
 // 
 //==============================================================================
 
+2017.01.15
+· Adding test code on Standard I/O.
+· Test code on creating memory and freeing with function call. It works.
+· SLL - adding code to free memory.
+· Creating submenu for single-linked lists b/c going through variations.
+· Code for SLL using char instead of int.
+
 2017.01.14
 · Working on single-linked list. Coding to insert a node.
   And coding to remove nodes from the list. It's working.
 · Adding Standard I/O as main menu item. Coding various uses of I/O.
 · Adding details about <stdio.h> on header files page.
-· Frustrated by lack of guidence on what's C only or C++ or MS's meddling.
+· Frustrated by lack of guidence on what's C or C++ or MS's meddling.
 
 2017.01.13
 · Simplify code by using strlwr when testing menu item choices.

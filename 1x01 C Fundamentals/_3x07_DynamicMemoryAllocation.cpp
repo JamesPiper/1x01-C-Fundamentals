@@ -14,6 +14,8 @@
 #include <cstdio>
 #include <cstdlib>
 
+static void UsePointer(int* pInt);
+
 void _3x07_DynamicMemoryAllocation() {
 	
 	printf("==============================================================================\n");
@@ -81,6 +83,50 @@ void _3x07_DynamicMemoryAllocation() {
 	printf("\n");
 	printf("==============================================================================\n");
 	system("Pause");
+	printf("\n");
+	printf("\n");
 
+	printf("==============================================================================\n");
+	printf("Test Malloc and Free\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Within the same function\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Allocate memory for an int: int* pInt = (int*) malloc(sizeof(int));\n");
+	int* pInt = (int*) malloc(sizeof(int));
+	*pInt = 10;
+	printf("and set a value (%d) with: *pInt = %d; at memory location %X\n", *pInt, *pInt, pInt);
+	printf("\n");
+	free(pInt);
+	printf("Now free this memory: free(pInt);\n");
+	printf("The value is gone, now garbage: %d\n", pInt);
+	printf("\n");
+	printf("Calling another function\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Allocate memory for an int: int* pInt = (int*) malloc(sizeof(int));\n");
+	pInt = (int*) malloc(sizeof(int));
+	*pInt = 100;
+	printf("and set a value (%d) with: *pInt = %d; at memory location %X\n", *pInt, *pInt, pInt);
+	printf("\n");
+	printf("Now go to function where pointer is passed.\n");
+	printf("\n");
+	printf("  static void UsePointer(int* pInt)\n");
+	printf("\n");
+	UsePointer(pInt);
+	printf("Garbage back in the caller: %d\n", pInt);
+	printf("\n");
+	printf("==============================================================================\n");
+	system("Pause");
+
+}
+
+static void UsePointer(int* pInt) {
+
+	printf("We're in the function and the value is %d at memory location %X\n", *pInt, pInt);
+	printf("It's the same memory address.\n");
+	printf("\n");
+	free(pInt);
+	printf("Free the memory in the function: free(pInt);\n");
+	printf("Garbage in the function: %d\n", pInt);
 
 }

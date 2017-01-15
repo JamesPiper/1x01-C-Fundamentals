@@ -13,6 +13,16 @@
 // The value is null until the first node is added.
 // There is no pointer to the tail of the list.
 //
+// Nature of SLL
+// 1. Dynamic storage of data. Limited by memory of computer.
+//    Size of list can grow and shrink as needed.
+// 2. Easy to insert or remove node to keep a sorted list. 
+// 3. Homogenous data types.
+// 4. Sequential access. Must traverse from start to node to find node.
+//    Must go through entire list to get to the end.
+// 5. Linear data structure.
+// 6. Uses dynamic memory allocation which can be trapped if
+//    the program hangs or crashes.
 //
 // MAJOR FLAW
 // Node based on integer data type, but inputs of non-digits
@@ -29,18 +39,18 @@
 
 typedef enum Boolean { False, True };
 
-// For Single Linked List
-typedef struct SLList  
+// For Single Linked List of Ints
+typedef struct SLListInts  
 {
   int Value;
-  struct SLList* Next;
-} SSList;
+  struct SLListInts* Next;
+} SLListInts;
 
 // Start of the list.
-SLList* ListHead;
+SLListInts* ListHead;
 
 // Function prototypes.
-static SLList* CreateNewNode(int value);
+static SLListInts* CreateNewNode(int value);
 static void GetNodeValueToAdd();
 static void AddNode(int value);
 
@@ -51,11 +61,15 @@ static void GetNodeValueToInsert();
 static void InsertNode(int value);
 
 static void DisplayNodes();
+			
+static void AtExitCleanup();
 
-void _4x00_SingleLinkedList() {
+void _4x01_SingleLinkedListOfInts() {
 
 	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
+
+	atexit(AtExitCleanup);
 
 	// Initialize
 	ListHead = NULL;
@@ -64,13 +78,13 @@ void _4x00_SingleLinkedList() {
 		
 		printf("******************************************************************************\n");
 		printf("*                                                                            *\n");
-		printf("*   Single Linked List                                                       *\n");
+		printf("*   Single Linked List of Ints                                               *\n");
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
-		printf("*   A - Add Node                                                             *\n");
+		printf("*   A - Add Node  (Non-sorted list)                                          *\n");
 		printf("*   B - Remove Node                                                          *\n");
-		printf("*   C - Insert Node                                                          *\n");
+		printf("*   C - Insert Node (Sorted list)                                            *\n");
 		printf("*   D - Display Nodes                                                        *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
@@ -92,11 +106,12 @@ void _4x00_SingleLinkedList() {
 			GetNodeValueToInsert();
 		else if (Choice == 'd') 
 			DisplayNodes();
-		else if (Choice == 'x') 
+		else if (Choice == 'x')
 			exit(0);
-		else if (Choice == 'z') 
+		else if (Choice == 'z') {
+			AtExitCleanup();
 			return;
-		else 
+		} else 
 			printf("*** Select a choice from those listed. ****\n\n");
 		
 	} while (Choice != 'x');  
@@ -108,14 +123,13 @@ static void GetNodeValueToAdd() {
 	printf("Add Node To The List\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	printf("Value to add to node: ");
+	printf("Enter value to add to the list: ");
 
 	// Better code needed for inputing numbers
 	int Item;
 	scanf("%d", &Item);
 	AddNode(Item);
 	
-	printf("\n");
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
@@ -125,13 +139,13 @@ static void GetNodeValueToAdd() {
 static void AddNode(int value) {
 
 	// Create a new node.
-	SLList* NewNode = CreateNewNode(value);
+	SLListInts* NewNode = CreateNewNode(value);
 
-	// Add node to the list.
+	// Add node to the end of the list.
 	if (NewNode != NULL) {
 		if (ListHead != NULL) {
 			// Add to the end.
-			SLList* Traverser = ListHead;
+			SLListInts* Traverser = ListHead;
 			while (Traverser->Next != NULL) {
 				Traverser = Traverser->Next;
 			}
@@ -147,10 +161,12 @@ static void AddNode(int value) {
 
 }
 
-static SLList* CreateNewNode(int value) {
+static SLListInts* CreateNewNode(int value) {
 
 	// Create a pointer for new node.
-	SLList* NewNode = (SLList*) malloc(sizeof(SLList));
+	SLListInts* NewNode = (SLListInts*) malloc(sizeof(SLListInts));
+	// When freed? (1) at exit (2) remove function
+	// All bets off if program crashes, not sure what windows does with stack / heap.
 
 	// Test if not null
 	if (NewNode != NULL) {
@@ -171,7 +187,7 @@ static void GetNodeValueToRemove() {
 	printf("\n");
 
 	if (ListHead != NULL) {
-		printf("Value to remove from the list: ");
+		printf("Enter value to remove from the list: ");
 		int Item;
 		scanf("%d", &Item);
 		RemoveNode(Item);
@@ -207,8 +223,8 @@ static void RemoveNode(int value) {
 		printf("Node with value %d removed from the list.\n", value);
 	} else {
 		// Search the list for node.
-		SSList* Traverser = ListHead->Next;
-		SSList* PrevNode = ListHead;
+		SLListInts* Traverser = ListHead->Next;
+		SLListInts* PrevNode = ListHead;
 		Boolean LocationFound = False;
 		Boolean NotEndOfList = True;
 		while (LocationFound != True && NotEndOfList == True)  {
@@ -216,6 +232,7 @@ static void RemoveNode(int value) {
 				if (value == Traverser->Value) {
 					LocationFound = True;
 					PrevNode->Next = Traverser->Next;
+					free(Traverser);
 					printf("Node with value %d removed from the list.\n", value);
 				} else {
 					PrevNode = Traverser;
@@ -225,52 +242,9 @@ static void RemoveNode(int value) {
 				// At the end of the list.
 				if (value == Traverser->Value) {
 					LocationFound = True;
-					PrevNode->Next = Traverser->Next;
+					PrevNode->Next = NULL;
+					free(Traverser);
 					printf("Node with value %d removed from the list.\n", value);
-				} else {
-					NotEndOfList = False;
-					printf("Value not found in the list. List unchanged.\n");
-				}
-			}
-		}
-	}
-}
-
-static void RemoveNode_L(int value) {
-	// First attempt.
-
-	// Cases to consider.
-	// 1. Found value in list, remove node.
-	// 2. Value not found. List unchanged.
-
-	// Possible states of list and node to remove.
-	// 1. List is empty. ListHead points to null. Can't remove node.
-	//    Handled by caller. Only get here if list isn't empty.
-	// 2. Node is at the start. Adjust ListHead to point to second node.
-	// 3. Node is at the end. Adjust second last to point to null.
-	// 4. Node is not at start or end, point previous to next.
-	
-	// Using NotEndOfList for readability even though it adds to cycles.
-
-	if (value == ListHead->Value) {
-		// Remove at start.
-		ListHead = ListHead->Next;
-		printf("Node with value %d removed from the list.\n", value);
-	} else {
-		// Search the list for node.
-		SSList* Traverser = ListHead->Next;
-		SSList* PrevNode = ListHead;
-		Boolean LocationFound = False;
-		Boolean NotEndOfList = True;
-		while (LocationFound != True && NotEndOfList == True)  {
-			if (value == Traverser->Value) {
-				LocationFound = True;
-				PrevNode->Next = Traverser->Next;
-				printf("Node with value %d removed from the list.\n", value);
-			} else {
-				if (Traverser->Next != NULL) {
-					PrevNode = Traverser;
-					Traverser = Traverser->Next;
 				} else {
 					NotEndOfList = False;
 					printf("Value not found in the list. List unchanged.\n");
@@ -322,8 +296,8 @@ static void InsertNode(int value) {
 	// Looking at ways to simplify but this seems to be it.
 
 	// Create a new node.
-	SLList* NewNode = CreateNewNode(value);
-
+	SLListInts* NewNode = CreateNewNode(value);
+	
 	// Insert new node into the list.
 	if (NewNode != NULL) {
 		if (ListHead != NULL) {
@@ -333,8 +307,8 @@ static void InsertNode(int value) {
 				ListHead = NewNode;
 			} else {
 				// Search for insertion point.
-				SLList* Traverser = ListHead;
-				SLList* PrevNode = Traverser;
+				SLListInts* Traverser = ListHead;
+				SLListInts* PrevNode = Traverser;
 				Boolean LocationFound = False; 
 				while (LocationFound != True) {
 					// There's two possible scenarios.
@@ -370,220 +344,6 @@ static void InsertNode(int value) {
 		printf("Problem allocating memory for new node.\n");
 }
 
-static void InsertNode_O(int value) {
-	// Fouth attempt.
-	// Cases to consider.
-	//
-	// A. Affecting ListHead
-	// 1. No nodes in this list, so add as first node. 
-	// 2. All values in the list are larger than in the insert value, insert as first node.
-	//
-	// B. Not affecting ListHead
-	// 1. Insert value falls within two existing nodes.
-	// 2. All values in the list are smaller than in the insert value.
-
-	// Create a new node.
-	SLList* NewNode = CreateNewNode(value);
-
-	// Insert new node into the list.
-	if (NewNode != NULL) {
-		if (ListHead != NULL) {
-			// Insert at start?
-			if (value < ListHead->Value) {
-				NewNode->Next = ListHead;
-				ListHead = NewNode;
-			} else {
-				// Search for insertion point.
-				SLList* Traverser = ListHead;
-				SLList* PrevTraverser = Traverser;
-				Boolean LocationFound = False; 
-				while (LocationFound != True) {
-					// There's two possible scenarios.
-					// 1. We've reached the end of the list, or,
-					// 2. The insert value is greater than or equal to node value.
-					if (Traverser->Next != NULL) {
-						if (value <= Traverser->Value) {
-							LocationFound = True;
-							PrevTraverser->Next = NewNode;
-							NewNode->Next = Traverser;
-						} else {
-							PrevTraverser = Traverser;
-							Traverser = Traverser->Next;
-						}
-					} else {
-						// At at the end.
-						LocationFound = True;
-						Traverser->Next = NewNode;
-					}
-				}
-			}
-		} else 
-			// First node.
-			ListHead = NewNode;
-		printf("Node inserted into the list with value %d at location %X.\n", value, NewNode);
-	} else 
-		printf("Problem allocating memory for new node.\n");
-}
-
-static void InsertNode_N(int value) {
-	// Third attempt.
-	// Cases to consider.
-	//
-	// A. Affecting ListHead
-	// 1. No nodes in this list, so add as first node. 
-	// 2. All values in the list are larger than in the insert value, insert as first node.
-	//
-	// B. Not affecting ListHead
-	// 1. Insert value falls within two existing nodes.
-	// 2. All values in the list are smaller than in the insert value.
-
-	// Create a new node.
-	SLList* NewNode = CreateNewNode(value);
-
-	// Insert new node into the list.
-	if (NewNode != NULL) {
-		if (ListHead != NULL) {
-			// Insert at start?
-			if (value < ListHead->Value) {
-				NewNode->Next = ListHead;
-				ListHead = NewNode;
-			} else {
-				// Search for insertion point.
-				SLList* Traverser = ListHead;
-				Boolean LocationFound = False; 
-				while (LocationFound != True) {
-					// There's two possible scenarios.
-					// 1. Reached the end of the list.
-					// 2. The insert value is greater than or equal to node value.
-					if (value > Traverser->Value) {
-						LocationFound = True;
-						NewNode->Next = Traverser->Next;
-						Traverser->Next = NewNode;
-					} else {
-						if (Traverser->Next != NULL) {
-							Traverser = Traverser->Next;
-						} else {
-							// At at the end.
-							LocationFound = True;
-							Traverser->Next = NewNode;
-						}
-					}
-				}
-			}
-		} else 
-			// First node.
-			ListHead = NewNode;
-		printf("Node inserted into the list with value %d at location %X.\n", value, NewNode);
-	} else 
-		printf("Problem allocating memory for new node.\n");
-}
-
-static void InsertNode_M(int value) {
-	// Second attempt
-	// Cases to consider.
-	//
-	// A. Affecting ListHead
-	// 1. No nodes in this list, so add as first node. 
-	// 2. All values in the list are larger than in the insert value, insert as first node.
-	//
-	// B. Not affecting ListHead
-	// 1. Insert value falls within two existing nodes.
-	// 2. All values in the list are smaller than in the insert value.
-
-	// As of 2017.01.13 code not complete.
-
-	// Create a new node.
-	SLList* NewNode = CreateNewNode(value);
-
-	// Insert new node into the list.
-	if (NewNode != NULL) {
-		if (ListHead != NULL) {
-			// Insert at start?
-			if (value < ListHead->Value) {
-				NewNode->Next = ListHead;
-				ListHead = NewNode;
-			} else {
-				// Search for insertion point.
-				SLList* Traverser = ListHead;
-				Boolean LocationFound = False; 
-				while (LocationFound != True) {
-					if (Traverser->Next = NULL) {
-						// Adding at the end.
-						LocationFound = True;
-						Traverser->Next = NewNode;
-					} else {
-						if (value > Traverser->Value) {
-							Traverser = Traverser->Next;
-						} else {
-							// Insert node.
-							LocationFound = True;
-							NewNode->Next = Traverser;
-							Traverser= NewNode;
-						}
-					}
-				}
-			}
-
-		} else 
-			// First node.
-			ListHead = NewNode;
-		printf("Node inserted into the list with value %d at location %X.\n", value, NewNode);
-	} else 
-		printf("Problem allocating memory for new node.\n");
-}
-
-static void InsertNode_L(int value) {
-	// First attempt.
-	// Cases to consider.
-	//
-	// A. Affecting ListHead
-	// 1. No nodes in this list, so add as first node. 
-	// 2. All values in the list are larger than in the insert value, insert as first node.
-	//
-	// B. Not affecting ListHead
-	// 1. Insert value falls within two existing nodes.
-	// 2. All values in the list are smaller than in the insert value.
-
-	// As of 2017.01.13 code not complete.
-
-	// Create a new node.
-	SLList* NewNode = CreateNewNode(value);
-
-	// Add node to the list.
-	if (NewNode != NULL) {
-		if (ListHead != NULL) {
-			// Search for insertion point.
-			SLList* Traverser = ListHead;
-			Boolean LocationFound = False; 
-
-			while (LocationFound == False) {
-				if (Traverser->Value < value) {
-					Traverser = Traverser->Next;
-				}
-				else {
-			 		LocationFound = True;
-					if (Traverser->Next != NULL) {
-						// Insert node.
-						if (Traverser = ListHead)
-							ListHead = NewNode;
-						NewNode->Next = Traverser->Next;
-				 		Traverser->Next = NewNode;
-					}
-					else
-						// Reached the end, add to the end.
-						Traverser->Next = NewNode;
-				}
-			}
-		}
-		else 
-			// First node.
-			ListHead = NewNode;
-		printf("Node added to the list with value %d at location %X.\n", value, NewNode);
-	}
-	else 
-		printf("Problem allocating memory for new node.\n");
-}
-
 static void DisplayNodes() {
 
 	printf("------------------------------------------------------------------------------\n");
@@ -591,7 +351,7 @@ static void DisplayNodes() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	
-	SLList* Traverser;
+	SLListInts* Traverser;
 	if (ListHead != NULL) {
 		printf("The ListHead is at %X\n", ListHead);
 		Traverser = ListHead;
@@ -609,4 +369,18 @@ static void DisplayNodes() {
 	printf("\n");
 	system("pause");
 
+}
+
+static void AtExitCleanup() {
+
+	printf("Cleaning up memory on exit...\n");
+
+	// Free memory allocated for the list.
+	SLListInts* Traverser;
+	while (ListHead != NULL) {
+		Traverser = ListHead;
+		ListHead = ListHead->Next;
+		printf("Node memory freed at %X.\n", Traverser);
+		free(Traverser);
+	}
 }
