@@ -48,8 +48,8 @@ void _3x0A_IOTests() {
 		printf("*   A - File Exists                                                          *\n");
 		printf("*   B - Rename                                                               *\n");
 		printf("*   C - Remove                                                               *\n");
-		printf("*   D - Temp Filename                                                        *\n");
-		printf("*   E -                                                                      *\n");
+		printf("*   D - Temp File                                                            *\n");
+		printf("*   E - Open, Close                                                          *\n");
 		printf("*   F -                                                                      *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
@@ -70,7 +70,13 @@ void _3x0A_IOTests() {
 		else if (Choice == 'c') 
 			C();
 		else if (Choice == 'd') 
-			Choice = 'd';
+			D();
+		else if (Choice == 'e') 
+			E();
+		else if (Choice == 'f') 
+			F();
+		else if (Choice == 'g') 
+			Choice = 'g';
 		else if (Choice == 'x') 
 			exit(0);
 		else if (Choice == 'z') 
@@ -123,7 +129,7 @@ static void B() {
 	printf("B - Rename\n");
 	printf("==============================================================================\n");
 	printf("\n");
-	printf("int rename ( const char * oldname, const char * newname );\n");
+	printf("int rename (const char* oldname, const char* newname);\n");
 	printf("\n");
 	printf("Returns: non-zero int for failure, zero for success\n");
 	printf("\n");
@@ -174,7 +180,7 @@ static void C() {
 	printf("C - Remove\n");
 	printf("==============================================================================\n");
 	printf("\n");
-	printf("int remove ( const char * filename );\n");
+	printf("int remove(const char* filename);\n");
 	printf("\n");
 	printf("Returns: non-zero int for failure, zero for success\n");
 	printf("\n");
@@ -200,12 +206,62 @@ static void C() {
 static void D() {
 		
 	printf("==============================================================================\n");
-	printf("D - Temp Filename\n");
+	printf("D - Temporary Files\n");
 	printf("==============================================================================\n");
 	printf("\n");
-	printf("char * tmpnam ( char * str );\n");
+	printf("char* tmpnam(char* filename);\n");
 	printf("\n");
-	printf("Returns:  \n");
+	printf("Returns: \n");
+	printf("1. A filename on success.\n");
+	printf("2. Null on failure.\n");
+	printf("\n");
+	printf("Method 1 - Return filename to char array\n");
+	printf("------------------------------------------------------------------------------\n");
+	char* TempFile = tmpnam(NULL);
+	printf("Using char* TempFile = tmpnam(NULL);\n");
+	printf("\n");
+	if (TempFile != NULL) 
+		printf("TempFile is: %s\n", TempFile);
+	else
+		printf("Unable to create a temp filename.");
+	printf("\n");
+
+	printf("\n");
+	printf("Method 2 - Pass char array to store filename\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Create char array with system max filename length of L_tmpnam\n");
+	char TempFilename[L_tmpnam];
+	printf("  char TempFilename[L_tmpnam];\n");
+	printf("\n");
+	printf("Call the function\n");
+	printf("  tmpnam(TempFilename);\n");
+	printf("\n");
+	tmpnam(TempFilename);
+	if (TempFilename!= NULL) 
+		printf("TempFilename is: %s\n", TempFilename);
+	else
+		printf("Unable to create a temp filename.");
+	printf("\n");
+
+	printf("Method 3 - Open a temp file\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Create and open a temporary file in wb+ mode. The filename is unique\n");
+	printf("and it is deleted when the file is closed.\n");
+	printf("\n");
+	printf("FILE* tmpfile()\n");
+	printf("\n");
+	FILE* pFile;
+	printf("Create file pointer: FILE* pFile;\n");
+	pFile = tmpfile();
+	printf("Call the function to open temp file: pFile = tmpfile();\n");
+	printf("\n");
+	FILE* pFile2 = tmpfile();
+	printf("Done in one line: FILE* pFile2 = tmpfile();\n");
+	printf("\n");
+	fclose(pFile);
+	fclose(pFile2);
+
+	printf("Close the file: pclose(pFile)\n");
 	printf("\n");
 	printf("==============================================================================\n");
 	system("pause");
@@ -214,6 +270,60 @@ static void D() {
 
 
 static void E() {
+			
+	printf("==============================================================================\n");
+	printf("E - Open and Close File\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Open\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("FILE * fopen(const char* filename, const char* mode)\n");
+	printf("\n");
+	printf("filename is a text string with full path and name\n");
+	printf("\n");
+	printf("returns pointer to file or null if open failed\n");
+	printf("\n");
+	printf("| Modes                                     | Existing File   | No File      |\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("| \"r\"  Open file for reading.               | Read from start | Null ptr     |\n");
+	printf("| \"w\"  Create a file for writing.           | Overwrites      | Creates file | \n");
+	printf("| \"a\"  Append to file.                      | Append          | Creates file | \n");
+	printf("| \"r+\" Open for read and write.             | Read from start | Null ptr     |\n");
+	printf("| \"w+\" Create for read and write.           | Overwrites      | Creates file | \n");
+	printf("| \"a+\" Open for read and write.             | Append          | Creates file | \n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("For windows, add 'b' to mode for binary files (e.g., \"rb\").\n");
+	printf("\n");
+	printf("Close\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("int fclose(FILE* stream)\n");
+	printf("\n");
+	printf("Example: fclose(ptrToFile);\n");
+	printf("\n");
+	printf("Returns 0 on success, EOF on failure.\n");
+	printf("\n");
+	printf("I haven't seen any testing on call to close function.\n");
+	printf("\n");
+	printf("Reopen\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("FILE* freopen(const char* filename, const char* mode, FILE* stream)\n");
+	printf("\n");
+	printf("See above on filename and mode. The stream argument is an existing pointer.\n");
+	printf("\n");
+	printf("It's possible to use this to printf output to file instead of stdout,\n");
+	printf("but once set, I can't close it and get regular stdout. Not sure how to do that,\n");
+	printf("yet you should be able to do so.\n");
+	printf("\n");
+	
+	//char Path[] = "C:\\Users\\Guest\\stdout.txt";
+	//if (freopen(Path, "w", stdout) == 0 ) {
+	//	printf("Printing to file instead of stdout.");
+	//	fclose(stdout);
+	//} else
+	//	printf("Problem reopening stdout as file.\n");
+
+	printf("==============================================================================\n");
+	system("pause");
 
 }
 

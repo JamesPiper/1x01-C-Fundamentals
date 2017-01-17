@@ -1,30 +1,27 @@
-﻿Build started 2017.01.15 12:54:21.
+﻿Build started 2017.01.16 18:59:32.
      1>Project "C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\1x01 C Fundamentals.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt _4x01_SingleLinkedListOfInts.cpp _4x02_SingleLinkedListOfChar.cpp
-         _4x02_SingleLinkedListOfChar.cpp
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(75): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\1x01 C Fundamentals.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt _4x03_SingleLinkedListOfChars.cpp
+         _4x03_SingleLinkedListOfChars.cpp
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(122): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(76): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(123): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(109): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(155): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(171): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(224): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(245): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(247): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-         _4x01_SingleLinkedListOfInts.cpp
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(97): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(98): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(274): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(130): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(288): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(301): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(325): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(192): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(267): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-         Generating Code...
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(486): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.lib" /MACHINE:X86 "Debug\1x01 C Fundamentals.obj"
          Debug\PointersStructures.obj
@@ -44,9 +41,10 @@
          Debug\_4x00_LinkedLists.obj
          Debug\_4x01_SingleLinkedListOfInts.obj
          Debug\_4x02_SingleLinkedListOfChar.obj
+         Debug\_4x03_SingleLinkedListOfChars.obj
          1x01 C Fundamentals.vcxproj -> C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.exe
      1>Done Building Project "C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.34
+Time Elapsed 00:00:01.89

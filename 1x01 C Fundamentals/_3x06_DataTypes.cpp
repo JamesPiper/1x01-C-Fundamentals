@@ -28,6 +28,10 @@ static void F3();
 static void F4();
 static void F5();
 static void F6();
+static void F7();
+static void F8();
+static void F9();
+static void F10();
 static void Display_1(int age);
 static void Display_2(int *age);
 static float average(float *age);
@@ -36,7 +40,6 @@ static void H();
 static void I();
 static void J();
 static void K();
-static void L();
 
 void _3x06_DataTypes() {
 
@@ -51,8 +54,8 @@ void _3x06_DataTypes() {
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
 		printf("*   Fundamental Types                                                        *\n");
-		printf("*   A - Integer                                                              *\n");
-		printf("*   B - Floating Point                                                       *\n");
+		printf("*   A - Integers                                                             *\n");
+		printf("*   B - Floating Points                                                      *\n");
 		printf("*   C - Character                                                            *\n");
 		printf("*                                                                            *\n");
 		printf("*   Devrived Types                                                           *\n");
@@ -66,8 +69,6 @@ void _3x06_DataTypes() {
 		printf("*   I - Sizeof                                                               *\n");
 		printf("*   J - Pass Arrays To Functions                                             *\n");
 		printf("*   K - Pointers & Arrays                                                    *\n");
-		printf("*   L - Typedef and Structures                                               *\n");
-		printf("*                                                                            *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
@@ -107,7 +108,9 @@ void _3x06_DataTypes() {
 		else if (Choice == 'k')
 			K();
 		else if (Choice == 'l')
-			L();
+			Choice = 'l';
+		else if (Choice == 'm') 
+			Choice = 'm';
 		else if (Choice == 'x') 
 			exit(0);
 		else if (Choice == 'z') 
@@ -122,8 +125,11 @@ void _3x06_DataTypes() {
 static void A() {
 
 	printf("==============================================================================\n");
-	printf("short data type\n");
+	printf("A - Integers\n");
 	printf("==============================================================================\n");
+	printf("\n");
+	printf("short data type\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("16 bit integer [-32768 to 32767] (2 ^ 16 = 65536)\n");
 	printf("\n");
@@ -148,8 +154,11 @@ static void A() {
 	system("pause");
 
 	printf("==============================================================================\n");
-	printf("int data type\n");
+	printf("A - Integers\n");
 	printf("==============================================================================\n");
+	printf("\n");
+	printf("int data type\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("32 bit integer [-2,147,483,648, 2,147,483,647] (2 ^ 32 = 4,294,967,296)\n");
 	printf("\n");
@@ -173,8 +182,11 @@ static void A() {
 	system("pause");
 	
 	printf("==============================================================================\n");
-	printf("long data type\n");
+	printf("A - Integers\n");
 	printf("==============================================================================\n");
+	printf("\n");
+	printf("long data type\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("32 bit integer [-2,147,483,648, 2,147,483,647] (2 ^ 32 = 4,294,967,296)\n");
 	printf("\n");
@@ -199,8 +211,11 @@ static void A() {
 	system("pause");
 
 	printf("==============================================================================\n");
-	printf("long long data type\n");
+	printf("A - Integers\n");
 	printf("==============================================================================\n");
+	printf("\n");
+	printf("long long data type\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("64 bit integer [-9,223,372,036,854,775,808, 9,223,372,036,854,775,807]\n");
 	printf("(2 ^ 64 = 18,446,744,073,709,551,616)\n");
@@ -229,10 +244,13 @@ static void A() {
 }
 
 static void B() {
-
+	
 	printf("==============================================================================\n");
+	printf("B - Floating Points\n");
+	printf("==============================================================================\n");
+	printf("\n");
 	printf("float data type\n");
-	printf("==============================================================================\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("4 byte (32 bit) single precision floating point\n");
 	printf("\n");
@@ -248,8 +266,11 @@ static void B() {
 	system("pause");
 	
 	printf("==============================================================================\n");
-	printf("double data type\n");
+	printf("B - Floating Points\n");
 	printf("==============================================================================\n");
+	printf("\n");
+	printf("double data type\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("8 byte (64 bit) double precision floating point\n");
 	printf("\n");
@@ -277,9 +298,11 @@ static void B() {
 static void C() {
 	
 	printf("==============================================================================\n");
-	printf("char data type\n");
+	printf("C - Character\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	printf("char data type\n");
+	printf("------------------------------------------------------------------------------\n");
 	printf("min 8 bit, normally 16 bit\n");
 	printf("\n");
 	char MyChar1 = 'c';
@@ -310,7 +333,7 @@ static void D() {
 	int MultiRow[10][10] = {{0,1,2,3,4,5,6,7,8,9}, {10,11,12,13,14,15,16,17,18,19}};
 
 	printf("==============================================================================\n");
-	printf("Arrays\n");
+	printf("D - Arrays\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("Single Dimensional Arrays\n");
@@ -356,7 +379,7 @@ static void D() {
 static void E() {
 	
 	printf("==============================================================================\n");
-	printf("Pointers\n");
+	printf("E - Pointers\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("Syntactically C uses the asterisk (*) to indicate a pointer.\n");
@@ -434,6 +457,9 @@ static void F0() {
 		printf("*   D - Access Values                                                        *\n");
 		printf("*   E - Define and Declare                                                   *\n");
 		printf("*   F - Structures Within Structures                                         *\n");
+		printf("*   G - Typedef and Structures                                               *\n");
+		printf("*   H - Self-referential Stuctures - Int or Char                             *\n");
+		printf("*   I - Self-referential Stuctures - Array of Chars                          *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return to previous menu.                                             *\n");
 		printf("*   X - Exit the program.                                                    *\n");
@@ -462,6 +488,12 @@ static void F0() {
 			F5();
 		else if (Choice == 'f')
 			F6();
+		else if (Choice == 'g') 
+			F7();
+		else if (Choice == 'h') 
+			F8();
+		else if (Choice == 'i') 
+			F9();
 		else if (Choice == 'x') 
 			exit(0);
 		else if (Choice == 'z') 
@@ -627,10 +659,205 @@ static void F6() {
 
 }
 
+static void F7() {
+	
+	printf("==============================================================================\n");
+	printf("Typedef and Structures\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("'typedef' is a keyword\n");
+	printf("\n");
+	printf("To get around writing struct struct_name variable_name; to declare a struct\n");
+	printf("use typedef\n");
+	printf("\n");
+	printf("Create the struture\n");
+	printf("\n");
+	printf("  typedef struct complex\n");
+	printf("  {\n");
+	printf("    int imag;\n");
+	printf("    float real;\n");
+	printf("  } comp;\n");
+	printf("\n");
+	printf("Then use it\n");
+	printf("\n");
+	printf("  comp comp1, comp2;\n");
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+typedef struct SLLNodeInt {
+	int Value;
+	SLLNodeInt* Next;
+} SLLNodeInt;
+
+typedef struct SLLNodeChar {
+	char Value;
+	SLLNodeChar* Next;
+} SLLNodeChar;
+
+typedef struct SLLNodeChars {
+	char* Value;
+	SLLNodeChars* Next;
+} SLLNodeChars;
+
+typedef struct DataValue {
+	int ID;
+} DataValue;
+
+typedef struct ExtendedSLLNode {
+	DataValue value;
+	ExtendedSLLNode* next;
+} ExtendedSLLNode;
+
+static void F8() {
+
+	printf("==============================================================================\n");
+	printf("Self-referential Stuctures - Int or Char\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("This code works for a single-linked list with an int value type.\n");
+	printf("\n");
+	printf("typedef struct SLLNodeInt {\n");
+	printf("  int value;\n");
+	printf("  SLLNodeInt* next;\n");
+	printf("} SLLNodeInt;\n");
+	printf("\n");
+	printf("It also works with char value\n");
+	printf("\n");
+	printf("typedef struct SLLNodeChar {\n");
+	printf("  char value;\n");
+	printf("  SLLNodeChar* next;\n");
+	printf("} SLLNodeChar;\n");
+	printf("\n");
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void DisplayNodes(SLLNodeChars* ListHead);
+
+static void F9() {
+
+	printf("==============================================================================\n");
+	printf("Self-referential Stuctures - Array of Chars\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Struct for node:\n");	
+	printf("  typedef struct SLLNodeChars {\n");
+	printf("    char* Value;\n");
+	printf("    SLLNodeChars* Next;\n");
+	printf("  } SLLNodeChars;\n");
+	printf("\n");
+
+	SLLNodeChars* ListHead;
+	ListHead = NULL;
+	printf("Create a null ListHead pointer variable at memory location %X\n", ListHead);
+	printf("\n");
+	SLLNodeChars* NewNode = (SLLNodeChars*) malloc (sizeof(SLLNodeChars));
+	NewNode->Next = NULL;
+	NewNode->Value = "This is a string.";
+	printf("Create a new node with a string value of '%s'\n", NewNode->Value);
+	printf(" at memory location %X\n", NewNode);
+
+	printf("\n");
+	printf("Set the ListHead to be this new node: ListHead = NewNode;\n");
+	ListHead = NewNode;
+	printf("\n");
+	printf("What is now in ListHead?\n");
+	printf("  Memory Location: %X (Same address as NewNode)\n", ListHead);
+	printf("  Next points to %X\n", ListHead->Next);
+	printf("  Value is: %s\n", ListHead->Value);
+	printf("\n");
+	printf("It's working as I would expect it to work.\n");
+	
+	NewNode = (SLLNodeChars*) malloc (sizeof(SLLNodeChars));
+	NewNode->Next = NULL;
+	NewNode->Value = "Here's a longer string.";
+	printf("\n");
+	printf("Add a second node and ListHead pointing to it.\n");
+	printf("\n");
+	ListHead->Next = NewNode;
+	printf("What is now in ListHead?\n");
+	printf("  Memory Location: %X\n", ListHead);
+	printf("  Next points to %X\n", ListHead->Next);
+	printf("  Value is: %s\n", ListHead->Value);
+	printf("\n");
+	printf("What is in the next node from ListHead?\n");
+	printf("  Memory Location: %X\n", ListHead->Next);
+	printf("  Next points to %X\n", ListHead->Next->Next);
+	printf("  Value is: %s\n", ListHead->Next->Value);
+	printf("\n");
+	printf("It's working as expected. There's the ListHead and it points to a \n");
+	printf("second node and since it's next is 0 or null, that's the end of the list.\n");
+	printf("\n");
+	DisplayNodes(ListHead);
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void DisplayNodes(SLLNodeChars* ListHead) {
+
+	printf("------------------------------------------------------------------------------\n");
+	printf("Display Nodes In The List\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	
+	SLLNodeChars* Traverser;
+	if (ListHead != NULL) {
+		printf("The ListHead is at %X\n", ListHead);
+		Traverser = ListHead;
+		do {
+			printf("List item with value '%s' \nat memory location %X and next at %X\n\n",
+				Traverser->Value, Traverser, Traverser->Next);
+			Traverser = Traverser->Next;
+		} while (Traverser !=NULL);
+	}
+	else 
+		printf("The list empty.\n");
+
+	printf("\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+
+}
+
+static void F10() {
+
+	printf("==============================================================================\n");
+	printf("Self-referential Stuctures - Array of Chars\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+
+	//ExtendedSLLNode* ListHead;
+	//ListHead = NULL;
+	//ExtendedSLLNode* NewNode = (ExtendedSLLNode*) malloc(sizeof(ExtendedSLLNode));
+	//NewNode->next = NULL;
+	//NewNode->value.ID = 100;
+	//ListHead = NewNode;
+	//free(NewNode);
+
+	printf("\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
 static void G() {
 
 	printf("==============================================================================\n");
-	printf("Enumeration\n");
+	printf("G - Enumeration\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("Basics\n");
@@ -691,7 +918,7 @@ static void H() {
 	typedef enum Boolean { False, True} Boolean;
 
 	printf("==============================================================================\n");
-	printf("boolean\n");
+	printf("H - Booleans\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("not part of C, but used in C++\n");
@@ -718,7 +945,7 @@ static void H() {
 static void I() {
 
 	printf("==============================================================================\n");
-	printf("Sizeof\n");
+	printf("I - Sizeof\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	bool t = true;
@@ -759,7 +986,7 @@ static void J() {
 	float age[] = { 23.4, 55, 22.6, 3, 40.5, 18 };
 
 	printf("==============================================================================\n");
-	printf("Pass Arrays To Functions\n");
+	printf("J - Pass Arrays To Functions\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("Passing Element of a One-dimensional Array In Function\n");
@@ -829,7 +1056,7 @@ static float average(float *age)
 static void K() {
 	
 	printf("==============================================================================\n");
-	printf("Pointers & Arrays\n");
+	printf("K - Pointers & Arrays\n");
 	printf("==============================================================================\n");
 	printf("\n");
 	printf("Memory Addresses of Arrays\n");
@@ -876,30 +1103,4 @@ static void K() {
 
 }
 
-static void L() {
-	
-	printf("==============================================================================\n");
-	printf("Typedef and Structures\n");
-	printf("==============================================================================\n");
-	printf("\n");
-	printf("'typedef' is a keyword\n");
-	printf("\n");
-	printf("To get around writing struct struct_name variable_name; to declare a struct\n");
-	printf("use typedef\n");
-	printf("\n");
-	printf("Create the struture\n");
-	printf("\n");
-	printf("  typedef struct complex\n");
-	printf("  {\n");
-	printf("    int imag;\n");
-	printf("    float real;\n");
-	printf("  } comp;\n");
-	printf("\n");
-	printf("Then use it\n");
-	printf("\n");
-	printf("  comp comp1, comp2;\n");
-	printf("\n");
-	printf("==============================================================================\n");
-	system("pause");
 
-}

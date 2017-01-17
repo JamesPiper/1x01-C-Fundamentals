@@ -84,5 +84,8 @@
     <ClCompile Include="_4x02_SingleLinkedListOfChar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="_4x03_SingleLinkedListOfChars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

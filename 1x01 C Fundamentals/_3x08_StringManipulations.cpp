@@ -236,16 +236,31 @@ static void D() {
 	char Str3[] = "ABc";
 	int result;
 	printf("\n");
-	printf("  Strings to compare: Str1[] = \"%s\", Str2[] = \"%s\";, Str3[] = \"%s\"; \n", Str1, Str2, Str3);
+	printf("  Strings to compare: Str1[] = \"%s\", Str2[] = \"%s\";, Str3[] = \"%s\"; \n",
+		Str1, Str2, Str3);
 	printf("\n");
 	result = strcmp(Str1, Str1);
-	printf("  Compare 1 to 1: result = strcmp(Str1, Str1); \"%s\" - \"%s\" returns; %d\n", Str1, Str1, result);
+	printf("  Compare 1 to 1: result = strcmp(Str1, Str1); \"%s\" - \"%s\" returns: %d\n",
+		Str1, Str1, result);
 	result = strcmp(Str1, Str2);
-	printf("  Compare 1 to 2: result = strcmp(Str1, Str2); \"%s\" - \"%s\" returns; %d\n", Str1, Str2, result);
+	printf("  Compare 1 to 2: result = strcmp(Str1, Str2); \"%s\" - \"%s\" returns: %d\n",
+		Str1, Str2, result);
 	result = strcmp(Str1, Str3);
-	printf("  Compare 1 to 3: result = strcmp(Str1, Str3); \"%s\" - \"%s\" returns; %d\n", Str1, Str3, result);
+	printf("  Compare 1 to 3: result = strcmp(Str1, Str3); \"%s\" - \"%s\" returns: %d\n",
+		Str1, Str3, result);
+	result = strcmp(Str2, Str1);
+	printf("  Compare 2 to 1: result = strcmp(Str2, Str1); \"%s\" - \"%s\" returns: %d\n",
+		Str2, Str1, result);
 	result = strcmp(Str2, Str3);
-	printf("  Compare 2 to 3: result = strcmp(Str2, Str3); \"%s\" - \"%s\" returns; %d\n", Str2, Str3, result);
+	printf("  Compare 2 to 3: result = strcmp(Str2, Str3); \"%s\" - \"%s\" returns: %d\n",
+		Str2, Str3, result);
+	result = strcmp(Str3, Str1);
+	printf("  Compare 3 to 1: result = strcmp(Str3, Str1); \"%s\" - \"%s\" returns: %d\n",
+		Str3, Str1, result);
+	printf("\n");
+	printf("  Compare \"%s\" to \"%s\" returns: %d \n", "AB", "BA", strcmp("AB","BA"));
+	printf("  Compare \"%s\" to \"%s\" returns: %d \n", "BA", "AB", strcmp("BA","AB"));
+	printf("\n");
 	printf("\n");
 	printf("int strncmp (first string, second string, num);\n");
 	printf("------------------------------------------------------------------------------\n");

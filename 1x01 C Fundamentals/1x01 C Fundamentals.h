@@ -20,6 +20,7 @@ void _3x0A_IOTests();
 void _4x00_LinkedLists();
 void _4x01_SingleLinkedListOfInts();
 void _4x02_SingleLinkedListOfChar();
+void _4x03_SingleLinkedListOfChars();
 
 void _0x09_PointersStructures();
 

@@ -8,6 +8,16 @@
 // with array of chars.
 //
 //==============================================================================
+//
+// What's the difference? Change int to char and use '%c' instead of '%d'
+// Afterall a char is an n-bit int.
+// That makes sense except after adding one node and calling DisplayNodes
+// this line, Traverser = ListHead;, shows that ListHead is null 
+// yet the code works and it displays the data.
+// I don't understand what's going on. Maybe too close to this.
+// Perhaps tomorrow I'll see it better.
+//
+//==============================================================================
 
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"

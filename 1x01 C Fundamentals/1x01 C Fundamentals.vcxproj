@@ -104,6 +104,7 @@
     <ClCompile Include="_4x00_LinkedLists.cpp" />
     <ClCompile Include="_4x01_SingleLinkedListOfInts.cpp" />
     <ClCompile Include="_4x02_SingleLinkedListOfChar.cpp" />
+    <ClCompile Include="_4x03_SingleLinkedListOfChars.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

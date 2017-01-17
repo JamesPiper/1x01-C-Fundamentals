@@ -47,7 +47,7 @@ void _4x00_LinkedLists() {
 		else if (Choice == 'b')
 			_4x02_SingleLinkedListOfChar();
 		else if (Choice == 'c') 
-			Choice = 'c';
+			_4x03_SingleLinkedListOfChars();
 		else if (Choice == 'd') 
 			Choice = 'd';
 		else if (Choice == 'x') 

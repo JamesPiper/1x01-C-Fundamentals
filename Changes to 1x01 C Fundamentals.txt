@@ -5,6 +5,11 @@
 // 
 //==============================================================================
 
+2017.01.16
+· Adding test code on Standard I/O - working through functions in stdio.h.
+· Adding test code on using char array in self-referential structure - it's working
+· Reworking the SLL code for char array. Need to malloc char value in struct.
+
 2017.01.15
 · Adding test code on Standard I/O.
 · Test code on creating memory and freeing with function call. It works.
