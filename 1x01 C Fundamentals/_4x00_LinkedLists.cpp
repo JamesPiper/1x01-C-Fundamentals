@@ -11,7 +11,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
-
+#include <ctype.h>
 
 void _4x00_LinkedLists() {
 
@@ -39,8 +39,7 @@ void _4x00_LinkedLists() {
 
 		printf("Enter choice: ");
 		scanf("%s", &Inputs);
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 
 		if (Choice == 'a')
 			_4x01_SingleLinkedListOfInts();

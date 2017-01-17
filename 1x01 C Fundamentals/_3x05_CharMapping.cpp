@@ -8,8 +8,6 @@
 // http://pastebin.com/rkNZCKDJ
 
 #include "stdafx.h"
-#include "1x01 C Fundamentals.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 #include <cstdio>
 #include <cstdlib>

@@ -1,8 +1,14 @@
 //==============================================================================
 // 2017.01.12 by James Piper, james@jamespiper.com
-// 
+//==============================================================================
+
+//==============================================================================
+// Common typedefs
+//==============================================================================
+typedef enum Boolean { False, True };
+
+//==============================================================================
 // Function prototypes.
-// 
 //==============================================================================
 void _2x00_MainMenu();
 void _3x00_Hello_World();
@@ -17,6 +23,11 @@ void _3x08_StringManipulations();
 void _3x09_DataStructures();
 void _3x0A_IOTests();
 
+void _3X0B_User_Defined_Functions();
+Boolean FileExists(const char* filename);
+int StringCompare(const char* string1, const char* string2);
+char* TrimWhitespace(char* string);
+
 void _4x00_LinkedLists();
 void _4x01_SingleLinkedListOfInts();
 void _4x02_SingleLinkedListOfChar();
@@ -26,7 +37,9 @@ void _0x09_PointersStructures();
 
 
 //==============================================================================
-// Set defines for constants
+// Set defines for constants (aka macros)
 //==============================================================================
 #define MAX_INPUT_CHARS 255
 #define MAX_FILENAME_CHARS 255
+#define _CRT_SECURE_NO_WARNINGS
+

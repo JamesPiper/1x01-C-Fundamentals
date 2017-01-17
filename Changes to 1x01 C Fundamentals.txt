@@ -5,6 +5,16 @@
 // 
 //==============================================================================
 
+2017.01.17
+· Remove use of strlwr() since it's not std C. Use tolower() instead.
+· Move '#define _CRT_SECURE_NO_WARNINGS' to header file.
+· Some general housekeeping on existing code.
+· Adding User-defined Functions in Main Menu.
+· Using these functions from other files.
+· Putting 'FileExists' function in library.
+· Putting 'StringCompare' function in library.
+· Creating a TrimWhitespace function for use in string inputs.
+
 2017.01.16
 · Adding test code on Standard I/O - working through functions in stdio.h.
 · Adding test code on using char array in self-referential structure - it's working

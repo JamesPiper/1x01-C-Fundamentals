@@ -87,5 +87,8 @@
     <ClCompile Include="_4x03_SingleLinkedListOfChars.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="_3X0B_User_Defined_Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

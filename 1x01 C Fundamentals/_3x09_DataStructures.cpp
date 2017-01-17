@@ -13,6 +13,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
+#include <ctype.h>
 
 // Function prototypes
 static void B();
@@ -52,9 +53,7 @@ void _3x09_DataStructures() {
 		printf("Enter choice: ");
 
 		scanf("%s", &Inputs);
-
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 		printf("\n");
 
 		if (Choice == 'a')

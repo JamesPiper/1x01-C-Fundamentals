@@ -13,8 +13,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
-
-typedef enum Boolean { False, True };
+#include <ctype.h>
 
 // Function prototypes.
 static void A();
@@ -28,9 +27,6 @@ static void H();
 static void I();
 static void J();
 static void K();
-
-static Boolean FileExists(const char* filename);
-
 
 void _3x0A_IOTests() {
 
@@ -60,8 +56,7 @@ void _3x0A_IOTests() {
 
 		printf("Enter choice: ");
 		scanf("%s", &Inputs);
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 
 		if (Choice == 'a')
 			A();
@@ -105,7 +100,7 @@ static void A() {
 	printf("      return True;\n");
 	printf("    } else\n");
 	printf("      return False;\n");
-	printf("    }\n");
+	printf("  }\n");
 	printf("\n");
 	
 	printf("Enter a filename: ");
@@ -348,22 +343,5 @@ static void J() {
 }
 
 static void K() {
-
-}
-
-static Boolean FileExists(const char* filename) {
-
-	// There seems to be several ways to do this, but using fopen seems the easiest.
-	// One method uses access() yet I can't find any reference on this.
-	// Another uses stat() function in <sys/stat.h>
-	// Using const in argument so this function doesn't change the filename.
-
-	FILE* pFile;
-	pFile = fopen(filename, "r");
-	if (pFile != NULL) { 
-		fclose(pFile);
-		return True;
-	} else
-		return False;
 
 }

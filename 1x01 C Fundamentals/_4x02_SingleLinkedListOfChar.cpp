@@ -25,8 +25,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
+#include <ctype.h>
 
-typedef enum Boolean { False, True };
+//typedef enum Boolean { False, True };
 
 // For Single Linked List
 typedef struct SLListChar  
@@ -83,8 +84,7 @@ void _4x02_SingleLinkedListOfChar() {
 
 		printf("Enter choice: ");
 		scanf("%s", &Inputs);
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 
 		if (Choice == 'a')
 			GetNodeValueToAdd();

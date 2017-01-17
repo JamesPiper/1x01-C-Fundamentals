@@ -57,7 +57,7 @@
 #include <string.h>
 #include <ctype.h>
 
-typedef enum Boolean { False, True };
+//typedef enum Boolean { False, True };
 
 // For Single Linked List
 typedef struct SLListChars  
@@ -83,7 +83,7 @@ static void InsertNode(char* value);
 static void DisplayNodes();
 static void AtExitCleanup();
 
-static int StringCompare(char* string1, char* string2);
+//static int StringCompare(char* string1, char* string2);
 
 void _4x03_SingleLinkedListOfChars() {
 
@@ -127,8 +127,7 @@ void _4x03_SingleLinkedListOfChars() {
 
 		printf("Enter choice: ");
 		scanf("%s", &Inputs);
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 
 		if (Choice == 'a')
 			GetNodeValueToAdd();
@@ -293,7 +292,8 @@ static void RemoveNode(char* value) {
 			if (Traverser->Next !=NULL) {
 				//if (value == Traverser->Value) {
 				//if (strcmp(value, Traverser->Value) == 0) {
-				if (strcmp(strlwr(value), strlwr(Traverser->Value)) == 0) {
+				//if (strcmp(strlwr(value), strlwr(Traverser->Value)) == 0) {
+				if (StringCompare(value, Traverser->Value) == 0) {
 					LocationFound = True;
 					PrevNode->Next = Traverser->Next;
 					free(Traverser);
@@ -306,7 +306,8 @@ static void RemoveNode(char* value) {
 				// At the end of the list.
 				//if (value == Traverser->Value) {
 				//if (strcmp(value, Traverser->Value) == 0) {
-				if (strcmp(strlwr(value), strlwr(Traverser->Value)) == 0) {
+				//if (strcmp(strlwr(value), strlwr(Traverser->Value)) == 0) {
+				if (StringCompare(value, Traverser->Value) == 0) {
 					LocationFound = True;
 					PrevNode->Next = NULL;
 					free(Traverser);
@@ -464,53 +465,53 @@ static void AtExitCleanup() {
 	}
 }
 
-static int StringCompare(char* string1, char* string2) {
-
-	// Compare string1 to string2 without regard to case.
-	// Thus ABC is equal to abc or AbC and the other variations.
-
-	// Returns
-	// 0 if string1 is the same as string2
-	// < 0 if string1 comes before string2
-	// > 0 if string1 comes after string2
-
-	/////////////////////////////////////////////////////////////////////////////////////
-	// Ugh. I discovered that strlwr and strupr are not standard C,
-	// yet it was presented as such on a C reference web site.
-	// To use them or not? 
-	// It would be possible to covert each char to ASCII 65 ('A') to 90 ('Z')
-	// but that makes for longer code.
-	// There are functions in ctype.h for lower or upper.
-	//
-	// Another issue. Calling strlwr changes the value of the argument.
-	// Using 'const char*' in the function definition doesn't solve the problem.
-	//
-	// Easy to use int result = stricmp(string1, string2); but it's not std.
-	//
-	/////////////////////////////////////////////////////////////////////////////////////
-
-	// To avoid reading past an array.
-	int Length = strlen(string1);
-	int LengthA = strlen(string1);
-	int LengthB = strlen(string1);
-	if (LengthB < LengthA) 
-		Length = LengthB;
-
-	char A, B;
-	int result = 0;
-
-	for (int i = 0; i < Length; i++) {
-		A = tolower(string1[i]);
-		B = tolower(string2[i]);
-		// Want to keep result from previous compares.
-		if (A == B) 
-			result = result * result;
-		else if (A <= B) 
-			result = -1;
-		else if (A >= B)
-			result = 1;
-	}
-
-	return result;
-
-}
+//static int StringCompare(char* string1, char* string2) {
+//
+//	// Compare string1 to string2 without regard to case.
+//	// Thus ABC is equal to abc or AbC and the other variations.
+//
+//	// Returns
+//	// 0 if string1 is the same as string2
+//	// < 0 if string1 comes before string2
+//	// > 0 if string1 comes after string2
+//
+//	/////////////////////////////////////////////////////////////////////////////////////
+//	// Ugh. I discovered that strlwr and strupr are not standard C,
+//	// yet it was presented as such on a C reference web site.
+//	// To use them or not? 
+//	// It would be possible to covert each char to ASCII 65 ('A') to 90 ('Z')
+//	// but that makes for longer code.
+//	// There are functions in ctype.h for lower or upper.
+//	//
+//	// Another issue. Calling strlwr changes the value of the argument.
+//	// Using 'const char*' in the function definition doesn't solve the problem.
+//	//
+//	// Easy to use int result = stricmp(string1, string2); but it's not std.
+//	//
+//	/////////////////////////////////////////////////////////////////////////////////////
+//
+//	// To avoid reading past an array.
+//	int Length = strlen(string1);
+//	int LengthA = strlen(string1);
+//	int LengthB = strlen(string1);
+//	if (LengthB < LengthA) 
+//		Length = LengthB;
+//
+//	char A, B;
+//	int result = 0;
+//
+//	for (int i = 0; i < Length; i++) {
+//		A = tolower(string1[i]);
+//		B = tolower(string2[i]);
+//		// Want to keep result from previous compares.
+//		if (A == B) 
+//			result = abs(result) * result;
+//		else if (A <= B) 
+//			result = -1;
+//		else if (A >= B)
+//			result = 1;
+//	}
+//
+//	return result;
+//
+//}

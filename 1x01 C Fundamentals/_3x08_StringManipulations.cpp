@@ -9,11 +9,11 @@
 
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
+#include <ctype.h>
 
 // Function prototypes
 static void A();
@@ -60,9 +60,7 @@ void _3x08_StringManipulations() {
 		printf("Enter choice: ");
 
 		scanf("%s", &Inputs);
-
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 		printf("\n");
 
 		if (Choice == 'a')

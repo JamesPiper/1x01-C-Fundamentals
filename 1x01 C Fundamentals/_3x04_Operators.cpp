@@ -7,13 +7,12 @@
 
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 #include <cstdio>
 #include <cmath>
 #include <cstdlib>
 #include <string.h>
-
+#include <ctype.h>
 
 // Function prototypes
 static void A();
@@ -43,8 +42,9 @@ void _3x04_Operators() {
 		printf("*   D - Logical Operators                                                    *\n");
 		printf("*   E - Bitwise Operators                                                    *\n");
 		printf("*   F - Other Assignment Operators                                           *\n");
-		printf("*   G - Bitwise Operators Examples                                           *\n");
-		printf("*   H - Other Assignment Operators Examples                                  *\n");
+		printf("*                                                                            *\n");
+		printf("*   G - Examples: Bitwise Operators                                          *\n");
+		printf("*   H - Examples: Other Assignment Operators                                 *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
@@ -56,9 +56,7 @@ void _3x04_Operators() {
 		printf("Enter choice: ");
 
 		scanf("%s", &Inputs);
-
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 		printf("\n");
 
 		if (Choice == 'a')

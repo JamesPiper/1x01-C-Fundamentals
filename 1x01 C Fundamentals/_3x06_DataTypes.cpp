@@ -7,13 +7,13 @@
 
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <cmath>
-#define MAX_0A 2
+#include <ctype.h>
+#define NUM_OF_NUMS_TO_SUM 2
 
 // Function prototypes
 static void A();
@@ -80,9 +80,7 @@ void _3x06_DataTypes() {
 		printf("Enter choice: ");
 
 		scanf("%s", &Inputs);
-
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 		printf("\n");
 
 		if (Choice == 'a')
@@ -471,9 +469,7 @@ static void F0() {
 		printf("Enter choice: ");
 
 		scanf("%s", &Inputs);
-
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 		printf("\n");
 
 		if (Choice == 'a')
@@ -1086,9 +1082,9 @@ static void K() {
 	printf(" Store inputs: scanf(\"%%d\",(classes + i));\n");
 	printf(" Calc sum: sum += *(classes + i);\n");
 	printf("\n");
-	int i, classes[MAX_0A], sum = 0;
-	printf("Enter %d numbers:\n", MAX_0A);
-	for(i = 0; i < MAX_0A; ++i)
+	int i, classes[NUM_OF_NUMS_TO_SUM], sum = 0;
+	printf("Enter %d numbers:\n", NUM_OF_NUMS_TO_SUM);
+	for(i = 0; i < NUM_OF_NUMS_TO_SUM; ++i)
 	{
       // (classes + i) is equivalent to &classes[i]
       scanf("%d",(classes + i));

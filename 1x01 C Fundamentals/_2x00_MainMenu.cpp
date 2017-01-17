@@ -11,6 +11,7 @@
 #include "1x01 C Fundamentals.h"
 #include <cstdio>
 #include <string.h>
+#include <ctype.h>
 
 void _2x00_MainMenu() {
 
@@ -30,11 +31,10 @@ void _2x00_MainMenu() {
 		printf("*   A - Keywords                          H - Dynamic Memory Allocation      *\n");
 		printf("*   B - Header Files                      I - String Manipulations           *\n");
 		printf("*   C - Control Statements                J - Data Structures                *\n");
-		printf("*   D - Operators                                                            *\n");
+		printf("*   D - Operators                         K - User-defined Functions         *\n");
 		printf("*   E - Char Mapping Table                                                   *\n");
 		printf("*   F - Data Types                                                           *\n");
 		printf("*   G - Standard I/O                                                         *\n");
-		printf("*                                                                            *\n");
 		printf("*                                                                            *\n");
 		printf("*   X - Exit the program.                                                    *\n");
 		printf("*                                                                            *\n");
@@ -52,9 +52,7 @@ void _2x00_MainMenu() {
 		// but that is not standard C, specific to MS, so avoid.
 		// Not sure what is the best way to avoid buffer overflow.
 		scanf("%s", &Inputs);
-
-		strlwr(Inputs);
-		Choice = Inputs[0];
+		Choice = tolower(Inputs[0]);
 		printf("\n");
 
 		if (Choice == '0') 
@@ -80,7 +78,7 @@ void _2x00_MainMenu() {
 		else if (Choice == 'j')
 			_3x09_DataStructures();
 		else if (Choice == 'k')
-			Choice = 'k';
+			_3X0B_User_Defined_Functions();
 		else if (Choice == 'l')
 			Choice = 'l';
 		else if (Choice == 'm') 
