@@ -1,82 +1,16 @@
-﻿Build started 2017.01.17 17:24:19.
+﻿Build started 2017.01.18 19:15:19.
      1>Project "C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\1x01 C Fundamentals.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt _3X0B_User_Defined_Functions.cpp _4x03_SingleLinkedListOfChars.cpp
-         _4x03_SingleLinkedListOfChars.cpp
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(129): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\1x01 C Fundamentals.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt _4x02_SingleLinkedListOfChar.cpp
+         _4x02_SingleLinkedListOfChar.cpp
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(88): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(161): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(123): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(230): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(251): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(202): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x03_singlelinkedlistofchars.cpp(334): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x02_singlelinkedlistofchar.cpp(286): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-         _3X0B_User_Defined_Functions.cpp
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(52): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(119): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(140): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(141): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(145): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(146): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(150): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(151): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(156): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(157): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(161): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(162): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(166): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(167): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(174): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(175): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(179): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(180): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(184): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(185): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(190): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(191): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(195): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(196): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(285): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(294): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(308): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(316): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(322): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(328): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_3x0b_user_defined_functions.cpp(334): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.lib" /MACHINE:X86 "Debug\1x01 C Fundamentals.obj"
          Debug\PointersStructures.obj
@@ -93,7 +27,7 @@
          Debug\_3x05_CharMapping.obj
          Debug\_3x06_DataTypes.obj
          Debug\_3x0A_IOTests.obj
-         Debug\_3X0B_User_Defined_Functions.obj
+         Debug\_3x0B_User_Defined_Functions.obj
          Debug\_4x00_LinkedLists.obj
          Debug\_4x01_SingleLinkedListOfInts.obj
          Debug\_4x02_SingleLinkedListOfChar.obj
@@ -103,4 +37,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.52
+Time Elapsed 00:00:01.98

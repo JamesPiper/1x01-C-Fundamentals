@@ -83,7 +83,7 @@ static void InsertNode(char* value);
 static void DisplayNodes();
 static void AtExitCleanup();
 
-//static int StringCompare(char* string1, char* string2);
+static void _4x03_SingleLinkedListOfChars_TestCode();
 
 void _4x03_SingleLinkedListOfChars() {
 
@@ -119,6 +119,8 @@ void _4x03_SingleLinkedListOfChars() {
 		printf("*   C - Insert Node (Sorted list)                                            *\n");
 		printf("*   D - Display Nodes                                                        *\n");
 		printf("*                                                                            *\n");
+		printf("*   T - Test Code                                                            *\n");
+		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");
 		printf("*                                                                            *\n");
@@ -137,6 +139,8 @@ void _4x03_SingleLinkedListOfChars() {
 			GetNodeValueToInsert();
 		else if (Choice == 'd') 
 			DisplayNodes();
+		else if (Choice == 't') 
+			_4x03_SingleLinkedListOfChars_TestCode();
 		else if (Choice == 'x') 
 			exit(0);
 		else if (Choice == 'z') { 
@@ -160,8 +164,8 @@ static void GetNodeValueToAdd() {
 	char Inputs[MAX_INPUT_CHARS];
 	scanf("%s", &Inputs);
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("[Inputs in GetNodeValueToAdd '%s' at memory location %X]\n", Inputs, Inputs);
-	//printf("[Value in GetNodeValueToAdd '%s' at memory location %X]\n", Value, Value);
+	//printf("Inputs in GetNodeValueToAdd '%s' at memory location %X\n", Inputs, Inputs);
+	//printf("Value in GetNodeValueToAdd '%s' at memory location %X\n", Value, Value);
 	/////////////////////////////////////////////////////////////////////////////////////
 	AddNode(Inputs);
 	
@@ -174,10 +178,14 @@ static void GetNodeValueToAdd() {
 static void AddNode(char* value) {
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("[Value in AddNode '%s' at memory location %X]\n", value, value);
+	//printf("Value in AddNode '%s' at memory location %X\n", value, value);
 	/////////////////////////////////////////////////////////////////////////////////////
 
-	// Create a new node.
+	/////////////////////////////////////////////////////////////////////////////////////
+	TrimWhitespace(value);
+	/////////////////////////////////////////////////////////////////////////////////////
+
+		// Create a new node.
 	SLListChars* NewNode = CreateNewNode(value);
 
 	// Add node to the end of the list.
@@ -189,25 +197,32 @@ static void AddNode(char* value) {
 				Traverser = Traverser->Next;
 			}
 			Traverser->Next = NewNode;
-		}
-		else 
+		} else {
 			// First node.
 			ListHead = NewNode;
+			// Assigning NewNode to ListHead, when the first node is created, works for ints.
+			// Yet something odd is happening with char or char*.
+			// In debug mode, ListHead has null value after the assign, yet 
+			// printing out the values works. Makes no sense.
+			// And, it doesn't seem to matter if assignment is done for each member.
+			/////////////////////////////////////////////////////////////////////////////////////
+			//ListHead->Value = NewNode->Value;
+			//ListHead->Next = NewNode->Next;
+			/////////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////
+			//printf(">>>>>ListHead in AddNode<<<<<\n");
+			//printf(">>>>>(Memory Location: %X | Value: '%s' | Next: %X)<<<<<\n",
+			//	ListHead, ListHead->Value, ListHead->Next);
+			/////////////////////////////////////////////////////////////////////////////////////
+		}
 		printf("Node added to the list with value '%s' at location %X.\n", value, NewNode);
-	}
-	else 
+	} else 
 		printf("Problem allocating memory for new node.\n");
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("[ListHead in AddNode:\n");
-	//printf(" Memory Location: %X\n", ListHead);
-	//printf(" Value: %s at memory location %X\n", ListHead->Value, ListHead->Value);
-	//printf(" Next: %X]\n", ListHead->Next);
-	//
-	//printf("[NewNode in AddNode:\n");
-	//printf(" Memory Location: %X\n", NewNode);
-	//printf(" Value: %s at memory location %X\n", NewNode->Value, NewNode->Value);
-	//printf(" Next: %X]\n", NewNode->Next);
+	//printf(">>>>>NewNode in AddNode:<<<<<\n");
+	//printf(">>>>>(Memory Location: %X | Value: '%s' | Next: %X)<<<<<\n",
+	//	NewNode, NewNode->Value, NewNode->Next);
 	/////////////////////////////////////////////////////////////////////////////////////
 
 }
@@ -225,11 +240,9 @@ static SLListChars* CreateNewNode(char* value) {
 	if (NewNode != NULL) {
 		/////////////////////////////////////////////////////////////////////////////////////
 		// Major difference here from the other SLL implementations
-		/////////////////////////////////////////////////////////////////////////////////////
 		NewNode->Value = (char*) malloc(sizeof(strlen(value) + 1));
 		strcpy(NewNode->Value, value);
 		/////////////////////////////////////////////////////////////////////////////////////
-		//NewNode->Value = Value;
 		NewNode->Next = NULL;
 		return NewNode;
 	}
@@ -275,10 +288,16 @@ static void RemoveNode(char* value) {
 	
 	// Using NotEndOfList for readability even though it adds to cycles.
 
-	//if (value == ListHead->Value) {
-	//if (strcmp(value, ListHead->Value) == 0) {
-	//if (strcmp(strlwr(value), strlwr(ListHead->Value)) == 0) {
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Using free to deallocate memory for a node.
+	// It seems to me I should use deallocate to remove the memory used for the 
+	// 
+	// free(Traverser->Value);
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////////////////////////////
 	if (StringCompare(value, ListHead->Value) == 0) {
+	/////////////////////////////////////////////////////////////////////////////////////
 		// Remove at start.
 		ListHead = ListHead->Next;
 		printf("Node with value '%s' removed from the list.\n", value);
@@ -290,13 +309,21 @@ static void RemoveNode(char* value) {
 		Boolean NotEndOfList = True;
 		while (LocationFound != True && NotEndOfList == True)  {
 			if (Traverser->Next !=NULL) {
-				//if (value == Traverser->Value) {
-				//if (strcmp(value, Traverser->Value) == 0) {
-				//if (strcmp(strlwr(value), strlwr(Traverser->Value)) == 0) {
+				/////////////////////////////////////////////////////////////////////////////////////
 				if (StringCompare(value, Traverser->Value) == 0) {
+				/////////////////////////////////////////////////////////////////////////////////////
 					LocationFound = True;
 					PrevNode->Next = Traverser->Next;
+					/////////////////////////////////////////////////////////////////////////////////////
+					char* str = Traverser->Value;
+					printf("Traverser->Value before: '%s' at %X\n", Traverser->Value);
+					printf("Value before: '%s' at %X\n", str);
+					//free(str);
+					/////////////////////////////////////////////////////////////////////////////////////
 					free(Traverser);
+					/////////////////////////////////////////////////////////////////////////////////////
+					printf("Value after : '%s' at %X\n", str);
+					/////////////////////////////////////////////////////////////////////////////////////
 					printf("Node with value '%s' removed from the list.\n", value);
 				} else {
 					PrevNode = Traverser;
@@ -304,13 +331,21 @@ static void RemoveNode(char* value) {
 				}
 			} else {
 				// At the end of the list.
-				//if (value == Traverser->Value) {
-				//if (strcmp(value, Traverser->Value) == 0) {
-				//if (strcmp(strlwr(value), strlwr(Traverser->Value)) == 0) {
+				/////////////////////////////////////////////////////////////////////////////////////
 				if (StringCompare(value, Traverser->Value) == 0) {
+				/////////////////////////////////////////////////////////////////////////////////////
 					LocationFound = True;
 					PrevNode->Next = NULL;
+					/////////////////////////////////////////////////////////////////////////////////////
+					char* str = Traverser->Value;
+					printf("Traverser->Value before: '%s' at %X\n", Traverser->Value);
+					printf("Value before: '%s' at %X\n", str);
+					//free(str);
+					/////////////////////////////////////////////////////////////////////////////////////
 					free(Traverser);
+					/////////////////////////////////////////////////////////////////////////////////////
+					printf("Value after : '%s' at %X\n", str);
+					/////////////////////////////////////////////////////////////////////////////////////
 					printf("Node with value '%s' removed from the list.\n", value);
 				} else {
 					NotEndOfList = False;
@@ -362,18 +397,26 @@ static void InsertNode(char* value) {
 	// Also needed to catch any null pointers.
 	// Looking at ways to simplify but this seems to be it.
 
+	/////////////////////////////////////////////////////////////////////////////////////
+	TrimWhitespace(value);
+	/////////////////////////////////////////////////////////////////////////////////////
+
 	// Create a new node.
 	SLListChars* NewNode = CreateNewNode(value);
 
 	// Insert new node into the list.
 	if (NewNode != NULL) {
 		if (ListHead != NULL) {
-			//if (value <= ListHead->Value) {
-			//if (strcmp(strlwr(value), strlwr(ListHead->Value)) <= 0) {
+			/////////////////////////////////////////////////////////////////////////////////////
 			if (StringCompare(value, ListHead->Value) <= 0) {
+			/////////////////////////////////////////////////////////////////////////////////////
 				// Insert at start.
 				NewNode->Next = ListHead;
 				ListHead = NewNode;
+				/////////////////////////////////////////////////////////////////////////////////////
+				ListHead->Value = NewNode->Value;
+				ListHead->Next = NewNode->Next;
+				/////////////////////////////////////////////////////////////////////////////////////
 			} else {
 				// Search for insertion point.
 				SLListChars* Traverser = ListHead;
@@ -386,7 +429,9 @@ static void InsertNode(char* value) {
 					if (Traverser->Next != NULL) {
 						//if (value <= Traverser->Value) {
 						//if (strcmp(strlwr(value), strlwr(Traverser->Value)) <= 0) {
+						/////////////////////////////////////////////////////////////////////////////////////
 						if (StringCompare(value, Traverser->Value) <= 0) {
+						/////////////////////////////////////////////////////////////////////////////////////
 							// Insert between two nodes.
 							LocationFound = True;
 							PrevNode->Next = NewNode;
@@ -399,9 +444,9 @@ static void InsertNode(char* value) {
 					} else {
 						// At the end.
 						LocationFound = True;
-						//if (value <= Traverser->Value) {
-						//if (strcmp(strlwr(value), strlwr(Traverser->Value)) <= 0) {
+						/////////////////////////////////////////////////////////////////////////////////////
 						if (StringCompare(value, Traverser->Value) <= 0) {
+						/////////////////////////////////////////////////////////////////////////////////////
 							PrevNode->Next = NewNode;
 							NewNode->Next = Traverser;
 						} else
@@ -409,9 +454,20 @@ static void InsertNode(char* value) {
 					}
 				}
 			}
-		} else 
+		} else {
 			// First node on the list.
 			ListHead = NewNode;
+			/////////////////////////////////////////////////////////////////////////////////////
+			ListHead->Value = NewNode->Value;
+			ListHead->Next = NewNode->Next;
+			/////////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////
+			printf("ListHead in InsertNode - First Node:\n");
+			printf(" Memory Location: %X\n", ListHead);
+			printf(" Value: %s\n", ListHead->Value);
+			printf(" Next: %X\n", ListHead->Next);
+			/////////////////////////////////////////////////////////////////////////////////////
+		}
 		printf("Node inserted into the list with value '%s' at location %X.\n", value, NewNode);
 	} else 
 		printf("Problem allocating memory for new node.\n");
@@ -425,10 +481,10 @@ static void DisplayNodes() {
 	printf("\n");
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("[ListHead in DisplayNodes:\n");
+	//printf("ListHead in DisplayNodes:\n");
 	//printf(" Memory Location: %X\n", ListHead);
 	//printf(" Value: %s\n", ListHead->Value);
-	//printf(" Next: %X]\n", ListHead->Next);
+	//printf(" Next: %X\n", ListHead->Next);
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	SLListChars* Traverser;
@@ -465,53 +521,82 @@ static void AtExitCleanup() {
 	}
 }
 
-//static int StringCompare(char* string1, char* string2) {
-//
-//	// Compare string1 to string2 without regard to case.
-//	// Thus ABC is equal to abc or AbC and the other variations.
-//
-//	// Returns
-//	// 0 if string1 is the same as string2
-//	// < 0 if string1 comes before string2
-//	// > 0 if string1 comes after string2
-//
-//	/////////////////////////////////////////////////////////////////////////////////////
-//	// Ugh. I discovered that strlwr and strupr are not standard C,
-//	// yet it was presented as such on a C reference web site.
-//	// To use them or not? 
-//	// It would be possible to covert each char to ASCII 65 ('A') to 90 ('Z')
-//	// but that makes for longer code.
-//	// There are functions in ctype.h for lower or upper.
-//	//
-//	// Another issue. Calling strlwr changes the value of the argument.
-//	// Using 'const char*' in the function definition doesn't solve the problem.
-//	//
-//	// Easy to use int result = stricmp(string1, string2); but it's not std.
-//	//
-//	/////////////////////////////////////////////////////////////////////////////////////
-//
-//	// To avoid reading past an array.
-//	int Length = strlen(string1);
-//	int LengthA = strlen(string1);
-//	int LengthB = strlen(string1);
-//	if (LengthB < LengthA) 
-//		Length = LengthB;
-//
-//	char A, B;
-//	int result = 0;
-//
-//	for (int i = 0; i < Length; i++) {
-//		A = tolower(string1[i]);
-//		B = tolower(string2[i]);
-//		// Want to keep result from previous compares.
-//		if (A == B) 
-//			result = abs(result) * result;
-//		else if (A <= B) 
-//			result = -1;
-//		else if (A >= B)
-//			result = 1;
-//	}
-//
-//	return result;
-//
-//}
+static void _4x03_SingleLinkedListOfChars_TestCode() {
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Run test code on the SLL data structure of char.
+	// 
+	// Able to test valid inputs (char) to show it works.
+	// Not able to test junk input to see how it handles it.
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	printf("==============================================================================\n");
+	printf("Testing Code - Check Add, Insert, Remove and Display Nodes\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	printf("Add Some Nodes (Not a sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	char Str[MAX_INPUT_CHARS];
+	strcpy(Str, "Mark");
+	AddNode(Str);
+
+	strcpy(Str, "Spencer");
+	AddNode(Str);
+
+	strcpy(Str, "   Mark   ");
+	AddNode(Str);
+	
+	strcpy(Str, "     Spencer    ");
+	AddNode(Str);
+	
+	strcpy(Str, "   Mark Spencer    ");
+	AddNode(Str);
+	
+	strcpy(Str, "   Mark    Spencer    ");
+	AddNode(Str);
+	
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Remove Some Nodes\n");
+	printf("------------------------------------------------------------------------------\n");
+	RemoveNode("Spencer");
+	RemoveNode("Mark");
+	RemoveNode("Mark    Spencer");
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+/*
+	printf("Insert Some Nodes (Sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	InsertNode('a');
+	InsertNode('b');
+	InsertNode('u');
+	InsertNode('n');
+	InsertNode(' ');
+	InsertNode('x');
+	InsertNode('b');
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Remove Some Nodes (Sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	RemoveNode('z');
+	RemoveNode('b');
+	RemoveNode('u');
+	RemoveNode('u');
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+*/
+	printf("\n");
+	printf("==============================================================================\n");
+
+}

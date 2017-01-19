@@ -17,13 +17,11 @@
 
 // Function prototypes
 static void Use_FileExists();
-
 static void Use_StringCompare();
 static char* StringCompareInText(int result);
-
 static void Use_TrimWhitespace();
 
-void _3X0B_User_Defined_Functions() {
+void _3x0B_User_Defined_Functions() {
 	
 	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
@@ -203,6 +201,7 @@ static void Use_StringCompare() {
 	system("pause");
 
 }
+
 int StringCompare(const char* string1, const char* string2) {
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -332,6 +331,12 @@ static void Use_TrimWhitespace() {
 	printf("\n");
 
 	strcpy(str, "");
+	printf("Text before: '%s'\n", str);
+	printf("Text after:  '%s'\n", TrimWhitespace(str));
+	printf("              012345678901234567890123456789\n");
+	printf("\n");
+
+	strcpy(str, "  word    gap   ");
 	printf("Text before: '%s'\n", str);
 	printf("Text after:  '%s'\n", TrimWhitespace(str));
 	printf("              012345678901234567890123456789\n");

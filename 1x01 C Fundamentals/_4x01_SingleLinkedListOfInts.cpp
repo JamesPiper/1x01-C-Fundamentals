@@ -38,8 +38,6 @@
 #include <string.h>
 #include <ctype.h>
 
-//typedef enum Boolean { False, True };
-
 // For Single Linked List of Ints
 typedef struct SLListInts  
 {
@@ -65,6 +63,8 @@ static void DisplayNodes();
 			
 static void AtExitCleanup();
 
+static void _4x01_SingleLinkedListOfInts_TestCode();
+
 void _4x01_SingleLinkedListOfInts() {
 
 	char Inputs[MAX_INPUT_CHARS];
@@ -88,6 +88,8 @@ void _4x01_SingleLinkedListOfInts() {
 		printf("*   C - Insert Node (Sorted list)                                            *\n");
 		printf("*   D - Display Nodes                                                        *\n");
 		printf("*                                                                            *\n");
+		printf("*   T - Test Code                                                            *\n");
+		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");
 		printf("*                                                                            *\n");
@@ -106,6 +108,8 @@ void _4x01_SingleLinkedListOfInts() {
 			GetNodeValueToInsert();
 		else if (Choice == 'd') 
 			DisplayNodes();
+		else if (Choice == 't')
+			_4x01_SingleLinkedListOfInts_TestCode();
 		else if (Choice == 'x')
 			exit(0);
 		else if (Choice == 'z') {
@@ -150,14 +154,24 @@ static void AddNode(int value) {
 				Traverser = Traverser->Next;
 			}
 			Traverser->Next = NewNode;
-		}
-		else 
+		} else {
 			// First node.
 			ListHead = NewNode;
+			/////////////////////////////////////////////////////////////////////////////////////
+			//printf(">>>>>ListHead in AddNode<<<<<\n");
+			//printf(">>>>>(Memory Location: %X | Value: '%d' | Next: %X)<<<<<\n",
+			//	ListHead, ListHead->Value, ListHead->Next);
+			/////////////////////////////////////////////////////////////////////////////////////
+		}
 		printf("Node added to the list with value %d at location %X.\n", value, NewNode);
-	}
-	else 
+	} else 
 		printf("Problem allocating memory for new node.\n");
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	//printf(">>>>>NewNode in AddNode:<<<<<\n");
+	//printf(">>>>>(Memory Location: %X | Value: '%d' | Next: %X)<<<<<\n",
+	//	NewNode, NewNode->Value, NewNode->Next);
+	/////////////////////////////////////////////////////////////////////////////////////
 
 }
 
@@ -219,8 +233,16 @@ static void RemoveNode(int value) {
 
 	if (value == ListHead->Value) {
 		// Remove at start.
+		SLListInts* temp = ListHead;
+		/////////////////////////////////////////////////////////////////////////////////////
+		printf("Value before: '%d' at %X\n", temp->Value, temp);
+		/////////////////////////////////////////////////////////////////////////////////////
 		ListHead = ListHead->Next;
+		free(temp);
 		printf("Node with value %d removed from the list.\n", value);
+		/////////////////////////////////////////////////////////////////////////////////////
+		printf("Value after: '%d' at %X\n", temp->Value, temp);
+		/////////////////////////////////////////////////////////////////////////////////////
 	} else {
 		// Search the list for node.
 		SLListInts* Traverser = ListHead->Next;
@@ -247,7 +269,7 @@ static void RemoveNode(int value) {
 					printf("Node with value %d removed from the list.\n", value);
 				} else {
 					NotEndOfList = False;
-					printf("Value not found in the list. List unchanged.\n");
+					printf("Value (%d) not found in the list. List unchanged.\n", value);
 				}
 			}
 		}
@@ -349,7 +371,7 @@ static void DisplayNodes() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("Display Nodes In The List\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
+	//printf("\n");
 	
 	SLListInts* Traverser;
 	if (ListHead != NULL) {
@@ -364,7 +386,7 @@ static void DisplayNodes() {
 	else 
 		printf("The list empty.\n");
 
-	printf("\n");
+	//printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	system("pause");
@@ -383,4 +405,71 @@ static void AtExitCleanup() {
 		printf("Node memory freed at %X.\n", Traverser);
 		free(Traverser);
 	}
+}
+
+static void _4x01_SingleLinkedListOfInts_TestCode() {
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Run test code on the SLL data structure of ints.
+	// 
+	// Able to test valid inputs (ints) to show it works.
+	// Not able to test junk input to see how it handles it.
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	printf("==============================================================================\n");
+	printf("Testing Code - Check Add, Insert, Remove and Display Nodes\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	printf("Add Some Nodes (Not a sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	AddNode(400);
+	AddNode(100);
+	AddNode(200);
+	AddNode(0);
+	AddNode(20);
+	AddNode(2000);
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Remove Some Nodes\n");
+	printf("------------------------------------------------------------------------------\n");
+	RemoveNode(900);
+	RemoveNode(20);
+	RemoveNode(400);
+	RemoveNode(0);
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Insert Some Nodes (Sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	InsertNode(400);
+	InsertNode(4000);
+	InsertNode(40);
+	InsertNode(4);
+	InsertNode(-4);
+	InsertNode(-40);
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Remove Some Nodes (Sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	RemoveNode(400);
+	RemoveNode(40000);
+	RemoveNode(4000);
+	RemoveNode(400);
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("\n");
+	printf("==============================================================================\n");
+
 }

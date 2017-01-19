@@ -5,6 +5,9 @@
 // 
 //==============================================================================
 
+2017.01.18
+· Adding test code for linked lists to automate inputs and see results.
+
 2017.01.17
 · Remove use of strlwr() since it's not std C. Use tolower() instead.
 · Move '#define _CRT_SECURE_NO_WARNINGS' to header file.

@@ -27,8 +27,6 @@
 #include <string.h>
 #include <ctype.h>
 
-//typedef enum Boolean { False, True };
-
 // For Single Linked List
 typedef struct SLListChar  
 {
@@ -53,6 +51,8 @@ static void InsertNode(char value);
 static void DisplayNodes();
 static void AtExitCleanup();
 
+static void _4x02_SingleLinkedListOfChar_TestCode();
+
 void _4x02_SingleLinkedListOfChar() {
 
 	char Inputs[MAX_INPUT_CHARS];
@@ -76,6 +76,8 @@ void _4x02_SingleLinkedListOfChar() {
 		printf("*   C - Insert Node (Sorted list)                                            *\n");
 		printf("*   D - Display Nodes                                                        *\n");
 		printf("*                                                                            *\n");
+		printf("*   T - Test Code                                                            *\n");
+		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");
 		printf("*                                                                            *\n");
@@ -94,6 +96,8 @@ void _4x02_SingleLinkedListOfChar() {
 			GetNodeValueToInsert();
 		else if (Choice == 'd') 
 			DisplayNodes();
+		else if (Choice == 't')
+			_4x02_SingleLinkedListOfChar_TestCode();
 		else if (Choice == 'x') 
 			exit(0);
 		else if (Choice == 'z') { 
@@ -140,14 +144,31 @@ static void AddNode(char value) {
 				Traverser = Traverser->Next;
 			}
 			Traverser->Next = NewNode;
-		}
-		else 
+		} else {
 			// First node.
 			ListHead = NewNode;
+			/////////////////////////////////////////////////////////////////////////////////////
+			// Different here than the case with int value.
+			// The ListHead is null after the assignment here, but not with ints.
+			// I don't understand what this isn't working.
+			/////////////////////////////////////////////////////////////////////////////////////
+			//ListHead->Value = NewNode->Value;
+			//ListHead->Next = NewNode->Next;
+			/////////////////////////////////////////////////////////////////////////////////////
+			//printf(">>>>>ListHead in AddNode<<<<<\n");
+			//printf(">>>>>(Memory Location: %X | Value: '%c' | Next: %X)<<<<<\n",
+			//	ListHead, ListHead->Value, ListHead->Next);
+			/////////////////////////////////////////////////////////////////////////////////////
+		}
 		printf("Node added to the list with value '%c' at location %X.\n", value, NewNode);
-	}
-	else 
+	} else 
 		printf("Problem allocating memory for new node.\n");
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	//printf(">>>>>NewNode in AddNode:<<<<<\n");
+	//printf(">>>>>(Memory Location: %X | Value: '%c' | Next: %X)<<<<<\n",
+	//	NewNode, NewNode->Value, NewNode->Next);
+	/////////////////////////////////////////////////////////////////////////////////////
 
 }
 
@@ -208,8 +229,16 @@ static void RemoveNode(char value) {
 
 	if (value == ListHead->Value) {
 		// Remove at start.
+		SLListChar* temp = ListHead;
+		/////////////////////////////////////////////////////////////////////////////////////
+		printf("Value before: '%c' at %X\n", temp->Value, temp);
+		/////////////////////////////////////////////////////////////////////////////////////
 		ListHead = ListHead->Next;
+		free(temp);
 		printf("Node with value '%c' removed from the list.\n", value);
+		/////////////////////////////////////////////////////////////////////////////////////
+		printf("Value after: '%c' at %X\n", temp->Value, temp);
+		/////////////////////////////////////////////////////////////////////////////////////
 	} else {
 		// Search the list for node.
 		SLListChar* Traverser = ListHead->Next;
@@ -374,4 +403,72 @@ static void AtExitCleanup() {
 		printf("Node memory freed at %X.\n", Traverser);
 		free(Traverser);
 	}
+}
+
+static void _4x02_SingleLinkedListOfChar_TestCode() {
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Run test code on the SLL data structure of char.
+	// 
+	// Able to test valid inputs (char) to show it works.
+	// Not able to test junk input to see how it handles it.
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	printf("==============================================================================\n");
+	printf("Testing Code - Check Add, Insert, Remove and Display Nodes\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	printf("Add Some Nodes (Not a sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	AddNode('h');
+	AddNode('p');
+	AddNode('w');
+	AddNode('e');
+	AddNode('g');
+	AddNode('z');
+	AddNode('a');
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Remove Some Nodes\n");
+	printf("------------------------------------------------------------------------------\n");
+	RemoveNode('e');
+	RemoveNode('g');
+	RemoveNode('a');
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Insert Some Nodes (Sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	InsertNode('a');
+	InsertNode('b');
+	InsertNode('u');
+	InsertNode('n');
+	InsertNode(' ');
+	InsertNode('x');
+	InsertNode('b');
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("Remove Some Nodes (Sorted list)\n");
+	printf("------------------------------------------------------------------------------\n");
+	RemoveNode('z');
+	RemoveNode('b');
+	RemoveNode('u');
+	RemoveNode('u');
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
+	DisplayNodes();
+	printf("\n");
+
+	printf("\n");
+	printf("==============================================================================\n");
+
 }

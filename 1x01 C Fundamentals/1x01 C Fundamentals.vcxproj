@@ -101,7 +101,7 @@
     <ClCompile Include="_3x05_CharMapping.cpp" />
     <ClCompile Include="_3x06_DataTypes.cpp" />
     <ClCompile Include="_3x0A_IOTests.cpp" />
-    <ClCompile Include="_3X0B_User_Defined_Functions.cpp" />
+    <ClCompile Include="_3x0B_User_Defined_Functions.cpp" />
     <ClCompile Include="_4x00_LinkedLists.cpp" />
     <ClCompile Include="_4x01_SingleLinkedListOfInts.cpp" />
     <ClCompile Include="_4x02_SingleLinkedListOfChar.cpp" />

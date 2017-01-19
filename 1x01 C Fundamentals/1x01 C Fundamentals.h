@@ -23,7 +23,7 @@ void _3x08_StringManipulations();
 void _3x09_DataStructures();
 void _3x0A_IOTests();
 
-void _3X0B_User_Defined_Functions();
+void _3x0B_User_Defined_Functions();
 Boolean FileExists(const char* filename);
 int StringCompare(const char* string1, const char* string2);
 char* TrimWhitespace(char* string);
