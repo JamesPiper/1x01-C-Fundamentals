@@ -56,8 +56,8 @@ void _3x02_HeaderFiles() {
 		printf("*   J - <setjmp.h> Jump functions                                            *\n");
 		printf("*   K - <signal.h> Signal handling functions                                 *\n");
 		printf("*                                                                            *\n");
-		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
 
@@ -176,42 +176,42 @@ static void B() {
 	printf("\n");
 	printf("Operations on Files\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("remove, rename          - delete or rename a file\n");
-	printf("tmpfile                 - open a temp file\n");
-	printf("tmpnam                  - generate a temp filename\n");
+	printf("  remove, rename          - delete or rename a file\n");
+	printf("  tmpfile                 - open a temp file\n");
+	printf("  tmpnam                  - generate a temp filename\n");
 	printf("\n");
 	printf("File Access\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("fclose, fflush          - close or flush a file\n");
-	printf("fopen, freopen          - open file\n");
-	printf("setbuf, setvbuf         - file buffering\n");
+	printf("  fclose, fflush          - close or flush a file\n");
+	printf("  fopen, freopen          - open file\n");
+	printf("  setbuf, setvbuf         - file buffering\n");
 	printf("\n");
 	printf("Formatted I/O\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("printf, vprintf         - print to stdout\n");
-	printf("scanf, fscanf           - read from stdin or stream\n");
-	printf("fprintf, vfprintf       - write formatted data to stream\n");
-	printf("sscanf, sprintf         - read or write with a string\n");
-	printf("vsnprintf, vsnprintf    - write data from variable argument list\n");
-	printf("vfcanf, vscanf          - read formatted data \n");
+	printf("  printf, vprintf         - print to stdout\n");
+	printf("  scanf, fscanf           - read from stdin or stream\n");
+	printf("  fprintf, vfprintf       - write formatted data to stream\n");
+	printf("  sscanf, sprintf         - read or write with a string\n");
+	printf("  vsnprintf, vsnprintf    - write data from variable argument list\n");
+	printf("  vfcanf, vscanf          - read formatted data \n");
 	printf("\n");
 	printf("Character I/O\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("fgetc, fgets            - get char or string from stream\n");
-	printf("fputc, fputs            - write char or string to stream\n");
-	printf("getc, getchar, gets     - get char or string from stream or stdin\n");
-	printf("putc, putchar, puts     - write char or string to stream or stdout\n");
-	printf("ungetc                  - unget char from stream\n");
+	printf("  fgetc, fgets            - get char or string from stream\n");
+	printf("  fputc, fputs            - write char or string to stream\n");
+	printf("  getc, getchar, gets     - get char or string from stream or stdin\n");
+	printf("  putc, putchar, puts     - write char or string to stream or stdout\n");
+	printf("  ungetc                  - unget char from stream\n");
 	printf("\n");
 	printf("Direct I/O\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("fread                   - read a block of data from stream\n");
-	printf("fwrite                  - read a block of data from stream\n");
+	printf("  fread                   - read a block of data from stream\n");
+	printf("  fwrite                  - read a block of data from stream\n");
 	printf("\n");
 	printf("File Positioning\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("fgetpos, ftell          - get current position in stream\n");
-	printf("fsetpos, rewind, fseek  - setting stream position\n");
+	printf("  fgetpos, ftell          - get current position in stream\n");
+	printf("  fsetpos, rewind, fseek  - setting stream position\n");
 	printf("\n");
 	printf("Error-handling: clearerr, feof, ferror, perror\n");
 	printf("Macros: BUFSIZ, EOF, FILENAME_MAX, FOPEN_MAX, l_tmpnam, NULL, TMP_MAX\n");
@@ -224,10 +224,35 @@ static void B() {
 
 static void C() {
 
-	printf("------------------------------------------------------------------------------\n");
+	// http://www.cplusplus.com/reference/cmath/
+
+	printf("==============================================================================\n");
 	printf("C - <math.h>   Mathematics functions\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Trigonometric functions\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("  sin, cos, tan                  - sine, cosine, tangent\n");
+	printf("  asin, acos, atan, atan2        - arc sine, cosine, tangent\n");
+	printf("\n");
+	printf("Hyperbolic functions\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("  sinh, cosh, tanh               - hyperbolic sine, cosine, tangent\n");
+	printf("  asinh, acosh, atanh            - area hyperbolic sine, cosine, tangent\n");
+	printf("\n");
+	printf("Exponential and logarithmic functions\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+	printf("  exp                             - returns e to the n\n");
+	printf("  expm1                           - returns e to the n minus one (exp(n) - 1)\n");
+	printf("  exp2                            - returns 2 to the n\n");
+	printf("  \n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("==============================================================================\n");
 	system("pause");
 
 }

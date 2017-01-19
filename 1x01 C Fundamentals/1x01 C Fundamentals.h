@@ -27,6 +27,7 @@ void _3x0B_User_Defined_Functions();
 Boolean FileExists(const char* filename);
 int StringCompare(const char* string1, const char* string2);
 char* TrimWhitespace(char* string);
+void GetUserInputs(char* inputs, int);
 
 void _4x00_LinkedLists();
 void _4x01_SingleLinkedListOfInts();

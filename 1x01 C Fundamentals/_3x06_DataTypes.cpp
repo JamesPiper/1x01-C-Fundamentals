@@ -70,8 +70,8 @@ void _3x06_DataTypes() {
 		printf("*   J - Pass Arrays To Functions                                             *\n");
 		printf("*   K - Pointers & Arrays                                                    *\n");
 		printf("*                                                                            *\n");
-		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
 
@@ -134,7 +134,7 @@ static void A() {
 	short MyShort = (short)((pow(2, 16) / -2.0));
 	printf("short MyShort = (short)((pow(2, 16) / -2.0) - 1.0) = %hi\n", MyShort);
 	MyShort = (short)((pow(2, 16) / 2.0) - 1.0);
-	printf("short MyShort = (short)((pow(2, 16) / 2.0) - 1.0) = %hi\n", MyShort);
+	printf("short MyShort = (short)((pow(2, 16) /  2.0) - 1.0) =  %hi\n", MyShort);
 	printf("\n");
 	printf("also short int | signed short | signed short int\n");
 	short int MyShort2 = 32767;
@@ -163,7 +163,7 @@ static void A() {
 	int MyInt = (int)((pow(2, 32) / -2.0) - 1.0);
 	printf("int MyInt = (int)((pow(2, 32) / -2.0) - 1.0) = %i\n", MyInt);
 	MyInt = (int)((pow(2, 32) / 2.0) - 1.0);
-	printf("int MyInt = (int)((pow(2, 32) / 2.0) - 1.0) = %i\n", MyInt);
+	printf("int MyInt = (int)((pow(2, 32) /  2.0) - 1.0) =  %i\n", MyInt);
 	printf("\n");
 	printf("also signed | signed int\n");
 	signed MyInt2 = 2147483647;
@@ -191,7 +191,7 @@ static void A() {
 	long MyLong = (long)((pow(2, 32) / -2.0) - 1.0);
 	printf("long MyLong = (long)((pow(2, 32) / -2.0) - 1.0) = %li\n", MyLong);
 	MyLong = (long)((pow(2, 32) / 2.0) - 1.0);
-	printf("long MyLong = (long)((pow(2, 32) / 2.0) - 1.0) = %li\n", MyLong);
+	printf("long MyLong = (long)((pow(2, 32) /  2.0) - 1.0) =  %li\n", MyLong);
 	printf("\n");
 	printf("also long int | signed long | signed long int\n");
 	long int MyLong2 = 2147483647;
@@ -221,7 +221,7 @@ static void A() {
 	long long MyLongLong= (long long)((pow(2, 64) / -2.0) - 1.0);
 	printf("long long MyLongLong = (long long)((pow(2, 64) / -2.0) - 1.0)\n = %lli\n", MyLongLong);
 	MyLongLong = (long long)((pow(2, 64) / 2.0) - 1.0);
-	printf("long MyLong = (long long)((pow(2, 64) / 2.0) - 1.0)\n = %lli\n", MyLongLong);
+	printf("     long MyLong     = (long long)((pow(2, 64) /  2.0) - 1.0)\n = %lli\n", MyLongLong);
 	printf("**Not sure why it's wrapping around.**\n");
 	printf("\n");
 	printf("also long long int | signed long long | signed long long int\n");
@@ -304,9 +304,9 @@ static void C() {
 	printf("min 8 bit, normally 16 bit\n");
 	printf("\n");
 	char MyChar1 = 'c';
-	printf("char MyChar = 'c';\n");
+	printf("char MyChar          = 'c';\n");
 	signed char MyChar2 = 'c';
-	printf("signed char MyChar = 'c';\n");
+	printf("signed char MyChar   = 'c';\n");
 	unsigned char MyChar3 = 'c';
 	printf("unsigned char MyChar = 'c';\n");
 	printf("\n");

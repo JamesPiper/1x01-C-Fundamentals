@@ -187,8 +187,7 @@ static SLListInts* CreateNewNode(int value) {
 		NewNode->Value = value;
 		NewNode->Next = NULL;
 		return NewNode;
-	}
-	else 
+	} else 
 		return NULL;
 
 }

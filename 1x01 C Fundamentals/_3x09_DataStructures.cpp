@@ -43,8 +43,8 @@ void _3x09_DataStructures() {
 		printf("*                                                                            *\n");
 		printf("*   A - Linked Lists                                                         *\n");
 		printf("*                                                                            *\n");
-		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
 

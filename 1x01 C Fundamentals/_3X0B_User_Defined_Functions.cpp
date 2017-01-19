@@ -20,6 +20,7 @@ static void Use_FileExists();
 static void Use_StringCompare();
 static char* StringCompareInText(int result);
 static void Use_TrimWhitespace();
+static void Test_GetUserInputs();
 
 void _3x0B_User_Defined_Functions() {
 	
@@ -37,9 +38,10 @@ void _3x0B_User_Defined_Functions() {
 		printf("*   A - FileExists                                                           *\n");
 		printf("*   B - String Compare (Case insensitive)                                    *\n");
 		printf("*   C - Trim Whitespace                                                      *\n");
+		printf("*   D - String Input With Whitespace                                         *\n");
 		printf("*                                                                            *\n");
-		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
 
@@ -58,7 +60,7 @@ void _3x0B_User_Defined_Functions() {
 		else if (Choice == 'c')
 			Use_TrimWhitespace();
 		else if (Choice == 'd')
-			Choice = 'd';
+			Test_GetUserInputs();
 		else if (Choice == 'e')
 			Choice = 'e';
 		else if (Choice == 'f')
@@ -330,13 +332,19 @@ static void Use_TrimWhitespace() {
 	printf("              012345678901234567890123456789\n");
 	printf("\n");
 
-	strcpy(str, "");
+	strcpy(str, "  word    gap   ");
 	printf("Text before: '%s'\n", str);
 	printf("Text after:  '%s'\n", TrimWhitespace(str));
 	printf("              012345678901234567890123456789\n");
 	printf("\n");
 
-	strcpy(str, "  word    gap   ");
+	strcpy(str, "     ");
+	printf("Text before: '%s'\n", str);
+	printf("Text after:  '%s'\n", TrimWhitespace(str));
+	printf("              012345678901234567890123456789\n");
+	printf("\n");
+
+	strcpy(str, "");
 	printf("Text before: '%s'\n", str);
 	printf("Text after:  '%s'\n", TrimWhitespace(str));
 	printf("              012345678901234567890123456789\n");
@@ -355,10 +363,11 @@ char* TrimWhitespace(char* string) {
 	// The arguement string is changed if needed.
 	//
 	// Risks
-	// Overflow: reading past the end of the string array.
-	// Forgetting to end string with '\0'.
+	// Overflow: reading past the end of the string array or before it.
+	// String doesn't end with '\0'.
 	// String is too long. What is the limit?
 	// String is null.
+	// String is only whitespace.
 	//
 	/////////////////////////////////////////////////////////////////////////////////////
 	//
@@ -395,14 +404,14 @@ char* TrimWhitespace(char* string) {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("To: %d \n", To);
-	//printf("End: %d \n", End);
+	//printf("To:   %d \n", To);
+	//printf("End:  %d \n", End);
 	//printf("From: %d \n", From);
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	// Backward search for trailing spaces.
 	EndReached  = False;
-	while (EndReached != True) {
+	while ((EndReached != True) && (To > 0)) {
 		 if (isspace(string[To - 1]) != 0) 
 			To--;
 		 else {
@@ -412,4 +421,212 @@ char* TrimWhitespace(char* string) {
 
 	string[To] = '\0';
 	return string;
+}
+
+static void Test_GetUserInputs() {
+	
+	printf("==============================================================================\n");
+	printf("D - String Input With Whitespace\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	printf("Scenario 1 on Arrays\n");
+	printf("------------------------------------------------------------------------------\n");
+	char str[] = "012345678";
+	printf("Define a string array: char str[] = \"%s\";\n", str);
+	printf("strlen(str) is %d \n", strlen(str));
+	for (int i = 0; i < strlen(str); i++) {
+		printf("Element [%d] is %c\n", i, str[i]);
+	}
+	printf("Element [%d] is ", strlen(str), str[strlen(str)]);
+	if (str[strlen(str)] == '\0') 
+		printf("null.\n");
+	else
+		printf("not null.\n");
+
+	printf("\n");
+	printf("Scenario 2 on Arrays\n");
+	printf("------------------------------------------------------------------------------\n");
+	char str2[10] = "012345678";
+	printf("Define a string array: char str[%d] = \"%s\";\n", strlen(str2), str2);
+	printf("strlen(str) is %d \n", strlen(str2));
+	for (int i = 0; i < strlen(str2); i++) {
+		printf("Element [%d] is %c\n", i, str2[i]);
+	}
+	printf("Element [%d] is ", strlen(str2), str2[strlen(str2)]);
+	if (str2[strlen(str2)] == '\0') 
+		printf("null.\n");
+	else
+		printf("not null.\n");
+	printf("\n");
+	
+	printf("Test Function Call\n");
+	printf("------------------------------------------------------------------------------\n");
+	char UserInputs[10];
+	printf("Enter text: ");
+	GetUserInputs(UserInputs, 10);
+	printf("You entered: '%s'\n", UserInputs);
+
+	printf("\n");
+	printf("==============================================================================\n");
+
+}
+
+void GetUserInputs(char* input, int max_length) {
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Take user typed-in data from terminal and store the string of inputs in
+	// a string array, inputs, of max_length.
+	// 
+	// Using scanf("%s", Inputs) doesn't work when there's whitespace.
+	// It will only put first chunk of text into Inputs.
+	//
+	// There's many things said about overflows and how it can crash a program or worse.
+	// Certainly if you try to store text with n chars into a char array defined with
+	// m chars and m is less than n, you'll overwrite memory beyond the array or
+	// you'll get a segmentation fault.
+	//
+	// Risks
+	// 1. User inputs more text than max_length.
+	//    Circumvent by ingoring text entereded after max_length and not storing data
+	//    in array past max_length.
+	//
+	// 2. String doesn't end with '\0'.
+	//
+	// 3. scanf("%s", Inputs) on first entry.
+	//    The computer will take a chunk of text until the whitespace is encountered
+	//    and put it in Inputs. 
+	//    Possible overflow in writing to Inputs array if this chunk is longer. 
+	//    Use scanf("%ns", Inputs) to limit chars put into Inputs to n chars.
+	//    Coding to vary this specifier based on max_length.
+	//
+	/////////////////////////////////////////////////////////////////////////////////////
+	//
+	// Example
+	//
+	// max_length: 10
+	// Note: String defined in caller as str[10]
+	//       10 = 9 chars + 1 of '\0'
+	//
+	// Enter text: 'here is some text' <enter>
+	//
+	// 1. input = "here" + \0
+	// 2. i = 5
+	// 3. get additional char until enter key hit
+	// 4. add if not before max_length
+	// 5. input = "here is s" + '\0'
+	//             012345678     9
+	//
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	// First chunk of non-whitespace user input.
+	char specifier[20];
+	strcpy(specifier, "%");
+	char number[20];
+	sprintf(number, "%d", max_length - 1);
+	strcat(specifier, number);
+	strcat(specifier, "s");
+	// Specifier in format of '%ns'.
+	// The use of %ns instead of %s limits text to n chars.
+	scanf(specifier, input);
+
+	// Initial chunk of text--cut off from first whitespace.
+    int i = strlen(input);
+    char c;
+
+    do {
+		// Get additional text one character at a time.
+        scanf("%c", &c);
+
+		// Keep adding text as long before max_length.
+        if (i < max_length)
+            input[i++] = c;
+
+		// Need to continue looping until '\n' is reached
+		// because additional text input will be processed.
+		// It would be good to stop scan process but I
+		// don't know how to do that.
+    } while (c != '\n');
+
+	// Terminate string array.
+    if (i < max_length)
+	    input[i - 1] = '\0';
+	else
+	    input[max_length - 1] = '\0';
+
+}
+
+void GetUserInputs_M(char* input, int max_length) {
+
+	// This approach won't work.
+	// In using scanf("%s", Inputs) the following problem can occur.
+	// User enters n chars w/o any whitespace and n is longer than
+	// the length of Inputs, you get a segmentation error.
+	// Run-Time Check Failure #2 - Stack around the variable 'UserInputs' was corrupted.
+	// The code tried to put in too much data.
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Take user typed-in data from terminal and store the string of inputs in
+	// a string array, inputs, of max_length.
+	// 
+	// Using scanf("%s", Inputs) doesn't work when there's whitespace.
+	// It will only put first chunk of text into Inputs.
+	//
+	// There's many things said about overflows and how it can crash a program or worse.
+	// Certainly if you try to store text with n chars into a char array defined with
+	// m chars and m is less than n, you'll overwrite memory beyond the array or
+	// you'll get a segmentation fault.
+	//
+	// Risks
+	// 1. User inputs more text than max_length.
+	//    Circumvent by ingoring text entereded after max_length and not storing data
+	//    in array past max_length.
+	//
+	// 2. String doesn't end with '\0'.
+	//
+	/////////////////////////////////////////////////////////////////////////////////////
+	//
+	// Example
+	//
+	// max_length: 10
+	// Note: String defined in caller as str[10]
+	//       10 = 9 chars + 1 of '\0'
+	//
+	// Enter text: 'here is some text' <enter>
+	//
+	// 1. input = "here" + \0
+	// 2. i = 5
+	// 3. get additional char until enter key hit
+	// 4. add if not before max_length
+	// 5. input = "here is s" + '\0'
+	//             012345678     9
+	//
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	// Start inputing user data.
+    scanf("%s", input);
+
+	// Initial chunk of text--cut off from first whitespace.
+    int i = strlen(input);
+    char c;
+
+    do {
+		// Get additional text one character at a time.
+        scanf("%c", &c);
+
+		// Keep adding text as long before max_length.
+        if (i < max_length)
+            input[i++] = c;
+
+		// Need to continue looping until '\n' is reached
+		// because additional text input will be processed.
+		// It would be good to stop scan process but I
+		// don't know how to do that.
+    } while (c != '\n');
+
+	// Terminate string array.
+    if (i < max_length)
+	    input[i - 1] = '\0';
+	else
+	    input[max_length - 1] = '\0';
+
 }

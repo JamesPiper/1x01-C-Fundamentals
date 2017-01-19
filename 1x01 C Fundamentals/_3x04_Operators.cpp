@@ -46,8 +46,8 @@ void _3x04_Operators() {
 		printf("*   G - Examples: Bitwise Operators                                          *\n");
 		printf("*   H - Examples: Other Assignment Operators                                 *\n");
 		printf("*                                                                            *\n");
-		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
 

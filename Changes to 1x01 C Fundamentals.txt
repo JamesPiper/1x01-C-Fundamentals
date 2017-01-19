@@ -5,6 +5,10 @@
 // 
 //==============================================================================
 
+2017.01.19
+· Adjust TrimWhitespace code to handle string with only whitespace.
+· Adding user-defined function GetUserInputs to get string.
+
 2017.01.18
 · Adding test code for linked lists to automate inputs and see results.
 

@@ -48,8 +48,8 @@ void _3x08_StringManipulations() {
 		printf("*   I - strpbrk                              J - strtok                      *\n");
 		printf("*   K - strerror                                                             *\n");
 		printf("*                                                                            *\n");
-		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*   X - Exit the program.                                                    *\n");
+		printf("*   Z - Return to main menu.                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("*   Need #include \"string.h\" or #include <string.h>                          *\n");
 		printf("*                                                                            *\n");
@@ -154,6 +154,7 @@ static void B() {
 	// Running into a problem assigning a string literal 
 	// a to char array after it's been declared.
 	// Not sure what I'm missing here.
+	// C does it's own thing. Need to use strcpy.
 
 	char String3[] = "In the beginning...";
 	char String4[10];
@@ -181,25 +182,25 @@ static void C() {
 	printf("C - Concatenate two strings\n");
 	printf("==============================================================================\n");
 	printf("\n");
-	printf("strcat(target string A, string to add B) - A = A + B\n");
+	printf("strcat(target string A, string to add B) A = A + B\n");
 	printf("------------------------------------------------------------------------------\n");
-	char String1[] = "0123456879";
+	char String1[]        = "0123456879";
 	char JoinedString[20] = "start: ";
 	printf("\n");
-	printf("  char String1[] = \"%s\";\n", String1);
+	printf("  char String1[]        = \"%s\";\n", String1);
 	printf("  char JoinedString[20] = \"%s\";\n", JoinedString);
 	printf("\n");
 	strcat(JoinedString, String1);
 	printf("  strcat(JoinedString, String1);\n");
 	printf("  JoinedString is now: '%s'\n", JoinedString);
 	printf("\n");
-	printf("strncat(target string A, string to add B, num n) - A = A + n of B\n");
+	printf("strncat(target string A, string to add B, num n) A = A + n of B\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	printf("Only adds n chars of the second string.\n");
 	printf("\n");
 	char JoinedString2[20] = "start: ";
-	printf("  char String1[] = \"%s\";\n", String1);
+	printf("  char String1[]         = \"%s\";\n", String1);
 	printf("  char JoinedString2[20] = \"%s\";\n", JoinedString2);
 	printf("\n");
 	strncat(JoinedString2, String1, 5);
@@ -323,12 +324,12 @@ static void F() {
 	printf("\n");
 	char String1[] = "ABBA";
 	char* location = strchr(String1, 'B');
-	printf("  char String1[] = \"%s\";\n", String1);
-	printf("  String1[0] = \"%c\";\n", String1[0]);
-	printf("  String1[1] = \"%c\";\n", String1[1]);
-	printf("  String1[2] = \"%c\";\n", String1[2]);
-	printf("  String1[3] = \"%c\";\n", String1[3]);
-	printf("  String1[4] = \"%c\";\n", String1[4]);
+	printf("  char String1[]  = \"%s\";\n", String1);
+	printf("       String1[0] = \"%c\";\n", String1[0]);
+	printf("       String1[1] = \"%c\";\n", String1[1]);
+	printf("       String1[2] = \"%c\";\n", String1[2]);
+	printf("       String1[3] = \"%c\";\n", String1[3]);
+	printf("       String1[4] = \"%c\";\n", String1[4]);
 	printf("\n");
 	printf("  char* location = strchr(String1, 'B');\n");
 	if (location != NULL) 
@@ -471,7 +472,7 @@ static void J() {
 	printf("\n");
 	char Deliminters[] = " -,;.";
 	printf("  char Deliminters[] = \"%s\";\n", Deliminters);
-	char StringToBreakUp[] = "It was the best of times, it was the worst of times.";
+	char StringToBreakUp[] = "It was the best of times, it was the worst...";
 	printf("  char StringToBreakUp[] = \"%s\";\n", StringToBreakUp);
 	printf("\n");
 	char* pFound = strtok(StringToBreakUp, Deliminters);
