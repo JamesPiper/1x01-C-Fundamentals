@@ -2,6 +2,9 @@
 // 2017.01.12 by James Piper, james@jamespiper.com
 //==============================================================================
 
+#ifndef MAIN_HEADER_FILE
+#define MAIN_HEADER_FILE
+
 //==============================================================================
 // Common typedefs
 //==============================================================================
@@ -44,3 +47,4 @@ void _0x09_PointersStructures();
 #define MAX_FILENAME_CHARS 255
 #define _CRT_SECURE_NO_WARNINGS
 
+#endif 

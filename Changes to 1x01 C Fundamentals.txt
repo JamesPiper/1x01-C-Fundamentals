@@ -8,7 +8,7 @@
 2017.01.20
 · Test and simplify function GetUserInputs.
 · Putting function GetUserInputs in use in existing code.
-· 
+· Using #ifndef MAIN_HEADER_FILE as precompiler directive.
 
 2017.01.19
 · Adjust TrimWhitespace code to handle string with only whitespace.

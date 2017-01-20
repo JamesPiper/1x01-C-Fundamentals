@@ -90,8 +90,8 @@ void _2x00_MainMenu() {
 			Choice = 'q';
 		else if (Choice == 'r')
 			Choice = 'r';
-		else if (Choice == 'x') 
-			return;
+		//else if (Choice == 'x') 
+		//	return;
 
 	} while (Choice != 'x'); 
 
