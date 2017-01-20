@@ -43,7 +43,6 @@ static void K();
 
 void _3x06_DataTypes() {
 
-	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -79,7 +78,10 @@ void _3x06_DataTypes() {
 		printf("\n");
 		printf("Enter choice: ");
 
-		scanf("%s", &Inputs);
+		char Inputs[MAX_INPUT_CHARS];
+		// 2 represents 1 char of input and null terminator.
+		GetUserInputs(Inputs, 2);
+		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -439,7 +441,6 @@ struct fractionB { int numerator; int denominator; };
 
 static void F0() {
 
-	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
 	
 	do 
@@ -465,10 +466,12 @@ static void F0() {
 		printf("******************************************************************************\n");
 
 		printf("\n");
-		printf("\n");
 		printf("Enter choice: ");
 
-		scanf("%s", &Inputs);
+		char Inputs[MAX_INPUT_CHARS];
+		// 2 represents 1 char of input and null terminator.
+		GetUserInputs(Inputs, 2);
+		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 

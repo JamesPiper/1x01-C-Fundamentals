@@ -1,11 +1,11 @@
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 // 2017.01.12 by James Piper, james@jamespiper.com
 // 
 // Terminal style menu.
 // Branchs to display information
 // or will present a submenu.
 // 
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
@@ -15,9 +15,8 @@
 
 void _2x00_MainMenu() {
 
-	char Inputs[MAX_INPUT_CHARS];
 	char Choice;
-	
+
 	do 
 	{
 		printf("******************************************************************************\n");
@@ -41,18 +40,16 @@ void _2x00_MainMenu() {
 		printf("******************************************************************************\n");
 
 		printf("\n");
-		printf("\n");
 		printf("Enter choice: ");
 
-		// Input user action.
-		// Because of buffering, getchar or getc processes hold more than one character.
-		// Use scanf because less chance of problems.
-		// Using "%c" causes the loop to process for each char enter, need "%s"
-		// MS wants me to use scanf_s instead of scanf b/c of buffer overflow
-		// but that is not standard C, specific to MS, so avoid.
-		// Not sure what is the best way to avoid buffer overflow.
-		scanf("%s", &Inputs);
+		/////////////////////////////////////////////////////////////////////////////////////
+		// Change to use GetUserInputs
+		char Inputs[MAX_INPUT_CHARS];
+		// 2 represents 1 char of input and null terminator.
+		GetUserInputs(Inputs, 2);
+		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
+		/////////////////////////////////////////////////////////////////////////////////////
 		printf("\n");
 
 		if (Choice == '0') 

@@ -5,6 +5,11 @@
 // 
 //==============================================================================
 
+2017.01.20
+· Test and simplify function GetUserInputs.
+· Putting function GetUserInputs in use in existing code.
+· 
+
 2017.01.19
 · Adjust TrimWhitespace code to handle string with only whitespace.
 · Adding user-defined function GetUserInputs to get string.

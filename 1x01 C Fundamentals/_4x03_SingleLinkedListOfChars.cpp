@@ -87,14 +87,13 @@ static void _4x03_SingleLinkedListOfChars_TestCode();
 
 void _4x03_SingleLinkedListOfChars() {
 
-	char Inputs[MAX_INPUT_CHARS];
-	char Choice;
-
 	atexit(AtExitCleanup);
 
 	// Initialize
 	ListHead = NULL;
 	
+	char Choice;
+
 	do {
 
 		/////////////////////////////////////////////////////////////////////////////////////
@@ -125,11 +124,16 @@ void _4x03_SingleLinkedListOfChars() {
 		printf("*   X - Exit                                                                 *\n");
 		printf("*                                                                            *\n");
 		printf("******************************************************************************\n");
-		printf("\n");
 
+		printf("\n");
 		printf("Enter choice: ");
-		scanf("%s", &Inputs);
+
+		char Inputs[MAX_INPUT_CHARS];
+		// 2 represents 1 char of input and null terminator.
+		GetUserInputs(Inputs, 2);
+		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
+		printf("\n");
 
 		if (Choice == 'a')
 			GetNodeValueToAdd();
