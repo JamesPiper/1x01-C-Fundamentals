@@ -1,5 +1,13 @@
-//==============================================================================
-// 2017.01.15 by James Piper, james@jamespiper.com
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.15
+// File        : _4x03_SingleLinkedListOfChars.cpp
+// Description : Single-linked list of char array as the data value.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 // 
 // Taking code from _4x02_SingleLinkedListOfChar and modify
 // to have an array of chars instead of a single char.
@@ -17,14 +25,14 @@
 // Issue arises on removing one of the two nodes. Takes first one matched.
 // Could adjust code to not allow add or insert for an existing node value.
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 // Struggling with this one.
 // This code, ListHead = NewNode;, in AddNode 'works' except when it comes time
 // to display the data it doesn't show correctly. I think it's storing and showing
 // the address to the char array...yet NewNode->Value has the char array.
 // Tried different things and they aren't working. Ugh.
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 // Figured out what is happening to the char arry in ListHead / NewNode.
 // They value was pointing to a variable that gets distroyed when leaving calls.
 // Need to malloc memory for the char* value to make it stick and use strcpy
@@ -40,36 +48,37 @@
 // 
 // C doesn't have a built-in case insensitive string compare function.
 // There must be many online, but I should write one b/c that's how you learn.
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 // 
 // TODO
 // 1. Compares in remove functions.
 // 2. Compare function - APPLES should come after APPLE
 // 3. Call free for char* mallocs.
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
-//typedef enum Boolean { False, True };
-
-// For Single Linked List
+/////////////////////////////////////////////////////////////////////////////////////
+// Typedefs
+/////////////////////////////////////////////////////////////////////////////////////
 typedef struct SLListChars  
 {
   char* Value;
   struct SLListChars* Next;
 } SLListChars;
 
-// Start of the list.
-SLListChars* ListHead;
-
+/////////////////////////////////////////////////////////////////////////////////////
 // Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static SLListChars* CreateNewNode(char* value);
 static void GetNodeValueToAdd();
 static void AddNode(char* value);
@@ -85,6 +94,14 @@ static void AtExitCleanup();
 
 static void _4x03_SingleLinkedListOfChars_TestCode();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Start of the list.
+/////////////////////////////////////////////////////////////////////////////////////
+SLListChars* ListHead;
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _4x03_SingleLinkedListOfChars() {
 
 	atexit(AtExitCleanup);
@@ -130,7 +147,7 @@ void _4x03_SingleLinkedListOfChars() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -156,6 +173,9 @@ void _4x03_SingleLinkedListOfChars() {
 	} while (Choice != 'x');  
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void GetNodeValueToAdd() {
 
 	printf("------------------------------------------------------------------------------\n");

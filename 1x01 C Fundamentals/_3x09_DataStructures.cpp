@@ -1,21 +1,27 @@
-//==============================================================================
-// 2017.01.12 by James Piper, james@jamespiper.com
-// 
-// TO DO
-// I want to code various examples of data scructures here.
-// Linked Lists, Queues, Stacks, Trees...
-// 
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.12
+// File        : _3x09_DataStructures.cpp
+// Description : Submenu for data structures.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
-// Function prototypes
+/////////////////////////////////////////////////////////////////////////////////////
+// Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static void B();
 static void C();
 static void D();
@@ -27,7 +33,9 @@ static void I();
 static void J();
 static void K();
 
-
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _3x09_DataStructures() {
 
 	char Choice;
@@ -52,7 +60,7 @@ void _3x09_DataStructures() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -90,7 +98,9 @@ void _3x09_DataStructures() {
 
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void B() {
 
 	printf("------------------------------------------------------------------------------\n");

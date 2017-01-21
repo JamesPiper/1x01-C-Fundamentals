@@ -1,9 +1,17 @@
-//==============================================================================
-// 2017.01.12 by James Piper, james@jamespiper.com
-// 
-// Changes to this project: 1x01 C Fundamentals
-// 
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.12
+// File        : Changes to 1x01 C Fundamentals.txt
+// Description : Text file on changes.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
+
+2017.01.21
+· Creating and using CHOICE_LENGTH define in main header file.
+· Standardize the comment header for each page.
 
 2017.01.20
 · Test and simplify function GetUserInputs.
@@ -62,5 +70,3 @@
 · Adding details on enumerations.
 · Adding details for string manipulations.
 · Adding more details to header files page.
-
-

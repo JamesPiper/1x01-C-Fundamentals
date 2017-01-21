@@ -1,18 +1,27 @@
-//==============================================================================
-// 2017.01.15 by James Piper, james@jamespiper.com
-// 
-// Menu to various types of linked lists.
-//
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.15
+// File        : _4x00_LinkedLists.cpp
+// Description : Menu to various types of linked lists.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _4x00_LinkedLists() {
 
 	char Choice;
@@ -40,7 +49,7 @@ void _4x00_LinkedLists() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");

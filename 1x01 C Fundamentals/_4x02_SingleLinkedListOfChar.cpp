@@ -1,5 +1,13 @@
-//==============================================================================
-// 2017.01.15 by James Piper, james@jamespiper.com
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.15
+// File        : _4x03_SingleLinkedListOfChar.cpp
+// Description : Single-linked list with data value of char.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 // 
 // Taking code from _4x01_SingleLinkedListOfInts and modify
 // to have a char value instead of int value.
@@ -7,7 +15,7 @@
 // I'm doing this as a proof of concept and for use in creating one
 // with array of chars.
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 //
 // What's the difference? Change int to char and use '%c' instead of '%d'
 // Afterall a char is an n-bit int.
@@ -17,27 +25,30 @@
 // I don't understand what's going on. Maybe too close to this.
 // Perhaps tomorrow I'll see it better.
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
-// For Single Linked List
+/////////////////////////////////////////////////////////////////////////////////////
+// Typedefs
+/////////////////////////////////////////////////////////////////////////////////////
 typedef struct SLListChar  
 {
   char Value;
   struct SLListChar* Next;
 } SLListChar;
 
-// Start of the list.
-SLListChar* ListHead;
-
+/////////////////////////////////////////////////////////////////////////////////////
 // Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static SLListChar* CreateNewNode(char value);
 static void GetNodeValueToAdd();
 static void AddNode(char value);
@@ -53,6 +64,14 @@ static void AtExitCleanup();
 
 static void _4x02_SingleLinkedListOfChar_TestCode();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Start of the list.
+/////////////////////////////////////////////////////////////////////////////////////
+SLListChar* ListHead;
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _4x02_SingleLinkedListOfChar() {
 
 	atexit(AtExitCleanup);
@@ -87,7 +106,7 @@ void _4x02_SingleLinkedListOfChar() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -113,6 +132,9 @@ void _4x02_SingleLinkedListOfChar() {
 	} while (Choice != 'x');  
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void GetNodeValueToAdd() {
 
 	printf("------------------------------------------------------------------------------\n");

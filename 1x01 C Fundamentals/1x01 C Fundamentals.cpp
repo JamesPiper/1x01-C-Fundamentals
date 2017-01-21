@@ -1,9 +1,15 @@
-//==============================================================================
-// 2017.01.12 by James Piper, james@jamespiper.com
-// 
-// Working through coding in C to see how it works.
-// 
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.12
+// File        : 1x01 C Fundamentals.h
+// Description : main()
+//             : Working through coding in C to see how it works.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 // 1x01 C Fundamentals.cpp : Defines the entry point for the console application.
 //

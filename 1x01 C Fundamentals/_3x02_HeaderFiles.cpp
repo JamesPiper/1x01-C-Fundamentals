@@ -1,7 +1,13 @@
-//==============================================================================
-// 2017.01.12 by James Piper, james@jamespiper.com
-// 
-// Summary of various header files
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.12
+// File        : _3x02_HeaderFiles.cpp
+// Description : Summary of various header files.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 // 
 // https://en.wikipedia.org/wiki/C_standard_library
 // https://en.wikibooks.org/wiki/C_Programming
@@ -9,17 +15,21 @@
 // http://en.cppreference.com
 // https://www.programiz.com/c-programming
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
-// Function prototypes
+/////////////////////////////////////////////////////////////////////////////////////
+// Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static void A();
 static void B();
 static void C();
@@ -32,6 +42,9 @@ static void I();
 static void J();
 static void K();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _3x02_HeaderFiles() {
 
 	char Choice;
@@ -65,7 +78,7 @@ void _3x02_HeaderFiles() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -103,6 +116,9 @@ void _3x02_HeaderFiles() {
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void A() {
 
 	// http://www.cplusplus.com/reference/cstdlib/

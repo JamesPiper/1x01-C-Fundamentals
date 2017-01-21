@@ -1,21 +1,27 @@
-//==============================================================================
-// 2017.01.14 by James Piper, james@jamespiper.com
-// 
-// Test code on various I/O functions of C.
-// 
-//
-//
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.14
+// File        : _3x0A_IOTests.cpp
+// Description : Test code on various I/O functions of C.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
+/////////////////////////////////////////////////////////////////////////////////////
 // Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static void A();
 static void B();
 static void C();
@@ -28,6 +34,9 @@ static void I();
 static void J();
 static void K();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _3x0A_IOTests() {
 
 	char Choice;
@@ -57,7 +66,7 @@ void _3x0A_IOTests() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -86,6 +95,9 @@ void _3x0A_IOTests() {
 	} while (Choice != 'x');  
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void A() {
 
 	printf("==============================================================================\n");

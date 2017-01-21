@@ -1,27 +1,37 @@
 /////////////////////////////////////////////////////////////////////////////////////
-// 2017.01.17 by James Piper, james@jamespiper.com
-// 
-// A repository of functions I've written to deal with certain common tasks.
-// 
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.17
+// File        : _3x0B_User_Defined_Functions.cpp
+// Description : A lib of functions I've written to deal with certain common tasks.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
 /////////////////////////////////////////////////////////////////////////////////////
 
-
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <cmath>
 #include <ctype.h>
 
-// Function prototypes
+/////////////////////////////////////////////////////////////////////////////////////
+// Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static void Use_FileExists();
 static void Use_StringCompare();
 static char* StringCompareInText(int result);
 static void Use_TrimWhitespace();
 static void Test_GetUserInputs();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _3x0B_User_Defined_Functions() {
 	
 	char Choice;
@@ -49,7 +59,7 @@ void _3x0B_User_Defined_Functions() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -87,6 +97,9 @@ void _3x0B_User_Defined_Functions() {
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void Use_FileExists() {
 		
 	printf("==============================================================================\n");

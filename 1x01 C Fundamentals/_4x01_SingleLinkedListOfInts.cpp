@@ -1,5 +1,13 @@
-//==============================================================================
-// 2017.01.12 by James Piper, james@jamespiper.com
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.12
+// File        : 1x01 C Fundamentals.h
+// Description : Single-linked list with data value of int.
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 // 
 // Demonstration of a dynamic single-linked list.
 // 
@@ -28,27 +36,30 @@
 // Node based on integer data type, but inputs of non-digits
 // results in junk data. This needs to be fixed.
 //
-//==============================================================================
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
-// For Single Linked List of Ints
+/////////////////////////////////////////////////////////////////////////////////////
+// Typedefs
+/////////////////////////////////////////////////////////////////////////////////////
 typedef struct SLListInts  
 {
   int Value;
   struct SLListInts* Next;
 } SLListInts;
 
-// Start of the list.
-SLListInts* ListHead;
-
+/////////////////////////////////////////////////////////////////////////////////////
 // Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static SLListInts* CreateNewNode(int value);
 static void GetNodeValueToAdd();
 static void AddNode(int value);
@@ -65,6 +76,14 @@ static void AtExitCleanup();
 
 static void _4x01_SingleLinkedListOfInts_TestCode();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Start of the list.
+/////////////////////////////////////////////////////////////////////////////////////
+SLListInts* ListHead;
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _4x01_SingleLinkedListOfInts() {
 
 	atexit(AtExitCleanup);
@@ -99,7 +118,7 @@ void _4x01_SingleLinkedListOfInts() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -125,6 +144,9 @@ void _4x01_SingleLinkedListOfInts() {
 	} while (Choice != 'x');  
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void GetNodeValueToAdd() {
 
 	printf("------------------------------------------------------------------------------\n");

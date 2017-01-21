@@ -1,21 +1,32 @@
-//==============================================================================
-// 2017.01.12 by James Piper, james@jamespiper.com
+/////////////////////////////////////////////////////////////////////////////////////
+// Project     : 1x01 C Fundamentals
+// Author      : James Piper, james@jamespiper.com
+// Date        : 2017.01.12
+// File        : _3x08_StringManipulations.cpp
+// Description : An examination of the functions in "string.h"
+// IDE         : Visual Studio 2012
+// Compiler    : MS
+// Language    : C
+/////////////////////////////////////////////////////////////////////////////////////
 // 
-// An examination of the functions in "string.h"
 // TO DO
 // Move as submenu item of HeaderFiles
 // 
 //==============================================================================
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Include files
+/////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <string.h>
 #include <ctype.h>
 
-// Function prototypes
+/////////////////////////////////////////////////////////////////////////////////////
+// Function prototypes.
+/////////////////////////////////////////////////////////////////////////////////////
 static void A();
 static void B();
 static void C();
@@ -29,6 +40,9 @@ static void J();
 static void K();
 static void L();
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Main function.
+/////////////////////////////////////////////////////////////////////////////////////
 void _3x08_StringManipulations() {
 
 	char Choice;
@@ -59,7 +73,7 @@ void _3x08_StringManipulations() {
 
 		char Inputs[MAX_INPUT_CHARS];
 		// 2 represents 1 char of input and null terminator.
-		GetUserInputs(Inputs, 2);
+		GetUserInputs(Inputs, CHOICE_LENGTH);
 		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
@@ -97,6 +111,9 @@ void _3x08_StringManipulations() {
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Subfunctions.
+/////////////////////////////////////////////////////////////////////////////////////
 static void A() {
 
 	printf("==============================================================================\n");
