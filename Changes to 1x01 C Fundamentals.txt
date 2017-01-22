@@ -11,6 +11,16 @@
 
 2017.01.22
 · Clean up use of include files in the individual C files.
+· Using size_t instead of int for return of strlen or strspn.
+  size_t is unsized 64-bit int, while int is 32-bit and signed.
+· Change use of &Inputs to Inputs. 
+· Using scanf_s instead of scanf to avoid warnings.
+  Not doing - more problems than it's worth.
+· Tried using strcpy_s instead of strcpy. Works in MS,
+  but can't get it to work w GCC and should. Part of C11.
+· Trying to use #ifdef DEBUG but code won't execute.
+  Colour of code changes from soft to normal when #define DEBUG used
+  but while running the code is stilled ignored. Frustrating.
 
 2017.01.21
 · Creating and using CHOICE_LENGTH define in main header file.

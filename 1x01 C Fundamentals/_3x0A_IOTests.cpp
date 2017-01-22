@@ -62,9 +62,7 @@ void _3x0A_IOTests() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -86,7 +84,7 @@ void _3x0A_IOTests() {
 			exit(0);
 		else if (Choice == 'z') 
 			return;
-		else 
+		else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 		
 	} while (Choice != 'x');  
@@ -118,7 +116,7 @@ static void A() {
 	
 	printf("Enter a filename: ");
 	char Inputs[MAX_INPUT_CHARS];
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	printf("\n");
 	if (FileExists(Inputs))
 		printf("The code says the file exists.\n");
@@ -151,7 +149,7 @@ static void B() {
 	
 	char Inputs[MAX_INPUT_CHARS];
 	printf("Enter a filename to rename: ");
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	strcat(OldFilename, Inputs);
 	printf("File to rename: %s\n", OldFilename);
 	printf("\n");
@@ -160,7 +158,7 @@ static void B() {
 		char NewFilename[MAX_FILENAME_CHARS];
 		strcpy(NewFilename, Path);
 		printf("Enter new name: ");
-		scanf("%s", &Inputs);
+		scanf("%s", Inputs);
 		strcat(NewFilename, Inputs);
 		printf("New name: %s\n", NewFilename);
 		printf("\n");
@@ -195,7 +193,7 @@ static void C() {
 
 	printf("Enter name of file to delete: ");
 	char Inputs[MAX_INPUT_CHARS];
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	char Filename[MAX_FILENAME_CHARS];
 	strcpy(Filename, "C:\\Users\\Guest\\");
 	strcat(Filename, Inputs);

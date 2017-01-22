@@ -33,17 +33,17 @@ struct fractionB { int numerator; int denominator; };
 
 typedef struct SLLNodeInt {
 	int Value;
-	SLLNodeInt* Next;
+	struct SLLNodeInt* Next;
 } SLLNodeInt;
 
 typedef struct SLLNodeChar {
 	char Value;
-	SLLNodeChar* Next;
+	struct SLLNodeChar* Next;
 } SLLNodeChar;
 
 typedef struct SLLNodeChars {
 	char* Value;
-	SLLNodeChars* Next;
+	struct SLLNodeChars* Next;
 } SLLNodeChars;
 
 typedef struct DataValue {
@@ -52,7 +52,7 @@ typedef struct DataValue {
 
 typedef struct ExtendedSLLNode {
 	DataValue value;
-	ExtendedSLLNode* next;
+	struct ExtendedSLLNode* next;
 } ExtendedSLLNode;
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -127,9 +127,7 @@ void _3x06_DataTypes() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -163,7 +161,7 @@ void _3x06_DataTypes() {
 			exit(0);
 		else if (Choice == 'z') 
 			return;
-		else 
+		else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x'); 
@@ -516,9 +514,7 @@ static void F0() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -544,7 +540,7 @@ static void F0() {
 			exit(0);
 		else if (Choice == 'z') 
 			return;
-		else 
+		else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x'); 
@@ -1108,6 +1104,7 @@ static void K() {
 	printf("------------------------------------------------------------------------------\n");
 	printf(" Declare input variable: int classes[MAX]\n");
 	printf(" Store inputs: scanf(\"%%d\",(classes + i));\n");
+	printf("       (also): scanf_s(\"%%d\",(classes + i));\n");
 	printf(" Calc sum: sum += *(classes + i);\n");
 	printf("\n");
 	int i, classes[NUM_OF_NUMS_TO_SUM], sum = 0;

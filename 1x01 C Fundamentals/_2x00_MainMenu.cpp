@@ -50,11 +50,8 @@ void _2x00_MainMenu() {
 		printf("Enter choice: ");
 
 		/////////////////////////////////////////////////////////////////////////////////////
-		// Change to use GetUserInputs
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		/////////////////////////////////////////////////////////////////////////////////////
 		printf("\n");

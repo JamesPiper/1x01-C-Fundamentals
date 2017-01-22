@@ -69,9 +69,7 @@ void _3x08_StringManipulations() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -101,7 +99,7 @@ void _3x08_StringManipulations() {
 			exit(0);
 		else if (Choice == 'z') 
 			return;
-		else 
+		else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x'); 
@@ -126,9 +124,9 @@ static void A() {
 	printf("  char String3[10] = \"%s\"; *** won't run ***\n", String2);
 	printf("\n");
 	printf("  Since String1 has 10 elements, need 11 b/c of \\0 at the end.\n");
-	int length1 = strlen(String1);
+	size_t length1 = strlen(String1);
 	printf("\n");
-	printf("  int length1 = strlen(String1);\n");
+	printf("  size_t length1 = strlen(String1);\n");
 	printf("  The length is %d\n", length1);
 	printf("\n");
 	printf("==============================================================================\n");
@@ -392,10 +390,10 @@ static void G() {
 	printf("\n");
 	char CharSet[] = "IVXLDCM";
 	char ToSearchString[] = "MMX Established";
-	int NumFound = strspn(ToSearchString, CharSet);
+	size_t NumFound = strspn(ToSearchString, CharSet);
 	printf("  char CharSet[] = \"%s\";\n", CharSet);
 	printf("  char ToSearchString[] = \"%s\";\n", ToSearchString);
-	printf("  int NumFound = strspn(ToSearchString, CharSet);\n");
+	printf("  size_t NumFound = strspn(ToSearchString, CharSet);\n");
 	printf("\n");
 	printf("  strspn returned %d to NumFound.\n", NumFound);
 	printf("\n");

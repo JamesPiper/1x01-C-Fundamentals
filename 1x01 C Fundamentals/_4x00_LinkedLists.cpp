@@ -45,9 +45,7 @@ void _4x00_LinkedLists() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -63,7 +61,7 @@ void _4x00_LinkedLists() {
 			exit(0);
 		else if (Choice == 'z') 
 			return;
-		else 
+		else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 		
 	} while (Choice != 'x');  

@@ -2,17 +2,16 @@
 // Project     : 1x01 C Fundamentals
 // Author      : James Piper, james@jamespiper.com
 // Date        : 2017.01.15
-// File        : _4x00_LinkedLists.cpp
+// File        : _4x00_LinkedLists.c
 // Description : Menu to various types of linked lists.
-// IDE         : Visual Studio 2012
-// Compiler    : MS
-// Language    : C
+// IDE         : Code::Blocks 16.01
+// Compiler    : GCC
+// Language    : C (Compiling to ISO 11.)
 /////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
-//#include "stdafx.h"
 #include "_1x01 C Fundamentals.h"
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -45,9 +44,7 @@ void _4x00_LinkedLists() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -63,7 +60,7 @@ void _4x00_LinkedLists() {
 			exit(0);
 		else if (Choice == 'z')
 			return;
-		else
+		else if (Choice != 'x')
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x');

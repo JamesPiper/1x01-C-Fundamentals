@@ -2,11 +2,11 @@
 // Project     : 1x01 C Fundamentals
 // Author      : James Piper, james@jamespiper.com
 // Date        : 2017.01.12
-// File        : _3x07_DynamicMemoryAllocation.cpp
+// File        : _3x07_DynamicMemoryAllocation.c
 // Description : Examples of Memory Allocation from stdlib.h
-// IDE         : Visual Studio 2012
-// Compiler    : MS
-// Language    : C
+// IDE         : Code::Blocks 16.01
+// Compiler    : GCC
+// Language    : C (Compiling to ISO 11.)
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // Consider adding mem functions in 'string.h'
@@ -16,7 +16,6 @@
 /////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
-//#include "stdafx.h"
 #include "_1x01 C Fundamentals.h"
 /////////////////////////////////////////////////////////////////////////////////////
 

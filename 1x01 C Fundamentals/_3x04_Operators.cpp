@@ -85,7 +85,7 @@ void _3x04_Operators() {
 			exit(0);
 		else if (Choice == 'z') 
 			return;
-		else 
+		else if (Choice != 'x')
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x'); 

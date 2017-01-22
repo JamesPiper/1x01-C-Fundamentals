@@ -39,6 +39,11 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////
+// Macros
+/////////////////////////////////////////////////////////////////////////////////////
+#define DEBUG
+
+/////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
@@ -114,9 +119,7 @@ void _4x01_SingleLinkedListOfInts() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -135,7 +138,7 @@ void _4x01_SingleLinkedListOfInts() {
 		else if (Choice == 'z') {
 			AtExitCleanup();
 			return;
-		} else 
+		} else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 		
 	} while (Choice != 'x');  
@@ -181,9 +184,13 @@ static void AddNode(int value) {
 			// First node.
 			ListHead = NewNode;
 			/////////////////////////////////////////////////////////////////////////////////////
-			//printf(">>>>>ListHead in AddNode<<<<<\n");
-			//printf(">>>>>(Memory Location: %X | Value: '%d' | Next: %X)<<<<<\n",
-			//	ListHead, ListHead->Value, ListHead->Next);
+			#ifdef DEBUG
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("ListHead in AddNode\n");
+			printf("Memory Location: %X | Value: '%d' | Next: %X\n",
+				ListHead, ListHead->Value, ListHead->Next);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif // DEBUG
 			/////////////////////////////////////////////////////////////////////////////////////
 		}
 		printf("Node added to the list with value %d at location %X.\n", value, NewNode);
@@ -191,9 +198,11 @@ static void AddNode(int value) {
 		printf("Problem allocating memory for new node.\n");
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf(">>>>>NewNode in AddNode:<<<<<\n");
-	//printf(">>>>>(Memory Location: %X | Value: '%d' | Next: %X)<<<<<\n",
-	//	NewNode, NewNode->Value, NewNode->Next);
+	#ifdef DEBUG
+	printf(">>>>>NewNode in AddNode:<<<<<\n");
+	printf(">>>>>(Memory Location: %X | Value: '%d' | Next: %X)<<<<<\n",
+		NewNode, NewNode->Value, NewNode->Next);
+	#endif // DEBUG
 	/////////////////////////////////////////////////////////////////////////////////////
 
 }

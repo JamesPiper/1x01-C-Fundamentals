@@ -2,11 +2,11 @@
 // Project     : 1x01 C Fundamentals
 // Author      : James Piper, james@jamespiper.com
 // Date        : 2017.01.15
-// File        : _4x03_SingleLinkedListOfChar.cpp
+// File        : _4x03_SingleLinkedListOfChar.c
 // Description : Single-linked list with data value of char.
-// IDE         : Visual Studio 2012
-// Compiler    : MS
-// Language    : C
+// IDE         : Code::Blocks 16.01
+// Compiler    : GCC
+// Language    : C (Compiling to ISO 11.)
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // Taking code from _4x01_SingleLinkedListOfInts and modify
@@ -30,7 +30,6 @@
 /////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
-//#include "stdafx.h"
 #include "_1x01 C Fundamentals.h"
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -102,9 +101,7 @@ void _4x02_SingleLinkedListOfChar() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -123,7 +120,7 @@ void _4x02_SingleLinkedListOfChar() {
 		else if (Choice == 'z') {
 			AtExitCleanup();
 			return;
-		} else
+		} else if (Choice != 'x')
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x');
@@ -143,7 +140,7 @@ static void GetNodeValueToAdd() {
 	// Better code needed for inputing numbers
 	char Inputs[MAX_INPUT_CHARS];
 	char Item;
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	Item = Inputs[0];
 	AddNode(Item);
 
@@ -222,7 +219,7 @@ static void GetNodeValueToRemove() {
 		printf("Enter value to remove from the list: ");
 		char Item;
 		char Inputs[MAX_INPUT_CHARS];
-		scanf("%s", &Inputs);
+		scanf("%s", Inputs);
 		Item = Inputs[0];
 		RemoveNode(Item);
 	} else
@@ -306,7 +303,7 @@ static void GetNodeValueToInsert() {
 	// Better code needed for inputing numbers
 	char Item;
 	char Inputs[MAX_INPUT_CHARS];
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	Item = Inputs[0];
 	InsertNode(Item);
 

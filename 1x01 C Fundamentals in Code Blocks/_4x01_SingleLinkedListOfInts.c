@@ -4,9 +4,9 @@
 // Date        : 2017.01.12
 // File        : 1x01 C Fundamentals.h
 // Description : Single-linked list with data value of int.
-// IDE         : Visual Studio 2012
-// Compiler    : MS
-// Language    : C
+// IDE         : Code::Blocks 16.01
+// Compiler    : GCC
+// Language    : C (Compiling to ISO 11.)
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // Demonstration of a dynamic single-linked list.
@@ -41,7 +41,6 @@
 /////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
-//#include "stdafx.h"
 #include "_1x01 C Fundamentals.h"
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -114,9 +113,7 @@ void _4x01_SingleLinkedListOfInts() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -135,7 +132,7 @@ void _4x01_SingleLinkedListOfInts() {
 		else if (Choice == 'z') {
 			AtExitCleanup();
 			return;
-		} else
+		} else if (Choice != 'x')
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x');

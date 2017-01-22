@@ -4,9 +4,9 @@
 // Date        : 2017.01.12
 // File        : 1x01 C Fundamentals.h
 // Description : Main header file.
-// IDE         : Visual Studio 2012
-// Compiler    : MS
-// Language    : C
+// IDE         : Code::Blocks 16.01
+// Compiler    : GCC
+// Language    : C (Compiling to ISO 11.)
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // https://en.wikipedia.org/wiki/C_preprocessor
@@ -20,6 +20,14 @@
 //#define MAIN_HEADER_FILE
 
 /////////////////////////////////////////////////////////////////////////////////////
+// Macros
+/////////////////////////////////////////////////////////////////////////////////////
+#define MAX_INPUT_CHARS 255
+#define MAX_FILENAME_CHARS 255
+#define _CRT_SECURE_NO_WARNINGS
+#define CHOICE_LENGTH 2
+
+////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
 #include <stdlib.h>
@@ -28,6 +36,7 @@
 #include <ctype.h>
 #include <math.h>
 //#include <cmath>
+#include <errno.h>
 
 // Tied to MS main and its arguments.
 #include <tchar.h>
@@ -69,14 +78,5 @@ void _4x02_SingleLinkedListOfChar();
 void _4x03_SingleLinkedListOfChars();
 
 void _0x09_PointersStructures();
-
-
-/////////////////////////////////////////////////////////////////////////////////////
-// Macros
-/////////////////////////////////////////////////////////////////////////////////////
-#define MAX_INPUT_CHARS 255
-#define MAX_FILENAME_CHARS 255
-#define _CRT_SECURE_NO_WARNINGS
-#define CHOICE_LENGTH 2
 
 //#endif // MAIN_HEADER_FILE

@@ -1,11 +1,5 @@
-﻿Build started 2017.01.22 11:19:04.
-     1>Project "C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\1x01 C Fundamentals.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt _2x00_MainMenu.c
-         _2x00_MainMenu.c
-     1>c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_2x00_mainmenu.c : fatal error C1853: 'Debug\1x01 C Fundamentals.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
-     1>Done Building Project "C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals\1x01 C Fundamentals.vcxproj" (Build target(s)) -- FAILED.
-
-Build FAILED.
-
-Time Elapsed 00:00:00.17
+﻿  _4x01_SingleLinkedListOfInts.cpp
+c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(44): warning C4603: 'DEBUG' : macro is not defined or definition is different after precompiled header use
+          Add macro to precompiled header instead of defining here
+          c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(49) : use of precompiled header
+  1x01 C Fundamentals.vcxproj -> C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.exe

@@ -16,6 +16,14 @@
 
 #pragma once
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Macros
+/////////////////////////////////////////////////////////////////////////////////////
+#define MAX_INPUT_CHARS 255
+#define MAX_FILENAME_CHARS 255
+#define _CRT_SECURE_NO_WARNINGS
+#define CHOICE_LENGTH 2
+
 //#ifndef MAIN_HEADER_FILE
 //#define MAIN_HEADER_FILE
 
@@ -68,14 +76,5 @@ void _4x02_SingleLinkedListOfChar();
 void _4x03_SingleLinkedListOfChars();
 
 void _0x09_PointersStructures();
-
-
-/////////////////////////////////////////////////////////////////////////////////////
-// Macros
-/////////////////////////////////////////////////////////////////////////////////////
-#define MAX_INPUT_CHARS 255
-#define MAX_FILENAME_CHARS 255
-#define _CRT_SECURE_NO_WARNINGS
-#define CHOICE_LENGTH 2
 
 //#endif // MAIN_HEADER_FILE

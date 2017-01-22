@@ -2,11 +2,11 @@
 // Project     : 1x01 C Fundamentals
 // Author      : James Piper, james@jamespiper.com
 // Date        : 2017.01.15
-// File        : _4x03_SingleLinkedListOfChars.cpp
+// File        : _4x03_SingleLinkedListOfChars.c
 // Description : Single-linked list of char array as the data value.
-// IDE         : Visual Studio 2012
-// Compiler    : MS
-// Language    : C
+// IDE         : Code::Blocks 16.01
+// Compiler    : GCC
+// Language    : C (Compiling to ISO 11.)
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // Taking code from _4x02_SingleLinkedListOfChar and modify
@@ -60,7 +60,6 @@
 /////////////////////////////////////////////////////////////////////////////////////
 // Include files
 /////////////////////////////////////////////////////////////////////////////////////
-//#include "stdafx.h"
 #include "_1x01 C Fundamentals.h"
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -143,9 +142,7 @@ void _4x03_SingleLinkedListOfChars() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -164,7 +161,7 @@ void _4x03_SingleLinkedListOfChars() {
 		else if (Choice == 'z') {
 			AtExitCleanup();
 			return;
-		} else
+		} else if (Choice != 'x')
 			printf("*** Select a choice from those listed. ****\n\n");
 
 	} while (Choice != 'x');
