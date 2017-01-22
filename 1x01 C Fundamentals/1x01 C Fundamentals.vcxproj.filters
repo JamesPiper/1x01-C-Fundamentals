@@ -36,9 +36,6 @@
     <ClCompile Include="1x01 C Fundamentals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="_2x00_MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="_3x00_Hello_World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -88,6 +85,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_3x0B_User_Defined_Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_2x00_MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
