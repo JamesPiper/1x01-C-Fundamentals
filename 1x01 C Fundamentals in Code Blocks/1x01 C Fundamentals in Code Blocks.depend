@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1485104068 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_1x01 c fundamentals.c
+	"_1x01 C Fundamentals.h"
+
+1485104508 c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_1x01 c fundamentals.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	<tchar.h>
+
+1485104515 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_2x00_mainmenu.c
+	"_1x01 C Fundamentals.h"
+
+1485104581 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x00_hello_world.c
+	"_1x01 C Fundamentals.h"
+
+1485104596 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x01_keywords.c
+	"_1x01 C Fundamentals.h"
+
+1485104602 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x02_headerfiles.c
+	"_1x01 C Fundamentals.h"
+
+1485104607 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x03_controlstatements.c
+	"_1x01 C Fundamentals.h"
+
+1485104612 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x04_operators.c
+	"_1x01 C Fundamentals.h"
+
+1485104616 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x05_charmapping.c
+	"_1x01 C Fundamentals.h"
+
+1485105138 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x06_datatypes.c
+	"_1x01 C Fundamentals.h"
+
+1485105147 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x07_dynamicmemoryallocation.c
+	"_1x01 C Fundamentals.h"
+
+1485105153 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x08_stringmanipulations.c
+	"_1x01 C Fundamentals.h"
+
+1485105157 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x09_datastructures.c
+	"_1x01 C Fundamentals.h"
+
+1485105180 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x0a_iotests.c
+	"_1x01 C Fundamentals.h"
+
+1485105184 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_3x0b_user_defined_functions.c
+	"_1x01 C Fundamentals.h"
+
+1485105225 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_4x00_linkedlists.c
+	"_1x01 C Fundamentals.h"
+
+1485105310 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_4x01_singlelinkedlistofints.c
+	"_1x01 C Fundamentals.h"
+
+1485105314 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_4x02_singlelinkedlistofchar.c
+	"_1x01 C Fundamentals.h"
+
+1485105591 source:c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals in code blocks\_4x03_singlelinkedlistofchars.c
+	"_1x01 C Fundamentals.h"
+

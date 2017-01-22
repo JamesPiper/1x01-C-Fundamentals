@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="1x01 C Fundamentals in Code Blocks" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/1x01 C Fundamentals in Code Blocks" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/1x01 C Fundamentals in Code Blocks" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="_1x01 C Fundamentals.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_1x01 C Fundamentals.h" />
+		<Unit filename="_2x00_MainMenu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x00_Hello_World.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x01_Keywords.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x02_HeaderFiles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x03_ControlStatements.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x04_Operators.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x05_CharMapping.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x06_DataTypes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x07_DynamicMemoryAllocation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x08_StringManipulations.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x09_DataStructures.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x0A_IOTests.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_3x0B_User_Defined_Functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_4x00_LinkedLists.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_4x01_SingleLinkedListOfInts.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_4x02_SingleLinkedListOfChar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="_4x03_SingleLinkedListOfChars.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

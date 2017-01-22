@@ -183,7 +183,7 @@ static void GetNodeValueToAdd() {
 
 	// Better code needed for inputing numbers
 	char Inputs[MAX_INPUT_CHARS];
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	/////////////////////////////////////////////////////////////////////////////////////
 	//printf("Inputs in GetNodeValueToAdd '%s' at memory location %X\n", Inputs, Inputs);
 	//printf("Value in GetNodeValueToAdd '%s' at memory location %X\n", Value, Value);
@@ -282,7 +282,7 @@ static void GetNodeValueToRemove() {
 	if (ListHead != NULL) {
 		printf("Enter value to remove from the list: ");
 		char Inputs[MAX_INPUT_CHARS];
-		scanf("%s", &Inputs);
+		scanf("%s", Inputs);
 		RemoveNode(Inputs);
 	} else
 		printf("This list is empty.\n");
@@ -387,7 +387,7 @@ static void GetNodeValueToInsert() {
 
 	// Better code needed for inputing numbers
 	char Inputs[MAX_INPUT_CHARS];
-	scanf("%s", &Inputs);
+	scanf("%s", Inputs);
 	InsertNode(Inputs);
 	
 	printf("\n");

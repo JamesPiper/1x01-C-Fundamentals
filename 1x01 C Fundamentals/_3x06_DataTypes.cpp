@@ -943,7 +943,7 @@ static void H() {
 	printf("H - Booleans\n");
 	printf("==============================================================================\n");
 	printf("\n");
-	printf("not part of C, but used in C++\n");
+	printf("'bool' is not part of C, but used in C++\n");
 	bool IsUsed = False;
 	printf("bool IsUsed = False;\n");
 	printf("\n");
@@ -970,6 +970,7 @@ static void I() {
 	printf("I - Sizeof\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	printf("'bool' is not part of C, but used in C++\n");
 	bool t = true;
 	printf(" bool t      = true;    sizeof is %d\n", sizeof(t));
 	char a = 'a';
