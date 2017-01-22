@@ -170,9 +170,6 @@
     <ClCompile Include="_4x02_SingleLinkedListOfChar.cpp" />
     <ClCompile Include="_4x03_SingleLinkedListOfChars.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

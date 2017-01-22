@@ -14,13 +14,46 @@
 /////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-#include <cstdio>
-#include <cstdlib>
-#include <string.h>
-#include <cmath>
-#include <ctype.h>
+/////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+// Macros
+/////////////////////////////////////////////////////////////////////////////////////
 #define NUM_OF_NUMS_TO_SUM 2
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Typedefs
+/////////////////////////////////////////////////////////////////////////////////////
+struct fractionA {
+	int numerator;
+	int denominator;
+};
+
+struct fractionB { int numerator; int denominator; };
+
+typedef struct SLLNodeInt {
+	int Value;
+	SLLNodeInt* Next;
+} SLLNodeInt;
+
+typedef struct SLLNodeChar {
+	char Value;
+	SLLNodeChar* Next;
+} SLLNodeChar;
+
+typedef struct SLLNodeChars {
+	char* Value;
+	SLLNodeChars* Next;
+} SLLNodeChars;
+
+typedef struct DataValue {
+	int ID;
+} DataValue;
+
+typedef struct ExtendedSLLNode {
+	DataValue value;
+	ExtendedSLLNode* next;
+} ExtendedSLLNode;
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Function prototypes.
@@ -30,6 +63,7 @@ static void B();
 static void C();
 static void D();
 static void E();
+
 static void F0();
 static void F1();
 static void F2();
@@ -41,9 +75,11 @@ static void F7();
 static void F8();
 static void F9();
 static void F10();
+static void DisplayNodes(SLLNodeChars* ListHead);
 static void Display_1(int age);
 static void Display_2(int *age);
 static float average(float *age);
+
 static void G();
 static void H();
 static void I();
@@ -342,10 +378,14 @@ static void D() {
 	int MyArray3[10];
 	int MyArray4[] = {1, 2, 3};
 
+	MyArray1[0] = 0;
+	MyArray3[0] = 0;
+
 	char MyString[] = "This is a test";
 	
 	int MyMultiRowArray1[10][10];
 	int MultiRow[10][10] = {{0,1,2,3,4,5,6,7,8,9}, {10,11,12,13,14,15,16,17,18,19}};
+	MyMultiRowArray1[0][0] = 0;
 
 	printf("==============================================================================\n");
 	printf("D - Arrays\n");
@@ -445,14 +485,6 @@ static void E() {
 	system("pause");
 
 }
-
-
-struct fractionA {
-	int numerator;
-	int denominator;
-};
-
-struct fractionB { int numerator; int denominator; };
 
 static void F0() {
 
@@ -701,30 +733,6 @@ static void F7() {
 
 }
 
-typedef struct SLLNodeInt {
-	int Value;
-	SLLNodeInt* Next;
-} SLLNodeInt;
-
-typedef struct SLLNodeChar {
-	char Value;
-	SLLNodeChar* Next;
-} SLLNodeChar;
-
-typedef struct SLLNodeChars {
-	char* Value;
-	SLLNodeChars* Next;
-} SLLNodeChars;
-
-typedef struct DataValue {
-	int ID;
-} DataValue;
-
-typedef struct ExtendedSLLNode {
-	DataValue value;
-	ExtendedSLLNode* next;
-} ExtendedSLLNode;
-
 static void F8() {
 
 	printf("==============================================================================\n");
@@ -750,8 +758,6 @@ static void F8() {
 	system("pause");
 
 }
-
-static void DisplayNodes(SLLNodeChars* ListHead);
 
 static void F9() {
 
@@ -898,12 +904,14 @@ static void G() {
 	printf("Using As Flags\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
+
 	enum customer {
-		Savings = 1,  // 0000 0001
-		Chequing = 2, // 0000 0010
-		LineOfCr = 4, // 0000 0100
-		Mortage = 8   // 0000 1000
+		Savings  = 1,  // 0000 0001
+		Chequing = 2,  // 0000 0010
+		LineOfCr = 4,  // 0000 0100
+		Mortage  = 8   // 0000 1000
 	} ;
+
 	printf("  enum customer { \n");
 	printf("	Savings  = 1,  // 0000 0001\n");
 	printf("	Chequing = 2,  // 0000 0010\n");
@@ -929,7 +937,7 @@ static void G() {
 
 static void H() {
 
-	typedef enum Boolean { False, True} Boolean;
+	//typedef enum Boolean { False, True} Boolean;
 
 	printf("==============================================================================\n");
 	printf("H - Booleans\n");
@@ -997,7 +1005,7 @@ static void I() {
 static void J() {
 
 	int ageArray[] = { 2, 3, 4 };
-	float age[] = { 23.4, 55, 22.6, 3, 40.5, 18 };
+	float age[] = { 23.4F, 55.0F, 22.6F, 3.0F, 40.5F, 18.0F };
 
 	printf("==============================================================================\n");
 	printf("J - Pass Arrays To Functions\n");
@@ -1036,10 +1044,12 @@ static void J() {
 	printf("     return (sum / 6);\n");
 	printf("   }\n");
 	printf("\n");
-	printf("   float age[] = { 23.4, 55, 22.6, 3, 40.5, 18 };\n");
+	printf("   float age[] = { 23.4F, 55.0F, 22.6F, 3.0F, 40.5F, 18.0F };\n");
 	printf("\n");
 	printf("   call it: avg = average(age); the average is %0.2f\n", average(age));
 	printf("   Using the variable 'age' passes the address for the array, pass by ref\n");
+	printf("\n");
+	printf("   Note: the use of n.nF appears to be MS specific.\n");
 	printf("\n");
 	printf("==============================================================================\n");
 	system("pause");
@@ -1056,7 +1066,6 @@ static void Display_2(int *age)
     printf("%d", *age);
 }
 
-//float average(float age[])
 static float average(float *age)
 {
     int i;

@@ -14,11 +14,7 @@
 /////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
-#include <cstdio>
-#include <cmath>
-#include <cstdlib>
-#include <string.h>
-#include <ctype.h>
+/////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Function prototypes.
@@ -65,9 +61,7 @@ void _3x04_Operators() {
 		printf("Enter choice: ");
 
 		char Inputs[MAX_INPUT_CHARS];
-		// 2 represents 1 char of input and null terminator.
 		GetUserInputs(Inputs, CHOICE_LENGTH);
-		//scanf("%s", &Inputs);
 		Choice = tolower(Inputs[0]);
 		printf("\n");
 
@@ -283,15 +277,15 @@ static void H() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	int example = 10;
-	printf("  int example = 10 = %d\n", example);
+	printf("  int example  = 10 = %d\n", example);
 	example += 10;
-	printf("  example += 10 = %d\n", example);
+	printf("      example += 10 = %d\n", example);
 	printf("\n");
 	printf("*=, /= Multiply or divide by RHS\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	example = 10;
-	printf("  example = 10 = %d\n", example);
+	printf("  example  = 10 = %d\n", example);
 	example *= 10;
 	printf("  example *= 10 = %d\n", example);
 	printf("\n");
@@ -299,7 +293,7 @@ static void H() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	example = 10;
-	printf("  example = 10 = %d\n", example);
+	printf("  example  = 10 = %d\n", example);
 	example %= 3;
 	printf("  example %%= 3 = %d\n", example);
 	printf("\n");
@@ -307,7 +301,7 @@ static void H() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	example = 0xF;
-	printf("  example = 0xF = %X (F = 1111)\n", example);
+	printf("  example   = 0xF = %X (F = 1111)\n", example);
 	example >>= 1;
 	printf("  example >>= 1 = %X (7 = 0111)\n", example);
 	printf("\n");
@@ -315,7 +309,7 @@ static void H() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	example = 0x7;
-	printf("  example = 0x7 = %X (7 = 0111)\n", example);
+	printf("  example   = 0x7 = %X (7 = 0111)\n", example);
 	example <<= 1;
 	printf("  example <<= 1 = %X (E = 1110)\n", example);
 	printf("\n");

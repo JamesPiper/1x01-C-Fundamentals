@@ -5,8 +5,9 @@
 // 
 //==============================================================================
 
+// Annoyingly won't compile with include to stdafx.h even though the file is empty.
 #include "stdafx.h"
-#include <cstdio>
+#include "1x01 C Fundamentals.h"
 
 void _3x00_Hello_World() {
 

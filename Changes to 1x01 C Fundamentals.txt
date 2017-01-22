@@ -9,9 +9,14 @@
 // Language    : C
 /////////////////////////////////////////////////////////////////////////////////////
 
+2017.01.22
+· Clean up use of include files in the individual C files.
+
 2017.01.21
 · Creating and using CHOICE_LENGTH define in main header file.
 · Standardize the comment header for each page.
+· Using '#pragma once' in header files.
+· Using #define DEBUG, #ifdef DEBUG...#endif for debugging only code.
 
 2017.01.20
 · Test and simplify function GetUserInputs.

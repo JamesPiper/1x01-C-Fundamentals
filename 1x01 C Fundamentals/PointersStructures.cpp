@@ -9,10 +9,6 @@
 #include "stdafx.h"
 #include "1x01 C Fundamentals.h"
 
-#include <cstdio>
-#include <cmath>
-#include <stdlib.h>
-
 void _0x09_PointersStructures() {
 }
 
