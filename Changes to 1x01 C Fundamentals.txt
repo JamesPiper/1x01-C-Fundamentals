@@ -23,7 +23,8 @@
   because 'a' comes before 'f'. Not what is required.
   Changing algorithm and it seems to be working.
   This bug was likely the cause of problems with single-linked list of chars.
-
+· Complete unit testing of single-linked list of ints and coding this data structure.
+  It's working as expected.
 
 2017.01.22
 · Clean up use of include files in the individual C files.
