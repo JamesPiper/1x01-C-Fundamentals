@@ -86,10 +86,22 @@ static void GetNodeValueToInsert();
 static void InsertNode(char* value);
 
 static void DisplayNodes();
+static void ClearList();
+
 static void AtExitCleanup();
 
-static void _4x03_SingleLinkedListOfChars_TestCode();
-
+static void TestCode_F_SingleLinkedListOfChars();
+static void TestCode_G_SingleLinkedListOfChars();
+static void TestCode_H_SingleLinkedListOfChars();
+static void TestCode_I_SingleLinkedListOfChars();
+static void TestCode_J_SingleLinkedListOfChars();
+static void TestCode_K_SingleLinkedListOfChars();
+static void TestCode_L_SingleLinkedListOfChars();
+static void TestCode_M_SingleLinkedListOfChars();
+static void TestCode_N_SingleLinkedListOfChars();
+static void TestCode_O_SingleLinkedListOfChars();
+static void TestCode_P_SingleLinkedListOfChars();
+static void TestCode_Q_SingleLinkedListOfChars();
 /////////////////////////////////////////////////////////////////////////////////////
 // Start of the list.
 /////////////////////////////////////////////////////////////////////////////////////
@@ -109,20 +121,9 @@ void _4x03_SingleLinkedListOfChars() {
 
 	do {
 
-		/////////////////////////////////////////////////////////////////////////////////////
-		// Need to learn the coding method for debug only code.
-		/////////////////////////////////////////////////////////////////////////////////////
-		//if (ListHead != NULL) {
-		//	printf("[ListHead in _4x03_SingleLinkedListOfChars:\n");
-		//	printf(" Memory Location: %X\n", ListHead);
-		//	printf(" Value: %s at memory location %X\n", ListHead->Value, ListHead->Value);
-		//	printf(" Next: %X]\n", ListHead->Next);
-		//}
-		/////////////////////////////////////////////////////////////////////////////////////
-
 		printf("******************************************************************************\n");
 		printf("*                                                                            *\n");
-		printf("*   Single Linked List of Chars                                              *\n");
+		printf("*   Single-linked List of Chars                                              *\n");
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
@@ -130,8 +131,25 @@ void _4x03_SingleLinkedListOfChars() {
 		printf("*   B - Remove Node                                                          *\n");
 		printf("*   C - Insert Node (Sorted list)                                            *\n");
 		printf("*   D - Display Nodes                                                        *\n");
+		printf("*   E - Clear List                                                           *\n");
 		printf("*                                                                            *\n");
-		printf("*   T - Test Code                                                            *\n");
+#define DEBUG_403
+#ifdef DEBUG_403
+		printf("*   F - Unit Testing - Clear List                                            *\n");
+		printf("*   G - Unit Testing - Add Nodes To List                                     *\n");
+		printf("*   H - Unit Testing - Insert Node To Empty List                             *\n");
+		printf("*   I - Unit Testing - Insert Node To The Start Of The List                  *\n");
+		printf("*   J - Unit Testing - Insert Node To The Middle Of The List                 *\n");
+		printf("*   K - Unit Testing - Insert Node To The End Of The List                    *\n");
+		printf("*                                                                            *\n");
+		printf("*   L - Unit Testing - Remove Node From Empty List                           *\n");
+		printf("*   M - Unit Testing - Remove Node Not In The List                           *\n");
+		printf("*   N - Unit Testing - Remove Node From One-item List                        *\n");
+		printf("*   O - Unit Testing - Remove Node From The Start Of The List                *\n");
+		printf("*   P - Unit Testing - Remove Node From The Middle Of The List               *\n");
+		printf("*   Q - Unit Testing - Remove Node From The End Of The List                  *\n");
+#endif
+#undef DEBUG_403
 		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");
@@ -152,10 +170,36 @@ void _4x03_SingleLinkedListOfChars() {
 			GetNodeValueToRemove();
 		else if (Choice == 'c')
 			GetNodeValueToInsert();
-		else if (Choice == 'd')
+		else if (Choice == 'd') {
 			DisplayNodes();
-		else if (Choice == 't')
-			_4x03_SingleLinkedListOfChars_TestCode();
+			system("pause");
+		} else if (Choice == 'e') {
+			ClearList();
+			system("pause");
+		} else if (Choice == 'f')
+			TestCode_F_SingleLinkedListOfChars();
+		else if (Choice == 'g')
+			TestCode_G_SingleLinkedListOfChars();
+		else if (Choice == 'h')
+			TestCode_H_SingleLinkedListOfChars();
+		else if (Choice == 'i')
+			TestCode_I_SingleLinkedListOfChars();
+		else if (Choice == 'j')
+			TestCode_J_SingleLinkedListOfChars();
+		else if (Choice == 'k')
+			TestCode_K_SingleLinkedListOfChars();
+		else if (Choice == 'l')
+			TestCode_L_SingleLinkedListOfChars();
+		else if (Choice == 'm')
+			TestCode_M_SingleLinkedListOfChars();
+		else if (Choice == 'n')
+			TestCode_N_SingleLinkedListOfChars();
+		else if (Choice == 'o')
+			TestCode_O_SingleLinkedListOfChars();
+		else if (Choice == 'p')
+			TestCode_P_SingleLinkedListOfChars();
+		else if (Choice == 'q')
+			TestCode_Q_SingleLinkedListOfChars();
 		else if (Choice == 'x')
 			exit(0);
 		else if (Choice == 'z') {
@@ -178,13 +222,8 @@ static void GetNodeValueToAdd() {
 	printf("\n");
 	printf("Enter value to add to the list: ");
 
-	// Better code needed for inputing numbers
 	char Inputs[MAX_INPUT_CHARS];
 	scanf("%s", Inputs);
-	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("Inputs in GetNodeValueToAdd '%s' at memory location %X\n", Inputs, Inputs);
-	//printf("Value in GetNodeValueToAdd '%s' at memory location %X\n", Value, Value);
-	/////////////////////////////////////////////////////////////////////////////////////
 	AddNode(Inputs);
 
 	printf("\n");
@@ -196,14 +235,19 @@ static void GetNodeValueToAdd() {
 static void AddNode(char* value) {
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("Value in AddNode '%s' at memory location %X\n", value, value);
+	//#define DEBUG_403
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("Value in AddNode '%s' at memory location %X\n", value, &value);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	TrimWhitespace(value);
 	/////////////////////////////////////////////////////////////////////////////////////
 
-		// Create a new node.
+	// Create a new node.
 	SLListChars* NewNode = CreateNewNode(value);
 
 	// Add node to the end of the list.
@@ -218,6 +262,7 @@ static void AddNode(char* value) {
 		} else {
 			// First node.
 			ListHead = NewNode;
+			/////////////////////////////////////////////////////////////////////////////////////
 			// Assigning NewNode to ListHead, when the first node is created, works for ints.
 			// Yet something odd is happening with char or char*.
 			// In debug mode, ListHead has null value after the assign, yet
@@ -227,29 +272,33 @@ static void AddNode(char* value) {
 			//ListHead->Value = NewNode->Value;
 			//ListHead->Next = NewNode->Next;
 			/////////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////////
-			//printf(">>>>>ListHead in AddNode<<<<<\n");
-			//printf(">>>>>(Memory Location: %X | Value: '%s' | Next: %X)<<<<<\n",
-			//	ListHead, ListHead->Value, ListHead->Next);
+			#ifdef DEBUG_403
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("ListHead in AddNode\n");
+			printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+				ListHead, ListHead->Value, ListHead->Next);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif
 			/////////////////////////////////////////////////////////////////////////////////////
 		}
-		printf("Node added to the list with value '%s' at location %X.\n", value, NewNode);
+		printf("Node added to the list at location %X with value '%s'\n", NewNode, value);
 	} else
 		printf("Problem allocating memory for new node.\n");
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf(">>>>>NewNode in AddNode:<<<<<\n");
-	//printf(">>>>>(Memory Location: %X | Value: '%s' | Next: %X)<<<<<\n",
-	//	NewNode, NewNode->Value, NewNode->Next);
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("NewNode in AddNode:\n");
+	printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+		NewNode, NewNode->Value, NewNode->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_403
 	/////////////////////////////////////////////////////////////////////////////////////
 
 }
 
 static SLListChars* CreateNewNode(char* value) {
-
-	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("[Value in CreateNewNode '%s' at memory location %X]\n", value, value);
-	/////////////////////////////////////////////////////////////////////////////////////
 
 	// Create a pointer for new node.
 	SLListChars* NewNode = (SLListChars*) malloc(sizeof(SLListChars));
@@ -259,7 +308,8 @@ static SLListChars* CreateNewNode(char* value) {
 		/////////////////////////////////////////////////////////////////////////////////////
 		// Major difference here from the other SLL implementations
 		NewNode->Value = (char*) malloc(sizeof(strlen(value) + 1));
-		strcpy(NewNode->Value, value);
+		if (NewNode->Value != NULL)
+			strcpy(NewNode->Value, value);
 		/////////////////////////////////////////////////////////////////////////////////////
 		NewNode->Next = NULL;
 		return NewNode;
@@ -276,13 +326,10 @@ static void GetNodeValueToRemove() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 
-	if (ListHead != NULL) {
-		printf("Enter value to remove from the list: ");
-		char Inputs[MAX_INPUT_CHARS];
-		scanf("%s", Inputs);
-		RemoveNode(Inputs);
-	} else
-		printf("This list is empty.\n");
+	printf("Enter value to remove from the list: ");
+	char Inputs[MAX_INPUT_CHARS];
+	scanf("%s", Inputs);
+	RemoveNode(Inputs);
 
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
@@ -293,85 +340,89 @@ static void GetNodeValueToRemove() {
 
 static void RemoveNode(char* value) {
 
+	/////////////////////////////////////////////////////////////////////////////////////
 	// Cases to consider.
 	// 1. Found value in list, remove node.
 	// 2. Value not found. List unchanged.
-
+	//
 	// Possible states of list and node to remove.
 	// 1. List is empty. ListHead points to null. Can't remove node.
 	//    Handled by caller. Only get here if list isn't empty.
 	// 2. Node is at the start. Adjust ListHead to point to second node.
 	// 3. Node is at the end. Adjust second last to point to null.
 	// 4. Node is not at start or end, point previous to next.
-
-	// Using NotEndOfList for readability even though it adds to cycles.
-
-	/////////////////////////////////////////////////////////////////////////////////////
-	// Using free to deallocate memory for a node.
-	// It seems to me I should use deallocate to remove the memory used for the
 	//
-	// free(Traverser->Value);
+	// Using NotEndOfList for readability even though it adds to cycles.
 	/////////////////////////////////////////////////////////////////////////////////////
 
-	/////////////////////////////////////////////////////////////////////////////////////
-	if (StringCompare(value, ListHead->Value) == 0) {
-	/////////////////////////////////////////////////////////////////////////////////////
-		// Remove at start.
-		ListHead = ListHead->Next;
-		printf("Node with value '%s' removed from the list.\n", value);
-	} else {
-		// Search the list for node.
-		SLListChars* Traverser = ListHead->Next;
-		SLListChars* PrevNode = ListHead;
-		Boolean LocationFound = False;
-		Boolean NotEndOfList = True;
-		while (LocationFound != True && NotEndOfList == True)  {
-			if (Traverser->Next !=NULL) {
-				/////////////////////////////////////////////////////////////////////////////////////
-				if (StringCompare(value, Traverser->Value) == 0) {
-				/////////////////////////////////////////////////////////////////////////////////////
-					LocationFound = True;
-					PrevNode->Next = Traverser->Next;
-					/////////////////////////////////////////////////////////////////////////////////////
-					char* str = Traverser->Value;
-					printf("Traverser->Value before: '%s' at %X\n", Traverser->Value);
-					printf("Value before: '%s' at %X\n", str);
-					//free(str);
-					/////////////////////////////////////////////////////////////////////////////////////
-					free(Traverser);
-					/////////////////////////////////////////////////////////////////////////////////////
-					printf("Value after : '%s' at %X\n", str);
-					/////////////////////////////////////////////////////////////////////////////////////
-					printf("Node with value '%s' removed from the list.\n", value);
-				} else {
-					PrevNode = Traverser;
-					Traverser = Traverser->Next;
+	if (ListHead != NULL) {
+		/////////////////////////////////////////////////////////////////////////////////////
+		if (StringCompare(value, ListHead->Value) == 0) {
+		/////////////////////////////////////////////////////////////////////////////////////
+			// Remove at start.
+			SLListChars* temp = ListHead;
+			/////////////////////////////////////////////////////////////////////////////////////
+			//#define DEBUG_403
+			#ifdef DEBUG_403
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("Value before: '%c' at %X\n", temp->Value, temp);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif
+			/////////////////////////////////////////////////////////////////////////////////////
+			ListHead = ListHead->Next;
+			free(temp);
+			printf("Node removed from the list with value '%s'\n", value);
+			/////////////////////////////////////////////////////////////////////////////////////
+			#ifdef DEBUG_403
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("Value after: '%c' at %X\n", temp->Value, temp);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif
+			#undef DEBUG_403
+			/////////////////////////////////////////////////////////////////////////////////////
+		} else {
+			// Search the list for node.
+			if (ListHead->Next != NULL) {
+				SLListChars* Traverser = ListHead->Next;
+				SLListChars* PrevNode = ListHead;
+				Boolean LocationFound = False;
+				Boolean NotEndOfList = True;
+				while (LocationFound != True && NotEndOfList == True)  {
+					if (Traverser->Next !=NULL) {
+						/////////////////////////////////////////////////////////////////////////////////////
+						if (StringCompare(value, Traverser->Value) == 0) {
+						/////////////////////////////////////////////////////////////////////////////////////
+							LocationFound = True;
+							PrevNode->Next = Traverser->Next;
+							free(Traverser);
+							printf("Node removed from the list with value '%s'\n", value);
+						} else {
+							PrevNode = Traverser;
+							Traverser = Traverser->Next;
+						}
+					} else {
+						// At the end of the list.
+						/////////////////////////////////////////////////////////////////////////////////////
+						if (StringCompare(value, Traverser->Value) == 0) {
+						/////////////////////////////////////////////////////////////////////////////////////
+							LocationFound = True;
+							PrevNode->Next = NULL;
+							free(Traverser);
+							printf("Node removed from the list with value '%s'\n", value);
+						} else {
+							NotEndOfList = False;
+							printf("***** Value '%s' not found in the list. List unchanged. *****\n", value);
+						}
+					}
 				}
 			} else {
-				// At the end of the list.
-				/////////////////////////////////////////////////////////////////////////////////////
-				if (StringCompare(value, Traverser->Value) == 0) {
-				/////////////////////////////////////////////////////////////////////////////////////
-					LocationFound = True;
-					PrevNode->Next = NULL;
-					/////////////////////////////////////////////////////////////////////////////////////
-					char* str = Traverser->Value;
-					printf("Traverser->Value before: '%s' at %X\n", Traverser->Value);
-					printf("Value before: '%s' at %X\n", str);
-					//free(str);
-					/////////////////////////////////////////////////////////////////////////////////////
-					free(Traverser);
-					/////////////////////////////////////////////////////////////////////////////////////
-					printf("Value after : '%s' at %X\n", str);
-					/////////////////////////////////////////////////////////////////////////////////////
-					printf("Node with value '%s' removed from the list.\n", value);
-				} else {
-					NotEndOfList = False;
-					printf("Value not found in the list. List unchanged.\n");
-				}
+				// Only one item in the list and not a match.
+				if (value != ListHead->Value)
+					printf("***** Value '%s' not found in the list. List unchanged. *****\n", value);
 			}
 		}
-	}
+	} else
+		printf("This list is empty.\n");
 }
 
 static void GetNodeValueToInsert() {
@@ -382,7 +433,6 @@ static void GetNodeValueToInsert() {
 	printf("\n");
 	printf("Value to insert into the list: ");
 
-	// Better code needed for inputing numbers
 	char Inputs[MAX_INPUT_CHARS];
 	scanf("%s", Inputs);
 	InsertNode(Inputs);
@@ -396,6 +446,7 @@ static void GetNodeValueToInsert() {
 
 static void InsertNode(char* value) {
 
+	/////////////////////////////////////////////////////////////////////////////////////
 	// Cases to consider.
 	//
 	// A. Affecting ListHead
@@ -407,16 +458,26 @@ static void InsertNode(char* value) {
 	//--------------------------
 	// 1. Insert value falls within two existing nodes.
 	// 2. All values in the list are smaller than in the insert value, insert at the end.
-
+	//
 	// Using a previous pointer variable to keep track of where to insert.
 	// I wonder if there's a way to do it without this variable.
-
+	//
 	// Writing structured code, hence all the embedded if..else
 	// Also needed to catch any null pointers.
 	// Looking at ways to simplify but this seems to be it.
+	/////////////////////////////////////////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	TrimWhitespace(value);
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	//#define DEBUG_403
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("Value in InsertNode '%s' at memory location %X\n", value, &value);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	// Create a new node.
@@ -432,8 +493,8 @@ static void InsertNode(char* value) {
 				NewNode->Next = ListHead;
 				ListHead = NewNode;
 				/////////////////////////////////////////////////////////////////////////////////////
-				ListHead->Value = NewNode->Value;
-				ListHead->Next = NewNode->Next;
+				//ListHead->Value = NewNode->Value;
+				//ListHead->Next = NewNode->Next;
 				/////////////////////////////////////////////////////////////////////////////////////
 			} else {
 				// Search for insertion point.
@@ -445,8 +506,6 @@ static void InsertNode(char* value) {
 					// 1. We've reached the end of the list, or,
 					// 2. The insert value is less than or equal to the node value.
 					if (Traverser->Next != NULL) {
-						//if (value <= Traverser->Value) {
-						//if (strcmp(strlwr(value), strlwr(Traverser->Value)) <= 0) {
 						/////////////////////////////////////////////////////////////////////////////////////
 						if (StringCompare(value, Traverser->Value) <= 0) {
 						/////////////////////////////////////////////////////////////////////////////////////
@@ -476,19 +535,25 @@ static void InsertNode(char* value) {
 			// First node on the list.
 			ListHead = NewNode;
 			/////////////////////////////////////////////////////////////////////////////////////
-			ListHead->Value = NewNode->Value;
-			ListHead->Next = NewNode->Next;
-			/////////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////////
-			printf("ListHead in InsertNode - First Node:\n");
-			printf(" Memory Location: %X\n", ListHead);
-			printf(" Value: %s\n", ListHead->Value);
-			printf(" Next: %X\n", ListHead->Next);
+			//ListHead->Value = NewNode->Value;
+			//ListHead->Next = NewNode->Next;
 			/////////////////////////////////////////////////////////////////////////////////////
 		}
-		printf("Node inserted into the list with value '%s' at location %X.\n", value, NewNode);
+		printf("Node inserted into the list at location %X with value '%s'\n", NewNode, value);
 	} else
 		printf("Problem allocating memory for new node.\n");
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("ListHead in InsertNode\n");
+	printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+		ListHead, ListHead->Value, ListHead->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_403
+	/////////////////////////////////////////////////////////////////////////////////////
+
 }
 
 static void DisplayNodes() {
@@ -499,10 +564,15 @@ static void DisplayNodes() {
 	printf("\n");
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("ListHead in DisplayNodes:\n");
-	//printf(" Memory Location: %X\n", ListHead);
-	//printf(" Value: %s\n", ListHead->Value);
-	//printf(" Next: %X\n", ListHead->Next);
+	//#define DEBUG_403
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("ListHead in DisplayNodes\n");
+	printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+		ListHead, ListHead->Value, ListHead->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_403
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	SLListChars* Traverser;
@@ -510,8 +580,8 @@ static void DisplayNodes() {
 		printf("The ListHead is at %X\n", ListHead);
 		Traverser = ListHead;
 		do {
-			printf("List item with value '%s' at memory location %X and next at %X\n",
-				Traverser->Value, Traverser, Traverser->Next);
+			printf("Item at memory location %X next at %6X with value '%s'\n",
+				Traverser, Traverser->Next, Traverser->Value);
 			Traverser = Traverser->Next;
 		} while (Traverser !=NULL);
 	}
@@ -521,7 +591,26 @@ static void DisplayNodes() {
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	system("pause");
+
+}
+
+static void ClearList() {
+
+	printf("------------------------------------------------------------------------------\n");
+	printf("Clearing The List\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Traverse the list and free nodes.\n");
+
+	SLListChars* Traverser;
+	while (ListHead != NULL) {
+		Traverser = ListHead;
+		ListHead = ListHead->Next;
+		printf("Node memory freed at %X.\n", Traverser);
+		free(Traverser);
+	}
+
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
 
 }
 
@@ -539,82 +628,348 @@ static void AtExitCleanup() {
 	}
 }
 
-static void _4x03_SingleLinkedListOfChars_TestCode() {
 
-	/////////////////////////////////////////////////////////////////////////////////////
-	// Run test code on the SLL data structure of char.
-	//
-	// Able to test valid inputs (char) to show it works.
-	// Not able to test junk input to see how it handles it.
-	/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// Run test code on the SLL data structure of chars.
+//
+// Able to test valid inputs (ints) to show it works.
+// Not able to test junk input to see how it handles it.
+/////////////////////////////////////////////////////////////////////////////////////
+static void TestCode_F_SingleLinkedListOfChars() {
 
 	printf("==============================================================================\n");
-	printf("Testing Code - Check Add, Insert, Remove and Display Nodes\n");
+	printf("F - Unit Testing - Clear List\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	printf("Create list with add.\n");
+	char str[MAX_INPUT_CHARS] = "abc";
+	AddNode(str);
+	strcpy(str, "def");
+	AddNode(str);
+	strcpy(str, "ghi");
+	AddNode(str);
+	strcpy(str, "jkl");
+	AddNode(str);
+	printf("\n");
+	DisplayNodes();
+
+	printf("Call clear list function.\n");
+	printf("\n");
+	ClearList();
+	DisplayNodes();
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_G_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("G - Unit Testing - Add Nodes To List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
 
 	printf("Add Some Nodes (Not a sorted list)\n");
 	printf("------------------------------------------------------------------------------\n");
-	char Str[MAX_INPUT_CHARS];
-	strcpy(Str, "Mark");
-	AddNode(Str);
-
-	strcpy(Str, "Spencer");
-	AddNode(Str);
-
-	strcpy(Str, "   Mark   ");
-	AddNode(Str);
-
-	strcpy(Str, "     Spencer    ");
-	AddNode(Str);
-
-	strcpy(Str, "   Mark Spencer    ");
-	AddNode(Str);
-
-	strcpy(Str, "   Mark    Spencer    ");
-	AddNode(Str);
-
+	char str[MAX_INPUT_CHARS] = "lemon";
+	AddNode(str);
+	strcpy(str, "lime");
+	AddNode(str);
+	strcpy(str, "orange");
+	AddNode(str);
+	strcpy(str, "clemintine");
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	DisplayNodes();
-	printf("\n");
 
-	printf("Remove Some Nodes\n");
-	printf("------------------------------------------------------------------------------\n");
-	RemoveNode("Spencer");
-	RemoveNode("Mark");
-	RemoveNode("Mark    Spencer");
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	DisplayNodes();
-	printf("\n");
-/*
-	printf("Insert Some Nodes (Sorted list)\n");
-	printf("------------------------------------------------------------------------------\n");
-	InsertNode('a');
-	InsertNode('b');
-	InsertNode('u');
-	InsertNode('n');
-	InsertNode(' ');
-	InsertNode('x');
-	InsertNode('b');
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	DisplayNodes();
-	printf("\n");
-
-	printf("Remove Some Nodes (Sorted list)\n");
-	printf("------------------------------------------------------------------------------\n");
-	RemoveNode('z');
-	RemoveNode('b');
-	RemoveNode('u');
-	RemoveNode('u');
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	DisplayNodes();
-	printf("\n");
-*/
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_H_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("H - Unit Testing - Insert Node To Empty List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+
+	char str[MAX_INPUT_CHARS] = "orange";
+	InsertNode(str);
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_I_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("I - Unit Testing - Insert Node To The Start Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+
+	printf("Create list with add.\n");
+	char str[MAX_INPUT_CHARS] = "lemon";
+	AddNode(str);
+	strcpy(str, "lime");
+	AddNode(str);
+	strcpy(str, "orange");
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
+	printf("\n");
+
+	strcpy(str, "clemintine");
+	InsertNode(str);
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_J_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("J - Unit Testing - Insert Node To The Middle Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+
+	printf("Create list with add.\n");
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	strcpy(str, "lemon");
+	AddNode(str);
+	strcpy(str, "orange");
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
+	printf("\n");
+	printf("\n");
+
+	strcpy(str, "lime");
+	InsertNode(str);
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_K_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("K - Unit Testing - Insert Node To The End Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	strcpy(str, "lemon");
+	AddNode(str);
+	strcpy(str, "lime");
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
+	printf("\n");
+
+	strcpy(str, "orange");
+	InsertNode(str);
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_L_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("L - Unit Testing - Remove Node From Empty List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Attempt to remove item from empty list.\n");
+	printf("\n");
+	RemoveNode("lime");
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_M_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("M - Unit Testing - Remove Node Not In The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with an add.\n");
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	printf("\n");
+
+	printf("Attempt to remove an item.\n");
+	RemoveNode("lemon");
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_N_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("N - Unit Testing - Remove Node From One-item List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with an add.\n");
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	printf("\n");
+
+	printf("Attempt to remove an item.\n");
+	RemoveNode("clemintine");
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_O_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("O - Unit Testing - Remove Node From The Start Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with add.\n");
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
+	strcpy(str, "lemon");
+	AddNode(str);
+	strcpy(str, "lime");
+	AddNode(str);
+	strcpy(str, "orange");
+	AddNode(str);
+	printf("\n");
+
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode("clemintine");
+
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_P_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("P - Unit Testing - Remove Node From The Middle Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with add.\n");
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
+	strcpy(str, "lemon");
+	AddNode(str);
+	strcpy(str, "lime");
+	AddNode(str);
+	strcpy(str, "orange");
+	AddNode(str);
+	printf("\n");
+
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode("lime");
+
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_Q_SingleLinkedListOfChars() {
+
+	printf("==============================================================================\n");
+	printf("Q - Unit Testing - Remove Node From The End Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with add.\n");
+	char str[MAX_INPUT_CHARS] = "clemintine";
+	AddNode(str);
+	strcpy(str, "grapefruit");
+	AddNode(str);
+	strcpy(str, "lemon");
+	AddNode(str);
+	strcpy(str, "lime");
+	AddNode(str);
+	strcpy(str, "orange");
+	AddNode(str);
+	printf("\n");
+
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode("orange");
+
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
 
 }

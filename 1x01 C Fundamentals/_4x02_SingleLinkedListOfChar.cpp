@@ -104,8 +104,8 @@ void _4x02_SingleLinkedListOfChar() {
 		printf("*   D - Display Nodes                                                        *\n");
 		printf("*   E - Clear List                                                           *\n");
 		printf("*                                                                            *\n");
-#define DEBUG_401
-#ifdef DEBUG_401
+#define DEBUG_402
+#ifdef DEBUG_402
 		printf("*   F - Unit Testing - Clear List                                            *\n");
 		printf("*   G - Unit Testing - Add Nodes To List                                     *\n");
 		printf("*   H - Unit Testing - Insert Node To Empty List                             *\n");
@@ -120,7 +120,7 @@ void _4x02_SingleLinkedListOfChar() {
 		printf("*   P - Unit Testing - Remove Node From The Middle Of The List               *\n");
 		printf("*   Q - Unit Testing - Remove Node From The End Of The List                  *\n");
 #endif
-#undef DEBUG_401
+#undef DEBUG_402
 		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");
@@ -234,7 +234,7 @@ static void AddNode(char value) {
 			/////////////////////////////////////////////////////////////////////////////////////
 			// Different here than the case with int value.
 			// The ListHead is null after the assignment here, but not with ints.
-			// I don't understand what this isn't working.
+			// I don't understand why this isn't working in debug mode, yet works.
 			/////////////////////////////////////////////////////////////////////////////////////
 			//ListHead->Value = NewNode->Value;
 			//ListHead->Next = NewNode->Next;
@@ -324,8 +324,8 @@ static void RemoveNode(char value) {
 			// Remove at start.
 			SLListChar* temp = ListHead;
 			/////////////////////////////////////////////////////////////////////////////////////
-			//#define DEBUG_401
-			#ifdef DEBUG_401
+			//#define DEBUG_402
+			#ifdef DEBUG_402
 			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 			printf("Value before: '%c' at %X\n", temp->Value, temp);
 			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
@@ -335,12 +335,12 @@ static void RemoveNode(char value) {
 			free(temp);
 			printf("Node removed from the list with value '%c'\n", value);
 			/////////////////////////////////////////////////////////////////////////////////////
-			#ifdef DEBUG_401
+			#ifdef DEBUG_402
 			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 			printf("Value after: '%c' at %X\n", temp->Value, temp);
 			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 			#endif
-			#undef DEBUG_401
+			#undef DEBUG_402
 			/////////////////////////////////////////////////////////////////////////////////////
 		} else {
 			// Search the list for node.
