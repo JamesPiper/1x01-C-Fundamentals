@@ -1,5 +1,2 @@
 ﻿  _4x01_SingleLinkedListOfInts.cpp
-c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(44): warning C4603: 'DEBUG' : macro is not defined or definition is different after precompiled header use
-          Add macro to precompiled header instead of defining here
-          c:\users\james\documents\visual studio 2012\1x01 c fundamentals\1x01 c fundamentals\1x01 c fundamentals\_4x01_singlelinkedlistofints.cpp(49) : use of precompiled header
   1x01 C Fundamentals.vcxproj -> C:\Users\James\Documents\Visual Studio 2012\1x01 C Fundamentals\1x01 C Fundamentals\Debug\1x01 C Fundamentals.exe

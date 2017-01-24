@@ -31,10 +31,10 @@ void _4x00_LinkedLists() {
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
-		printf("*   A - Single Linked List of Ints                                           *\n");
-		printf("*   B - Single Linked List of Char                                           *\n");
-		printf("*   C - Single Linked List of Chars                                          *\n");
-		printf("*   D - Single Linked List of Structs                                        *\n");
+		printf("*   A - Single-linked List of Ints                                           *\n");
+		printf("*   B - Single-linked List of Char                                           *\n");
+		printf("*   C - Single-linked List of Chars                                          *\n");
+		printf("*   D - Single-linked List of Structs                                        *\n");
 		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");

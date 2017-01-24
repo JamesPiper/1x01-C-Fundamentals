@@ -233,25 +233,32 @@ int StringCompare(const char* string1, const char* string2) {
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	// To avoid reading past an array.
-	size_t Length = strlen(string1);
-	size_t LengthA = strlen(string1);
-	size_t LengthB = strlen(string2);
+	int Length = (signed)strlen(string1);
+	int LengthA = (signed)strlen(string1);
+	int LengthB = (signed)strlen(string2);
 	if (LengthB < LengthA)
 		Length = LengthB;
 
 	char A, B;
 	int result = 0;
+	Boolean CompareEnded = False;
+	int i = 0;
 
-	for (int i = 0; i < Length; i++) {
+	while (CompareEnded != True) {
 		A = tolower(string1[i]);
 		B = tolower(string2[i]);
-		// Want to keep result from previous compares.
 		if (A == B)
-			result = abs(result) * result;
-		else if (A <= B)
+			result = 0; // abs(result) * result;
+		else if (A <= B) {
+			CompareEnded = True;
 			result = -1;
-		else if (A >= B)
+		} else if (A >= B) {
+			CompareEnded = True;
 			result = 1;
+		}
+		i++;
+		if (i == Length)
+			CompareEnded = True;
 	}
 
 	// Handle cases with different length strings.
@@ -389,7 +396,7 @@ char* TrimWhitespace(char* string) {
 	Boolean EndReached = False;
 	int From = 0;
 	int To = 0;
-	size_t End = strlen(string) - 1;
+	int End = (signed)strlen(string) - 1;
 	Boolean InText = False;
 
 	// Deal with leading spaces.
@@ -441,7 +448,7 @@ static void Test_GetUserInputs() {
 	char str[] = "012345678";
 	printf("Define a string array: char str[] = \"%s\";\n", str);
 	printf("strlen(str) is %d \n", strlen(str));
-	for (int i = 0; i < strlen(str); i++) {
+	for (int i = 0; i < (signed)strlen(str); i++) {
 		printf("Element [%d] is %c\n", i, str[i]);
 	}
 	printf("Element [%d] is ", strlen(str), str[strlen(str)]);
@@ -456,7 +463,7 @@ static void Test_GetUserInputs() {
 	char str2[10] = "012345678";
 	printf("Define a string array: char str[%d] = \"%s\";\n", strlen(str2), str2);
 	printf("strlen(str) is %d \n", strlen(str2));
-	for (int i = 0; i < strlen(str2); i++) {
+	for (int i = 0; i < (signed)strlen(str2); i++) {
 		printf("Element [%d] is %c\n", i, str2[i]);
 	}
 	printf("Element [%d] is ", strlen(str2), str2[strlen(str2)]);
@@ -543,7 +550,7 @@ void GetUserInputs(char* input, int max_length) {
 	//*(input + max_length - 1) = '\0';
 
 	// Initial chunk of text--cut off from first whitespace.
-	size_t i = strlen(input);
+	int i = (signed)strlen(input);
 	char c;
 
 	do {
@@ -567,4 +574,3 @@ void GetUserInputs(char* input, int max_length) {
 		input[max_length - 1] = '\0';
 
 }
-

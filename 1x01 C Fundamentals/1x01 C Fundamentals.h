@@ -21,8 +21,23 @@
 /////////////////////////////////////////////////////////////////////////////////////
 #define MAX_INPUT_CHARS 255
 #define MAX_FILENAME_CHARS 255
-#define _CRT_SECURE_NO_WARNINGS
 #define CHOICE_LENGTH 2
+
+/////////////////////////////////////////////////////////////////////////////////////
+// From https://github.com/ka7/Little-CMS/blob/master/include/lcms2_plugin.h
+// This deals with warnings etc.
+/////////////////////////////////////////////////////////////////////////////////////
+#ifdef _MSC_VER
+#    if (_MSC_VER >= 1400)
+#      ifndef _CRT_SECURE_NO_DEPRECATE
+#        define _CRT_SECURE_NO_DEPRECATE
+#      endif
+#      ifndef _CRT_SECURE_NO_WARNINGS
+#        define _CRT_SECURE_NO_WARNINGS
+#      endif
+#    endif
+#endif
+/////////////////////////////////////////////////////////////////////////////////////
 
 //#ifndef MAIN_HEADER_FILE
 //#define MAIN_HEADER_FILE

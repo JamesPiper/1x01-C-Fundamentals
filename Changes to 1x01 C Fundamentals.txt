@@ -9,6 +9,22 @@
 // Language    : C
 /////////////////////////////////////////////////////////////////////////////////////
 
+2017.01.23
+· If #define DEBUG is in header file, the code works as expected.
+  If #define DEBUG is in the .c file where #ifdef code is, it won't work.
+  Don't know why this should be the case.
+· Using '%u' instead of '%d' for size_t variables in printf function calls.
+· Using casting from size_t to signed int for strlen.
+  No risk of strlen returning value greater than 2^31.
+· Still can't get #ifdef DEBUG to work in single .c file w/o using header file.
+  It makes no sense so using #ifdef DEBUG_400 where DEBUG_400 is specific to a .c file.
+  And oddly, in using it, I'm not finding it helpful.
+· Major flaw in StringCompare function. 'fdsa' before 'asdf'
+  because 'a' comes before 'f'. Not what is required.
+  Changing algorithm and it seems to be working.
+  This bug was likely the cause of problems with single-linked list of chars.
+
+
 2017.01.22
 · Clean up use of include files in the individual C files.
 · Using size_t instead of int for return of strlen or strspn.

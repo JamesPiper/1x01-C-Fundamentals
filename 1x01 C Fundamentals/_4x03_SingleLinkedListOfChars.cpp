@@ -123,7 +123,7 @@ void _4x03_SingleLinkedListOfChars() {
 
 		printf("******************************************************************************\n");
 		printf("*                                                                            *\n");
-		printf("*   Single Linked List of Chars                                              *\n");
+		printf("*   Single-linked List of Chars                                              *\n");
 		printf("*                                                                            *\n");
 		printf("*   Type Character + Enter                                                   *\n");
 		printf("*                                                                            *\n");
@@ -197,14 +197,19 @@ static void GetNodeValueToAdd() {
 static void AddNode(char* value) {
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("Value in AddNode '%s' at memory location %X\n", value, value);
+	//#define DEBUG_403
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("Value in AddNode '%s' at memory location %X\n", value, &value);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	TrimWhitespace(value);
 	/////////////////////////////////////////////////////////////////////////////////////
 
-		// Create a new node.
+	// Create a new node.
 	SLListChars* NewNode = CreateNewNode(value);
 
 	// Add node to the end of the list.
@@ -228,20 +233,28 @@ static void AddNode(char* value) {
 			//ListHead->Value = NewNode->Value;
 			//ListHead->Next = NewNode->Next;
 			/////////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////////
-			//printf(">>>>>ListHead in AddNode<<<<<\n");
-			//printf(">>>>>(Memory Location: %X | Value: '%s' | Next: %X)<<<<<\n",
-			//	ListHead, ListHead->Value, ListHead->Next);
+			#ifdef DEBUG_403
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("ListHead in AddNode\n");
+			printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+				ListHead, ListHead->Value, ListHead->Next);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif
 			/////////////////////////////////////////////////////////////////////////////////////
 		}
-		printf("Node added to the list with value '%s' at location %X.\n", value, NewNode);
+		printf("Node added to the list at location %X with value '%s'\n", NewNode, value);
 	} else 
 		printf("Problem allocating memory for new node.\n");
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf(">>>>>NewNode in AddNode:<<<<<\n");
-	//printf(">>>>>(Memory Location: %X | Value: '%s' | Next: %X)<<<<<\n",
-	//	NewNode, NewNode->Value, NewNode->Next);
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("NewNode in AddNode:\n");
+	printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+		NewNode, NewNode->Value, NewNode->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_403
 	/////////////////////////////////////////////////////////////////////////////////////
 
 }
@@ -294,18 +307,20 @@ static void GetNodeValueToRemove() {
 
 static void RemoveNode(char* value) {
 
+	/////////////////////////////////////////////////////////////////////////////////////
 	// Cases to consider.
 	// 1. Found value in list, remove node.
 	// 2. Value not found. List unchanged.
-
+	//
 	// Possible states of list and node to remove.
 	// 1. List is empty. ListHead points to null. Can't remove node.
 	//    Handled by caller. Only get here if list isn't empty.
 	// 2. Node is at the start. Adjust ListHead to point to second node.
 	// 3. Node is at the end. Adjust second last to point to null.
 	// 4. Node is not at start or end, point previous to next.
-	
+	//
 	// Using NotEndOfList for readability even though it adds to cycles.
+	/////////////////////////////////////////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	// Using free to deallocate memory for a node.
@@ -397,6 +412,7 @@ static void GetNodeValueToInsert() {
 
 static void InsertNode(char* value) {
 
+	/////////////////////////////////////////////////////////////////////////////////////
 	// Cases to consider.
 	//
 	// A. Affecting ListHead
@@ -408,16 +424,26 @@ static void InsertNode(char* value) {
 	//--------------------------
 	// 1. Insert value falls within two existing nodes.
 	// 2. All values in the list are smaller than in the insert value, insert at the end.
-
+	//
 	// Using a previous pointer variable to keep track of where to insert.
 	// I wonder if there's a way to do it without this variable.
-
+	//
 	// Writing structured code, hence all the embedded if..else
 	// Also needed to catch any null pointers.
 	// Looking at ways to simplify but this seems to be it.
+	/////////////////////////////////////////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	TrimWhitespace(value);
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	#define DEBUG_403
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("Value in InsertNode '%s' at memory location %X\n", value, &value);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	// Create a new node.
@@ -477,19 +503,25 @@ static void InsertNode(char* value) {
 			// First node on the list.
 			ListHead = NewNode;
 			/////////////////////////////////////////////////////////////////////////////////////
-			ListHead->Value = NewNode->Value;
-			ListHead->Next = NewNode->Next;
-			/////////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////////
-			printf("ListHead in InsertNode - First Node:\n");
-			printf(" Memory Location: %X\n", ListHead);
-			printf(" Value: %s\n", ListHead->Value);
-			printf(" Next: %X\n", ListHead->Next);
+			//ListHead->Value = NewNode->Value;
+			//ListHead->Next = NewNode->Next;
 			/////////////////////////////////////////////////////////////////////////////////////
 		}
-		printf("Node inserted into the list with value '%s' at location %X.\n", value, NewNode);
+		printf("Node inserted into the list at location %X with value '%s'\n", NewNode, value);
 	} else 
 		printf("Problem allocating memory for new node.\n");
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("ListHead in InsertNode\n");
+	printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+		ListHead, ListHead->Value, ListHead->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_403
+	/////////////////////////////////////////////////////////////////////////////////////
+
 }
 
 static void DisplayNodes() {
@@ -500,10 +532,15 @@ static void DisplayNodes() {
 	printf("\n");
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	//printf("ListHead in DisplayNodes:\n");
-	//printf(" Memory Location: %X\n", ListHead);
-	//printf(" Value: %s\n", ListHead->Value);
-	//printf(" Next: %X\n", ListHead->Next);
+	#define DEBUG_403
+	#ifdef DEBUG_403
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("ListHead in DisplayNodes\n");
+	printf("Memory Location: %X | Value: '%s' | Next: %X\n",
+		ListHead, ListHead->Value, ListHead->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_403
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	SLListChars* Traverser;
@@ -511,8 +548,8 @@ static void DisplayNodes() {
 		printf("The ListHead is at %X\n", ListHead);
 		Traverser = ListHead;
 		do {
-			printf("List item with value '%s' at memory location %X and next at %X\n",
-				Traverser->Value, Traverser, Traverser->Next);
+			printf("Item at memory location %X next at %6X with value '%s'\n",
+				Traverser, Traverser->Next, Traverser->Value);
 			Traverser = Traverser->Next;
 		} while (Traverser !=NULL);
 	}

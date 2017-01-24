@@ -392,6 +392,18 @@ static void DisplayNodes() {
 	printf("------------------------------------------------------------------------------\n");
 	//printf("\n");
 
+	/////////////////////////////////////////////////////////////////////////////////////
+	#define DEBUG_401
+	#ifdef DEBUG_401
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	printf("ListHead in DisplayNodes\n");
+	printf("Memory Location: %X | Value: '%d' | Next: %X\n",
+		ListHead, ListHead->Value, ListHead->Next);
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	#endif
+	#undef DEBUG_401
+	/////////////////////////////////////////////////////////////////////////////////////
+
 	SLListInts* Traverser;
 	if (ListHead != NULL) {
 		printf("The ListHead is at %X\n", ListHead);
