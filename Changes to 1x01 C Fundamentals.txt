@@ -9,6 +9,10 @@
 // Language    : C
 /////////////////////////////////////////////////////////////////////////////////////
 
+2017.01.24
+· Update code for Single-linked list of char.
+  Include unit testing.
+
 2017.01.23
 · If #define DEBUG is in header file, the code works as expected.
   If #define DEBUG is in the .c file where #ifdef code is, it won't work.

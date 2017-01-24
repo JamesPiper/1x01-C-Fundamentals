@@ -386,9 +386,8 @@ static void RemoveNode(int value) {
 					printf("***** Value '%d' not found in the list. List unchanged. *****\n", value);
 			}
 		}
-	} else {
+	} else
 		printf("This list is empty.\n");
-	}
 }
 
 static void GetNodeValueToInsert() {
@@ -545,22 +544,16 @@ static void ClearList() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("Clearing The List\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
 	printf("Traverse the list and free nodes.\n");
 
-	SLListInts* Traverser = NULL;
-	if (ListHead != NULL) {
-		Traverser = ListHead->Next;
-
-		while (Traverser != NULL) {
-			free(ListHead);
-			ListHead = Traverser;
-			Traverser = ListHead->Next;
-		}
-		ListHead = NULL;
+	SLListInts* Traverser;
+	while (ListHead != NULL) {
+		Traverser = ListHead;
+		ListHead = ListHead->Next;
+		printf("Node memory freed at %X.\n", Traverser);
+		free(Traverser);
 	}
 	
-	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 
@@ -762,7 +755,7 @@ static void TestCode_M_SingleLinkedListOfInt() {
 	printf("Create list with an add.\n");
 	AddNode(100);
 	printf("\n");
-	printf("Attempt removal of item.\n");
+	printf("Attempt to remove an item.\n");
 	RemoveNode(900);
 	printf("\n");
 	DisplayNodes();
@@ -784,7 +777,7 @@ static void TestCode_N_SingleLinkedListOfInt() {
 	printf("Create list with an add.\n");
 	AddNode(100);
 	printf("\n");
-	printf("Attempt removal of item.\n");
+	printf("Attempt to remove an item.\n");
 	RemoveNode(100);
 	printf("\n");
 	DisplayNodes();
@@ -809,7 +802,7 @@ static void TestCode_O_SingleLinkedListOfInt() {
 	AddNode(300);
 	AddNode(400);
 	printf("\n");
-	printf("Attempt removal of item.\n");
+	printf("Attempt to remove an item.\n");
 	RemoveNode(100);
 	printf("\n");
 	DisplayNodes();
@@ -834,7 +827,7 @@ static void TestCode_P_SingleLinkedListOfInt() {
 	AddNode(300);
 	AddNode(400);
 	printf("\n");
-	printf("Attempt removal of item.\n");
+	printf("Attempt to remove an item.\n");
 	RemoveNode(200);
 	printf("\n");
 	DisplayNodes();
@@ -859,7 +852,7 @@ static void TestCode_Q_SingleLinkedListOfInt() {
 	AddNode(300);
 	AddNode(400);
 	printf("\n");
-	printf("Attempt removal of item.\n");
+	printf("Attempt to remove an item.\n");
 	RemoveNode(400);
 	printf("\n");
 	DisplayNodes();

@@ -57,10 +57,22 @@ static void GetNodeValueToInsert();
 static void InsertNode(char value);
 
 static void DisplayNodes();
+static void ClearList();
+
 static void AtExitCleanup();
 
-static void _4x02_SingleLinkedListOfChar_TestCode();
-
+static void TestCode_F_SingleLinkedListOfChar();
+static void TestCode_G_SingleLinkedListOfChar();
+static void TestCode_H_SingleLinkedListOfChar();
+static void TestCode_I_SingleLinkedListOfChar();
+static void TestCode_J_SingleLinkedListOfChar();
+static void TestCode_K_SingleLinkedListOfChar();
+static void TestCode_L_SingleLinkedListOfChar();
+static void TestCode_M_SingleLinkedListOfChar();
+static void TestCode_N_SingleLinkedListOfChar();
+static void TestCode_O_SingleLinkedListOfChar();
+static void TestCode_P_SingleLinkedListOfChar();
+static void TestCode_Q_SingleLinkedListOfChar();
 /////////////////////////////////////////////////////////////////////////////////////
 // Start of the list.
 /////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +102,25 @@ void _4x02_SingleLinkedListOfChar() {
 		printf("*   B - Remove Node                                                          *\n");
 		printf("*   C - Insert Node (Sorted list)                                            *\n");
 		printf("*   D - Display Nodes                                                        *\n");
+		printf("*   E - Clear List                                                           *\n");
 		printf("*                                                                            *\n");
-		printf("*   T - Test Code                                                            *\n");
+#define DEBUG_401
+#ifdef DEBUG_401
+		printf("*   F - Unit Testing - Clear List                                            *\n");
+		printf("*   G - Unit Testing - Add Nodes To List                                     *\n");
+		printf("*   H - Unit Testing - Insert Node To Empty List                             *\n");
+		printf("*   I - Unit Testing - Insert Node To The Start Of The List                  *\n");
+		printf("*   J - Unit Testing - Insert Node To The Middle Of The List                 *\n");
+		printf("*   K - Unit Testing - Insert Node To The End Of The List                    *\n");
+		printf("*                                                                            *\n");
+		printf("*   L - Unit Testing - Remove Node From Empty List                           *\n");
+		printf("*   M - Unit Testing - Remove Node Not In The List                           *\n");
+		printf("*   N - Unit Testing - Remove Node From One-item List                        *\n");
+		printf("*   O - Unit Testing - Remove Node From The Start Of The List                *\n");
+		printf("*   P - Unit Testing - Remove Node From The Middle Of The List               *\n");
+		printf("*   Q - Unit Testing - Remove Node From The End Of The List                  *\n");
+#endif
+#undef DEBUG_401
 		printf("*                                                                            *\n");
 		printf("*   Z - Return                                                               *\n");
 		printf("*   X - Exit                                                                 *\n");
@@ -112,16 +141,42 @@ void _4x02_SingleLinkedListOfChar() {
 			GetNodeValueToRemove();
 		else if (Choice == 'c') 
 			GetNodeValueToInsert();
-		else if (Choice == 'd') 
+		else if (Choice == 'd') {
 			DisplayNodes();
-		else if (Choice == 't')
-			_4x02_SingleLinkedListOfChar_TestCode();
-		else if (Choice == 'x') 
+			system("pause");
+		} else if (Choice == 'e') {
+			ClearList();
+			system("pause");
+		} else if (Choice == 'f')
+			TestCode_F_SingleLinkedListOfChar();
+		else if (Choice == 'g')
+			TestCode_G_SingleLinkedListOfChar();
+		else if (Choice == 'h')
+			TestCode_H_SingleLinkedListOfChar();
+		else if (Choice == 'i')
+			TestCode_I_SingleLinkedListOfChar();
+		else if (Choice == 'j')
+			TestCode_J_SingleLinkedListOfChar();
+		else if (Choice == 'k')
+			TestCode_K_SingleLinkedListOfChar();
+		else if (Choice == 'l')
+			TestCode_L_SingleLinkedListOfChar();
+		else if (Choice == 'm')
+			TestCode_M_SingleLinkedListOfChar();
+		else if (Choice == 'n')
+			TestCode_N_SingleLinkedListOfChar();
+		else if (Choice == 'o')
+			TestCode_O_SingleLinkedListOfChar();
+		else if (Choice == 'p')
+			TestCode_P_SingleLinkedListOfChar();
+		else if (Choice == 'q')
+			TestCode_Q_SingleLinkedListOfChar();
+		else if (Choice == 'x')
 			exit(0);
-		else if (Choice == 'z') { 
+		else if (Choice == 'z') {
 			AtExitCleanup();
 			return;
-		} else if (Choice != 'x')
+		} else if (Choice != 'x') 
 			printf("*** Select a choice from those listed. ****\n\n");
 		
 	} while (Choice != 'x');  
@@ -138,7 +193,6 @@ static void GetNodeValueToAdd() {
 	printf("\n");
 	printf("Enter value to add to the list: ");
 
-	// Better code needed for inputing numbers
 	char Inputs[MAX_INPUT_CHARS];
 	char Item;
 	scanf("%s", Inputs);
@@ -234,15 +288,12 @@ static void GetNodeValueToRemove() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 
-	if (ListHead != NULL) {
-		printf("Enter value to remove from the list: ");
-		char Item;
-		char Inputs[MAX_INPUT_CHARS];
-		scanf("%s", Inputs);
-		Item = Inputs[0];
-		RemoveNode(Item);
-	} else
-		printf("This list is empty.\n");
+	printf("Enter value to remove from the list: ");
+	char Item;
+	char Inputs[MAX_INPUT_CHARS];
+	scanf("%s", Inputs);
+	Item = Inputs[0];
+	RemoveNode(Item);
 	
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
@@ -268,49 +319,68 @@ static void RemoveNode(char value) {
 	// Using NotEndOfList for readability even though it adds to cycles.
 	/////////////////////////////////////////////////////////////////////////////////////
 
-	if (value == ListHead->Value) {
-		// Remove at start.
-		SLListChar* temp = ListHead;
-		/////////////////////////////////////////////////////////////////////////////////////
-		printf("Value before: '%c' at %X\n", temp->Value, temp);
-		/////////////////////////////////////////////////////////////////////////////////////
-		ListHead = ListHead->Next;
-		free(temp);
-		printf("Node with value '%c' removed from the list.\n", value);
-		/////////////////////////////////////////////////////////////////////////////////////
-		printf("Value after: '%c' at %X\n", temp->Value, temp);
-		/////////////////////////////////////////////////////////////////////////////////////
-	} else {
-		// Search the list for node.
-		SLListChar* Traverser = ListHead->Next;
-		SLListChar* PrevNode = ListHead;
-		Boolean LocationFound = False;
-		Boolean NotEndOfList = True;
-		while (LocationFound != True && NotEndOfList == True)  {
-			if (Traverser->Next !=NULL) {
-				if (value == Traverser->Value) {
-					LocationFound = True;
-					PrevNode->Next = Traverser->Next;
-					free(Traverser);
-					printf("Node with value '%c' removed from the list.\n", value);
-				} else {
-					PrevNode = Traverser;
-					Traverser = Traverser->Next;
+	if (ListHead != NULL) {
+		if (value == ListHead->Value) {
+			// Remove at start.
+			SLListChar* temp = ListHead;
+			/////////////////////////////////////////////////////////////////////////////////////
+			//#define DEBUG_401
+			#ifdef DEBUG_401
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("Value before: '%c' at %X\n", temp->Value, temp);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif
+			/////////////////////////////////////////////////////////////////////////////////////
+			ListHead = ListHead->Next;
+			free(temp);
+			printf("Node removed from the list with value '%c'\n", value);
+			/////////////////////////////////////////////////////////////////////////////////////
+			#ifdef DEBUG_401
+			printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+			printf("Value after: '%c' at %X\n", temp->Value, temp);
+			printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+			#endif
+			#undef DEBUG_401
+			/////////////////////////////////////////////////////////////////////////////////////
+		} else {
+			// Search the list for node.
+			if (ListHead->Next != NULL) {
+				SLListChar* Traverser = ListHead->Next;
+				SLListChar* PrevNode = ListHead;
+				Boolean LocationFound = False;
+				Boolean NotEndOfList = True;
+				while (LocationFound != True && NotEndOfList == True)  {
+					if (Traverser->Next !=NULL) {
+						if (value == Traverser->Value) {
+							LocationFound = True;
+							PrevNode->Next = Traverser->Next;
+							free(Traverser);
+							printf("Node removed from the list with value '%c'\n", value);
+						} else {
+							PrevNode = Traverser;
+							Traverser = Traverser->Next;
+						}
+					} else {
+						// At the end of the list.
+						if (value == Traverser->Value) {
+							LocationFound = True;
+							PrevNode->Next = NULL;
+							free(Traverser);
+							printf("Node removed from the list with value '%c'\n", value);
+						} else {
+							NotEndOfList = False;
+							printf("***** Value '%c' not found in the list. List unchanged. *****\n", value);
+						}
+					}
 				}
 			} else {
-				// At the end of the list.
-				if (value == Traverser->Value) {
-					LocationFound = True;
-					PrevNode->Next = NULL;
-					free(Traverser);
-					printf("Node with value '%c' removed from the list.\n", value);
-				} else {
-					NotEndOfList = False;
-					printf("Value not found in the list. List unchanged.\n");
-				}
+				// Only one item in the list and not a match.
+				if (value != ListHead->Value)
+					printf("***** Value '%c' not found in the list. List unchanged. *****\n", value);
 			}
 		}
-	}
+	} else
+		printf("This list is empty.\n");
 }
 
 static void GetNodeValueToInsert() {
@@ -321,7 +391,6 @@ static void GetNodeValueToInsert() {
 	printf("\n");
 	printf("Value to insert into the list: ");
 
-	// Better code needed for inputing numbers
 	char Item;
 	char Inputs[MAX_INPUT_CHARS];
 	scanf("%s", Inputs);
@@ -433,7 +502,6 @@ static void DisplayNodes() {
 	printf("------------------------------------------------------------------------------\n");
 	printf("Display Nodes In The List\n");
 	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	//#define DEBUG_402
@@ -449,19 +517,10 @@ static void DisplayNodes() {
 
 	SLListChar* Traverser;
 	if (ListHead != NULL) {
-		/////////////////////////////////////////////////////////////////////////////////////
-		#ifdef DEBUG_400
-		printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
-		printf("ListHead in DisplayNodes\n");
-		printf("Memory Location: %X | Value: '%c' | Next: %X\n",
-			ListHead, ListHead->Value, ListHead->Next);
-		printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
-		#endif // DEBUG
-		/////////////////////////////////////////////////////////////////////////////////////
 		printf("The ListHead is at %X\n", ListHead);
 		Traverser = ListHead;
 		do {
-			printf("List item at memory location %X next at %6X with value '%c'\n",
+			printf("Item at memory location %X next at %6X with value '%c'\n",
 				Traverser, Traverser->Next, Traverser->Value);
 			Traverser = Traverser->Next;
 		} while (Traverser !=NULL);
@@ -469,10 +528,28 @@ static void DisplayNodes() {
 	else 
 		printf("The list empty.\n");
 
-	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
-	system("pause");
+
+}
+
+static void ClearList() {
+	
+	printf("------------------------------------------------------------------------------\n");
+	printf("Clearing The List\n");
+	printf("------------------------------------------------------------------------------\n");
+	printf("Traverse the list and free nodes.\n");
+
+	SLListChar* Traverser;
+	while (ListHead != NULL) {
+		Traverser = ListHead;
+		ListHead = ListHead->Next;
+		printf("Node memory freed at %X.\n", Traverser);
+		free(Traverser);
+	}
+	
+	printf("------------------------------------------------------------------------------\n");
+	printf("\n");
 
 }
 
@@ -490,70 +567,292 @@ static void AtExitCleanup() {
 	}
 }
 
-static void _4x02_SingleLinkedListOfChar_TestCode() {
-
-	/////////////////////////////////////////////////////////////////////////////////////
-	// Run test code on the SLL data structure of char.
-	// 
-	// Able to test valid inputs (char) to show it works.
-	// Not able to test junk input to see how it handles it.
-	/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// Run test code on the SLL data structure of chars.
+// 
+// Able to test valid inputs (ints) to show it works.
+// Not able to test junk input to see how it handles it.
+/////////////////////////////////////////////////////////////////////////////////////
+static void TestCode_F_SingleLinkedListOfChar() {
 
 	printf("==============================================================================\n");
-	printf("Testing Code - Check Add, Insert, Remove and Display Nodes\n");
+	printf("F - Unit Testing - Clear List\n");
 	printf("==============================================================================\n");
 	printf("\n");
+	printf("Create list with add.\n");
+	AddNode('a');
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	printf("\n");
+	DisplayNodes();
+
+	printf("Call clear list function.\n");
+	printf("\n");
+	ClearList();
+	DisplayNodes();
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_G_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("G - Unit Testing - Add Nodes To List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
 
 	printf("Add Some Nodes (Not a sorted list)\n");
 	printf("------------------------------------------------------------------------------\n");
-	AddNode('h');
-	AddNode('p');
-	AddNode('w');
-	AddNode('e');
-	AddNode('g');
-	AddNode('z');
+	AddNode('f');
 	AddNode('a');
+	AddNode('c');
+	AddNode(0);
+	AddNode('>');
+	AddNode(']');
 	printf("------------------------------------------------------------------------------\n");
 	printf("\n");
 	DisplayNodes();
-	printf("\n");
-
-	printf("Remove Some Nodes\n");
-	printf("------------------------------------------------------------------------------\n");
-	RemoveNode('e');
-	RemoveNode('g');
-	RemoveNode('a');
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	DisplayNodes();
-	printf("\n");
-
-	printf("Insert Some Nodes (Sorted list)\n");
-	printf("------------------------------------------------------------------------------\n");
-	InsertNode('a');
-	InsertNode('b');
-	InsertNode('u');
-	InsertNode('n');
-	InsertNode(' ');
-	InsertNode('x');
-	InsertNode('b');
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	DisplayNodes();
-	printf("\n");
-
-	printf("Remove Some Nodes (Sorted list)\n");
-	printf("------------------------------------------------------------------------------\n");
-	RemoveNode('z');
-	RemoveNode('b');
-	RemoveNode('u');
-	RemoveNode('u');
-	printf("------------------------------------------------------------------------------\n");
-	printf("\n");
-	DisplayNodes();
-	printf("\n");
 
 	printf("\n");
 	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_H_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("H - Unit Testing - Insert Node To Empty List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+
+	InsertNode('p');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_I_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("I - Unit Testing - Insert Node To The Start Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	
+	printf("Create list with add.\n");
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	AddNode('h');
+	printf("\n");
+
+	InsertNode('a');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_J_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("J - Unit Testing - Insert Node To The Middle Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+	
+	printf("Create list with add.\n");
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	AddNode('h');
+	printf("\n");
+
+	InsertNode('f');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_K_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("K - Unit Testing - Insert Node To The End Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+	
+	printf("Create list with add.\n");
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	AddNode('h');
+	printf("\n");
+
+	InsertNode('i');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_L_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("L - Unit Testing - Remove Node From Empty List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+	printf("Attempt to remove item from empty list.\n");
+	printf("\n");
+	RemoveNode('z');
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_M_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("M - Unit Testing - Remove Node Not In The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+	printf("Create list with an add.\n");
+	AddNode('a');
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode('z');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_N_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("N - Unit Testing - Remove Node From One-item List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+	printf("Create list with an add.\n");
+	AddNode('a');
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode('a');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_O_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("O - Unit Testing - Remove Node From The Start Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+	
+	ClearList();
+	printf("Create list with add.\n");
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	AddNode('h');
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode('c');
+	printf("\n");
+	DisplayNodes();
+
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_P_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("P - Unit Testing - Remove Node From The Middle Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with add.\n");
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	AddNode('h');
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode('g');
+	printf("\n");
+	DisplayNodes();
+	
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
+
+}
+
+static void TestCode_Q_SingleLinkedListOfChar() {
+
+	printf("==============================================================================\n");
+	printf("Q - Unit Testing - Remove Node From The End Of The List\n");
+	printf("==============================================================================\n");
+	printf("\n");
+
+	ClearList();
+	printf("Create list with add.\n");
+	AddNode('c');
+	AddNode('e');
+	AddNode('g');
+	AddNode('h');
+	printf("\n");
+	printf("Attempt to remove an item.\n");
+	RemoveNode('h');
+	printf("\n");
+	DisplayNodes();
+	
+	printf("\n");
+	printf("==============================================================================\n");
+	system("pause");
 
 }
